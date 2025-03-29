@@ -1,9 +1,0 @@
-fastapi==0.104.1
-uvicorn==0.23.2
-python-dotenv==1.0.0
-pydantic==2.4.2
-pinecone==2.2.4
-langchain-pinecone==0.0.1
-langchain-openai==0.0.2
-langchain-google-vertexai==0.0.3
-google-auth==2.23.3
