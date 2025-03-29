@@ -1,0 +1,43 @@
+Video Title: 4 Programming Languages You NEED To Know
+Video ID: ps1-vlRidV4
+Video URL: https://www.youtube.com/watch?v=ps1-vlRidV4
+
+While he is right with Java if we are honest, as it's ubiquitous in the corporate world.. I would say it's very unlikely to find a job as a Java developer WITHOUT years and years of experience. Because for Java Jobs, you Will compete with ..Java devs who have years and years of experience... 😐
+
+Well say 👍👍
+
+Learn C# because it's a good language but its not fashionable so no one wants to learn it, which means you're not competing with the world and his dog if you try to go for a job that uses it, and it is more realistic for you to be in the top 10 -20% of best candidates if you step up your game.
+
+I'd say pick two languages that will force you to learn proper OOP and proper FP. I'd say that's C# and F#. After you know them well you can go deep with learning how computers work with C, Zig, C++, and more, as time allows it. At least you know two programming languages very well that will make you a very good practitioner and have a job while you learn more.
+
+Go :0
+
+"Learn Python if you want to get into AI" 
+
+"Learn Python" <-- FIFY
+
+Thank you! ❤
+
+horrible advice.
+
+Well learning C takes like 20 years to get good at, so good luck people!
+
+I recommend BASIC, pascal, Cobol and Fortran.   Much more relevant if you want to travel back to 1986.
+
+golang > java
+
+Java??? Naw dawg. It’s Rust. And not JavaScript it’s Typescript.
+
+Avoid Java/.Net
+
+C++???
+Lolz
+
+As a Sr SWE, the most important language that’s often overlooked is English. Clearly articulating thoughts with the correct context is both harder and more useful than any programming language
+
+c# or c++ ?
+
+Golang should've been mentioned imo. It's more beginner friendly than java and many companies already use it/are starting to use it
+
+C++ ?
+

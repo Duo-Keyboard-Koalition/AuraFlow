@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "dreamwell-hackathon",
+  "private_key_id": "cc484b903fe77b832b4de843c03d2fd782834e6a",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDHITF/mdYYR7HB\nyZnW46BoX5oUJg/7AXg4Sie6U7uhgeovscU1KFxUosuclka7dvfZkpN7yl9zZqvo\nSymt9eyrOtNRe3ILjEuSZhyhIWvtK5WtVSKvYwTs4c4a0FJMg/EOYcya4dyr9t7U\nj71OGnK1drALOX87b09UnG1njOn4S/2oLMQJ4g+Y2+Q66rgWXVuvKEENGNWuXPMg\nCAbZPcUSW1rJH1PfkMUSNOtu/o7TOkOTVW+JEQCUjyQC6gkso3c3JO+DPOx+vN5s\ndACSYnwa4re3QDAyfZYRzJ4ZQWYS581UBY3A61XbzIW4KWSpSl47kMQr7Bg5rY+D\nip24K/f5AgMBAAECggEAAyo3RM+LgDMKg5maTviq9OG5G5Mfy6XiNOXT1BGu4KIl\nmFi3WVERB5zXRt+6E9JwHcaHPs9QfU9vUce5C71mA7Ixh+DiBwY1sMfb8mErO5em\n3zyESryUiFXN7m3rcvEhaJC8HWWT2e1YbRE0SWyg8FqosWL6b1XFcWMzl3LdSJ+Y\nXaQkFmNg9ShioNU9zCjbHsFSGM9c5exRr5NjLMCSlv1QiObOLb/Lr4i6gp29kx54\nyWcLnmGlr9aKYID89lSEZ1LDaZs+peLK1M2CyECZJtNXfl+o6LT2j+aD/QPCkkPx\nrQJTb4VwKSUSC67NY1Z47Iy6PxDfO3dM69eyGZ04AQKBgQD29gYUEpIwnrwAuq+8\nIPOd+iQTze++YG1NtDw3KjET3z4HfBSo0o1Fm5iTJ9HhBG4vhPXEnh0MMvOk35+N\nLTCv9W4jNu2TXmPUjQLEUWAqVnk3PWB3TaG2FEzGRmtIAZpXKGvkcxJfRo9klJRD\nqBnYnK0QWWSpA7VPSkAh+YhP+QKBgQDOav/E0ZBcrem/v8s/8DbUIxMFTsba1hHn\nf2DW/ele8ZQ16Lb2vAnvRN0IaQd1l3zPXRePSWLXai8mxc8GKkdfjODrmrPd7s8j\nmAYHMfRNq1hfhUuTkdnP3UjRZTkz9y+NttvwzJqGD7qcDcbw+9EhMAKQ4bT7bn0d\n/vQMRfroAQKBgCJXGYdHAc8C84+CZhdZ2aZY9xVN6I1naSuJ6WmeU065Fy4BQfor\ntPs95JxpyBRrAktXSLl7ZvygRSLi+ZOu+fstvI/m/mgkkusmZIEZ865PcfGNdlGA\nmQDxl69mcVqE5opCE6ajnaVj8WKCCo/R2y40sxf35jheTKLm5z4SLbM5AoGBAKEb\ndDta0VD00F8/w9RImZKjOYJIBP7iXCESEzRaA15+MQ6ObtdO1nYwik+5IgBO1zRF\n1VCZl5LIJrsdYsLOFtzl6Nsa6M4MSRHf4ryU6bgBRz1unRk1mgoaDW6ZkbcUc8Io\n+asNFoISHrUUL7UA5i3/+dC4yXgAuZjC2BoIOJgBAoGBAM4G/ok/jDjT8vlDLNtQ\njgNUmo7b9LTvMMLVSmbcXDFiIhlm5W0Fze8LxaCUeDUqfFYjHpbQmGrrQf8foCgi\nXrwUavOOlmRisz0+LMxEDD+rlcylXHOYwbR8NSFoaXtxuWnlVhEARCrHGGjyh7q9\nbheHnJqraI+mk+OV6168F4ER\n-----END PRIVATE KEY-----\n",
+  "client_email": "dreamwell@dreamwell-hackathon.iam.gserviceaccount.com",
+  "client_id": "108198451072173779579",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/dreamwell%40dreamwell-hackathon.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

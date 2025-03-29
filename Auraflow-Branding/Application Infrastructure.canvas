@@ -1,0 +1,42 @@
+{
+	"nodes":[
+		{"id":"8055a7b60f909324","type":"group","x":-40,"y":-1100,"width":1040,"height":4180,"label":"Inference"},
+		{"id":"b8e85e8766cb5c99","type":"group","x":136,"y":1640,"width":1604,"height":1320,"label":"Influencer Agent"},
+		{"id":"a7ed43e3c3effce2","type":"group","x":140,"y":341,"width":1600,"height":1121,"label":"Brand Agent"},
+		{"id":"bf14dceae55dabfb","type":"group","x":1110,"y":-1100,"width":630,"height":2562,"label":"Data"},
+		{"id":"976e79f91287affc","type":"text","text":"# Branding Model\n\n- ","x":160,"y":-644,"width":707,"height":275},
+		{"id":"7ab1d342253640d1","type":"text","text":"# Intelect / Inference\n\n- Pull from influencers and brands\n- Run off of Fast API using the Ollama model","x":161,"y":-1080,"width":706,"height":251},
+		{"id":"255777c1bbff1d04","type":"text","text":"# User","x":-1480,"y":77,"width":250,"height":100},
+		{"id":"a59843a2f3ed56ca","type":"text","text":"# Frontend\n\nNext JS frontend","x":-1000,"y":77,"width":234,"height":100},
+		{"id":"3276811417fe58d0","type":"text","text":"# Backend\n- Makes the form request for the type of brand you have\n- the API Auth Layer it is the Next JS server","x":-563,"y":-31,"width":250,"height":315},
+		{"id":"cd3f9b0c4f63749a","type":"text","text":"# Promote open source development of models\n\n- IN the future our preferences and needs would be reflected by the very LLMS. Our identity encapsulated as tehLLM","x":156,"y":5,"width":703,"height":243},
+		{"id":"33ad0f96100a9524","type":"text","text":"# MultiModal Inference\n\n- Different models are trained with different datasets.\n- Different modes are trained by different peopel from different cultures\n\n> Therefore models would refelct culrureal preferences and biases","x":196,"y":752,"width":703,"height":234},
+		{"id":"5ecbbe0cb96c8b2f","type":"text","text":"# Brands Database","x":1130,"y":-644,"width":590,"height":275},
+		{"id":"33851ddbd08c37c3","type":"text","text":"# Influencer Database","x":1130,"y":-1080,"width":590,"height":251},
+		{"id":"0eb1dfb1209ab2a9","type":"text","text":"# Brainstorming Journaling","x":1130,"y":361,"width":590,"height":235},
+		{"id":"0e3caef00e8578aa","type":"text","text":"# Notion","x":1130,"y":713,"width":590,"height":312},
+		{"id":"6569712096b93b18","type":"text","text":"# Airtable","x":1130,"y":1150,"width":590,"height":292},
+		{"id":"3436272e807f0fb1","type":"text","text":"","x":1337,"y":-1476,"width":250,"height":60},
+		{"id":"3c98d7bb7badbd64","type":"text","text":"# Brainstorming Journaling","x":1130,"y":1760,"width":590,"height":235},
+		{"id":"f5b65f815439ac6d","type":"text","text":"# Notion","x":1130,"y":2112,"width":590,"height":312},
+		{"id":"529d57ad2819f540","type":"text","text":"# Airtable","x":1130,"y":2549,"width":590,"height":292},
+		{"id":"4934d3782c182a07","type":"text","text":"# MultiModal Inference\n\n- Different models are trained with different datasets.\n- Different modes are trained by different peopel from different cultures\n\n> Therefore models would refelct culrureal preferences and biases","x":196,"y":2151,"width":717,"height":234}
+	],
+	"edges":[
+		{"id":"05a01d51d8587fcf","fromNode":"a59843a2f3ed56ca","fromSide":"right","toNode":"3276811417fe58d0","toSide":"left","label":"\n"},
+		{"id":"25a8f3fc6754b7ef","fromNode":"255777c1bbff1d04","fromSide":"top","toNode":"a59843a2f3ed56ca","toSide":"top","label":"Asks the Question:\nConnects the source"},
+		{"id":"ae2368b025d160af","fromNode":"3276811417fe58d0","fromSide":"right","toNode":"7ab1d342253640d1","toSide":"left"},
+		{"id":"9f51ad2d81ae7189","fromNode":"7ab1d342253640d1","fromSide":"right","toNode":"33851ddbd08c37c3","toSide":"left"},
+		{"id":"292a36927169ff81","fromNode":"976e79f91287affc","fromSide":"right","toNode":"5ecbbe0cb96c8b2f","toSide":"left"},
+		{"id":"1eeb708cf4f126e2","fromNode":"0eb1dfb1209ab2a9","fromSide":"left","toNode":"33ad0f96100a9524","toSide":"right"},
+		{"id":"2428904e517401a0","fromNode":"0e3caef00e8578aa","fromSide":"left","toNode":"33ad0f96100a9524","toSide":"right"},
+		{"id":"0a62e8f17900ba2b","fromNode":"a59843a2f3ed56ca","fromSide":"bottom","toNode":"255777c1bbff1d04","toSide":"bottom","label":"Replies with the influencers theuser or company is looking for"},
+		{"id":"6e10c701fe38659e","fromNode":"3276811417fe58d0","fromSide":"right","toNode":"cd3f9b0c4f63749a","toSide":"left"},
+		{"id":"55f616e317dc0390","fromNode":"3276811417fe58d0","fromSide":"right","toNode":"33ad0f96100a9524","toSide":"left"},
+		{"id":"a697f6fd8c2c2bf6","fromNode":"3276811417fe58d0","fromSide":"right","toNode":"976e79f91287affc","toSide":"left"},
+		{"id":"b4ff98c55b76fae4","fromNode":"6569712096b93b18","fromSide":"left","toNode":"33ad0f96100a9524","toSide":"right"},
+		{"id":"ecb6d1ca98730c3f","fromNode":"3c98d7bb7badbd64","fromSide":"left","toNode":"4934d3782c182a07","toSide":"right"},
+		{"id":"2cb0633cbc33ebee","fromNode":"f5b65f815439ac6d","fromSide":"left","toNode":"4934d3782c182a07","toSide":"right"},
+		{"id":"147dcd7ba59f09b4","fromNode":"529d57ad2819f540","fromSide":"left","toNode":"4934d3782c182a07","toSide":"right"}
+	]
+}

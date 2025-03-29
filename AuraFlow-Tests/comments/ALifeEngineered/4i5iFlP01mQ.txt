@@ -1,0 +1,772 @@
+Video Title: Three Things Preventing Your Promotion to Senior Engineer (from a Principal at Amazon)
+Video ID: 4i5iFlP01mQ
+Video URL: https://www.youtube.com/watch?v=4i5iFlP01mQ
+
+THis video gave me an incredible amount of value and clarity on my thinking. Thank you so much please keep creating more videos like this
+
+It’s always bothered me that senior engineers are expected to cover executive leadership’s asses by delivering built in tech-debt in order to hit unreasonable deadlines set by upper management.
+
+Honest this is a very idealistic mindset. The reality is in order to get a promotion to senior, your either have to be A) so good it's undeniable or B) play the game of office politics. We dont allow most people the opportunities to truly level up their engineering abilities. We swamp them with every responsibility in the SDLC now. When does anyone fine the time to research some new thing for the company in addition to their scheduled work? And then we want people to not count that towards their output and label it a spike? This may be the way to become a senior in FAANG world, but it's a recipe for burnout and a fast way to lose mid-levels.
+
+Thanks for sharing
+
+What an excellent video. Clear, concise, and incredibly insightful. Outstanding.
+
+Right now all titles are inflating, I think this video is describing staff eng at Meta/Google rather than senior. The requirement for senior is much lower actually.
+
+I worked at Amazon, Google and Facebook, I have to say the definition of Senior is different from each company. Amazon is a terrible toxic cheap frugal company, its senior eng used to take Staff eng responsibility. Other companies senior just lead project, don't need to be Tech lead.
+
+cant focus with the constant eye moving lol
+
+This video was extremely helpful! Thank you 🙏
+
+Skills beyond writing code.  Design, architecture, security concepts, understanding performance, understanding scalability + more.
+Soft skills.  How to lead a team.  How to structure projects.  How to work with the business.  How to transform requirements into working software.  When, where, and how to make trade offs.  How to raise the skill level of junior software developers + more.
+
+Writing code is what gets you in.  There is much more to it than that.
+
+So technical expertise should be a given for senior engineers, I get that. But perhaps when you ask those engineers what do they need to work on to get to the next level, and they all response "technical expertise" is because they feel like they don't know enough in order to be opinionated and to direct the team towards the right path. If you're opinionated and wrong about your opinions that's bad right? So in a team full of people who are knowledagble, how does one stand out to direct the team without knowing if your answer is right. For that you need experience and deep technical knowledge which goes back to the reason why all of those developers answer the same. No?
+
+Thank you so much
+
+1. Leadership vs. Management: Senior developers are considered leaders, not managers. They set direction and rally their team toward a common goal. Leadership involves thinking about the long-term consequences of actions and communicating a steady state for systems that's healthy.
+
+2. Technical Depth: While technical expertise is crucial, it's not the only requirement. Senior engineers must also demonstrate leadership qualities, such as setting direction and making decisions that benefit the team in the long term.
+
+3. Time Management: Senior engineers need to find time to think about the future and make strategic decisions. This requires extracting more time from existing working hours rather than relying on nights and weekends, which can lead to burnout.
+
+4. Growing Others: Senior engineers should focus on growing others around them, delegating tasks, and empowering team members. This not only helps free up their own bandwidth but also prepares others to take on higher-level responsibilities.
+
+5. Rejecting Hyperbolic Discounting: This means resisting the temptation to prioritize immediate benefits over long-term gains. Senior engineers should think about maximizing the benefits of their team's actions over a longer time horizon.
+
+Growing others - so they can free up your time. This is it right here.
+
+Work smarter, not harder.  Learn efficient practices.
+
+Gotta have more cowbell!
+
+Seems like you are reading
+
+This is absolute perfection. I recently read a similar book, and it was absolute perfection. "Mastering AWS: A Software Engineers Guide" by Nathan Vale
+
+This video convinced me I should actually aim for that senior position :) even though I don't feel I have the technical expertise to do so. I've always had this mindset of progressive and long-term improvements, while technical details can be handled by ChatGPT or people who already have been working in the company for years. Can't work around the latest, anyway.
+
+This is great man..I wish I knew you earlier
+
+Don't romantize promotions like it's best thing it can happen to you. My company fired a Senior dev due to his lack of management skills, but he started as a mid level dev. Sometimes it's better to evolve into Senior dev with a mid level role than to be promoted to Senior being unprepared and be fired
+
+Lol shouldn’t we focus on the tech. Anyone heard of Peter Principal?😂
+
+Jesus, free gold! Thank you so much 🙏
+
+I got a beef with hiring managers and recruiters on their impulsive dogma over technical prerequisites.
+
+this is great video for me. I think I should have break more often after 2 years super hard work with very few days off at the weekend, but my job's still bullshit.
+
+For a split second, I looked at the below section to check which premium service I bought to get this high quality content
+
+thank you very much, i needed this one
+
+Will you do some mock interviews where you have someone ask you some technical interview questions and you walk through what you would expect to see from a candidate?
+
+I wise person once said:
+A junior engineer provides complex solutions to simple problems. 
+
+A mid engineer provides complex solutions to complex problems 
+
+A senior engineer provides simple solutions to complex problems.
+
+I've met many senior engineers who don't have #4 traits at all... if anything they're the anti-thesis to them. Instead of trying to help grow their teammates, they throw them under the bus or compete against them.
+
+Pushing back with a data-driven argument is but one way to open up a discussion, but says plenty about your personality type if that’s your default approach - approaching it with a “I’m going to persuade you”  mindset doesn’t do much for team morale either; you may as well not ask for their opinion in that case.
+
+And having a strong opinions over that of your peers’ doesn’t make you a senior - it makes you a prick.
+
+What a fantastic video. I am less than one year into my software engineering journey, and feel I will look back at this video in years to come and appreciate the advice time and time again. Thanks!
+
+Suck up to your manager or his manager and ask for the promotion. Has nothing to do with skill.
+
+doesn't this advice fall prey to bootstrapping? 
+
+One needs authority in order to seem like a senior engineer.
+One needs to be a senior engineer in order to have authority.
+
+As someone stepping up in to a mid range role, this is some very helpful content on knowing what things can help me grow as a leader, to then help my team and future teams.
+
+Love your channel.
+
+This dude is awesome, the end is gold haha
+
+How do you grow other engineers?
+
+it is great but you help to grow the team and then after evaluation process the company decides to fire you because you are so easy to replace and expensive. Everybody knows that what you know and "the prudent man conceals knowledge" 😁
+
+Can you make a video about the steps you need to become a principal engineer?
+
+This was super helpful, I know some of these things but I used to do more of burning more of my personal time and less of enabling others
+
+Can you talk in more detail about how to get more from your work hours? This is really holding me back.
+
+One of the kids I mentor says that he's not looking forward to a life of slaving away in front of the computer. What's your response to that? Do you feel you have lost your best years to becoming/ being a good Senior/ Lead Engineer? What kind of time investment does it take to do this in FAANG? I want to give him a convincing but not a party-line answer.
+
+I didnt know that these are skills needed to become a senior. Thanks Im happy that you made this vid.
+
+This video is spot on. I would force all Senior devs at Microsoft to watch this....
+
+I am so glad I found your video. This is exactly what I need right now! Thank you!!!
+
+Strength
+1. Tech depth and delivery
+2. Rejects hyperbolic discounting (i.e. forward-looking)
+3. Expert time manager (e.g. limit unnecessary meetings, limit social media)
+4. Grow others around you (improving team and allowing more delegation)
+
+Weakness
+1. Overemphasizes delivery and tech depth
+2. Conflates management and leadership
+3. Unsustainable time management (i.e. working on nights/weekends)
+
+wow, all this advices are gold, thanks for sharing, it helps me understand my team a lot
+
+You should compile the lessons from this channel into an online course! It'd be so helpful -- I'd definitely be a customer.
+
+Good thing I check this one
+
+Im already a senior engineer, but man this hits close to home. I have fallen into the trap of overextending myself. Time management is a... growth area for me, and taking the "work longer hours" approach did indeed hurt my mental health. The stress lead to frustration and bitterness when given deadlines that were only possible by incurring extensive technical debt that was clear would not be resolved prior to beginning the next phase. Which would bake the poor design choices into the system so deeply that I would no longer even want my name attached to the project. The only way to avoid it (as far as I could tell) was to work long nights and weekends to ensure that things were implemented correctly without slipping the deadlines.
+
+I consider this sort of thing a common occupational hazard in our field, and a rite of passage to some degree. But when you realize that it is the norm rather than the exception, that is a sure sign of bad management and a recipe for burnout and an unhealthy dev team.
+
+Always great content! I like how you take both general recommendations AND give a concrete example of what that may look like. I think what would help even more is some visuals (I'm biased since I'm a visual learner). It would really help drive your points and examples home.
+
+Good video thanks
+
+Not a fan of the teleprompter reading vibe
+
+WoW this is 🔥 I feel like the matrix code was suddenly revealed to me 😎I’ve been studying full-time the last few weeks getting ready to get back in the job hunt and have been deeply curious on if I was ready for Senior, and the example dialogues while hilarious are extremely enlightening. Until now I’ve completely glazed over the behavioral questions as semi-significant but suddenly I feel like that’s EXACTLY the part I should be focusing on as the answer will clearly confess mental attributes that map to capability. “Technical Impact” has always been the Kool-Aid every other YouTuber tries to sell you, but “Team-Impact”, and “Cross-company impact” makes so much sense as a focus point. Major thanks for this.
+
+Steve, more behavioral scenarios I think it would be HUGE value-add.
+
+Love your videos! So thankful that I am able to come across your advices and the consequences of hyperbolic discounting!
+
+Great video. Thanks. Follow up - how do we make sure that the effort we are putting to grow others are getting observed and credited to us?
+
+Steve, have you written a book on these topics yet?
+
+That kind of wack mentality of creating something to release but having someone already on a task for when they expect it to break down because they knew theyd release a faulty product is just wack as fuck
+
+Thanks for the content!
+I have a question: Why is one of your nicknames "Meta"? Was it you that invented the Metaverse? :)
+
+Promotions are just a carrot on a stick. I'm not going to spend years working above my pay grade to *maybe" get promoted. Much easier to just get a better job.
+
+As someone moving from Sr/Principle to Management, I can attest that this is exactly what we are looking for.  Experience is another important point but maybe it shouldn't need to be said since he all but covered this in "technically deep and delivers".
+
+"everyone does better when everyone does better." Amen.
+
+Your way of speaking is kinda hypnotizing. I didn't even notice when these 11 minutes had passed. And stuff you talked about was really helpful
+
+There’s only one thing you need to know for a promotion: Which executive do you have to screw?
+
+Great advice, especially the growing others part. I came here ready to give a sarcastic response that the senior above me was the thing preventing me from attaining the next level lol, but this video was actually pretty solid.
+
+This was very well articulated. Thank you!
+
+Man, you sound like a person who goes to therapy and reflect about things from your career and human behavior in a practical way beyond the tech bubble.
+
+You inspire me. Thumbs up for the content and thoughtful advices! 💖
+
+Love your content Steve, I hope you have peace. You know I feel that the challenges inside a tech company are too different from those outside in the wild society. Engineers often get locked in that culture and situation and their social and financial skills do not grow as well as their technical and professional skills. I will be happy to listen to this type of concept too.
+
+This was a good video
+
+As junior engineer, what I might suppose to do to take my career to the next level .
+ I have have been working for 4 months
+
+Thanks 
+I just started at Booz Allen hamilton as backend engineer 
+It is been 4 months now 
+Thanks
+
+Even companies are considering only tech skills and delivery to define senior devs...
+
+So happy I stumbled upon this video and your channel! Thanks for the great content!
+
+....geez, kinda scary this makes so much sense and is so relatable...maybe I am ready 🤔
+
+Pricipal at Amazon ok.. that dude knows whats up lol
+
+Well, there is only one @TechLead
+
+821 things preventing your promotion to Staff or Lead Engineer.
+
+https://youtu.be/4i5iFlP01mQ?t=584 Really good advice! If you're growing others, your measurable output in the short term is going to be lower than if you just did the thing yourself. There's a real risk to doing this in the wrong environment.
+
+i LOVE your videos. thank you so much!!!
+
+Sounds depressing AF
+
+It's caste, folx. It's always been caste.
+
+I just started as an entry level SDE and feel like I have struck gold by coming across your videos. Thank you for all of the insight!
+
+I'm one of those lucky guys who got an incidental bump to senior - before I was ready. This video helped me validate that I'm doing ok (Ive been stressing a bit) and has helped outline where I should be focusing on improving. Thanks so much :)
+
+7:09 Otherwise known as "how every publicly traded company values its stonk gains over long term success"
+
+Mate this is actually really good advice?
+
+Yeah, great stuff.
+
+But reality is more messy than this. I'm a mid, and recently I was put on a horribly miss-managed project.
+It was initialized by a team from different country, and it turns out that everything gone horribly wrong. From picking a critical framework that does not work and does not have proper support, to creating wrong configurations.
+
+The team I'm working with joined this project after it was initialized and they couldn't do anything about it. At the time they realized that this is complete garbage it was too late to change the course and rewrite so they just stick with it. The current state of this project is everyone just pushing to release like there was literally no tomorrow after the release. We don't touch and refactor anything, even if we are aware that it will cause problems in the future, just to not break something, because whole application is unstable and really fragile, even if it is completely new. 
+
+There is one senior dev. But he somewhat lacks leadership skills and he acts a bit like he gave up. So yea, even if I feel strong desire to make something a bit better or influence this project in a way that will be more stable and maintainable I don't feel I can. The whole project at this point is one hyperbolic discounting and if I try to go against the grain as a new guy I feel like I will face layoff pretty quickly, because that is not the priority of the whole team.
+
+I have never been promoted in 15 years of career. Some colleages over 40 are still 'normal' engineers. At some point, I stopped caring about these things.
+Being an individual contributor is not that bad anyway, less pressure and stress.
+
+Just found this channel. Senior scientist/ director. While the discipline differs - the unspoken truths shared here are accurate. Well done and thanks
+
+I haven’t been hired yet, but this video was really helpful.
+
+Tbh sounds like entrepreneurship lol
+
+10+ years of developer, team, and management experience distilled into 12 minutes and laid out comprehensively. Thanks for sharing this gold.
+
+I love this advice, thanks a ton 🙏
+
+Maybe one day you will be as good as the Tech Lead
+
+Do you have any books you’d recommend about growing your leadership skill?
+
+YouTube recommendation realized I am done with entertainment and I get these kinds of video, great stuff. Thanks for your time
+
+@A Life Engineered I have one question: What do you mean by "Communicate a steady state for systems"? Thanks for your videos!
+
+Thanks for the amazing video and tips ! I was really needing those advice's i'm trying to pass to  this next level as a engineer to senior and your thoughts helped a lot !
+
+Too complex and too amazonian.
+Instead of doing so much to move to next level, put half to your own business and you’ll earn way too much.
+
+amazing content, thank you so much man. I’m on my first year as a junior dev. Looking forward to more videos from you!
+
+An interesting topic could be "how to avoid "emotional" pitfall in case of conflicts?"
+
+Thanks! Such a good advice. :) Will be promoted to a lead engineer position shortly.
+
+I could listen to this guy forever.
+
+…”other creates their own luck”… thanks for this 🙏🏻
+
+The things you put light on are tremendously important for a developer career. Some times is painful to hear some of the truth bombs you drop tho. Please keep doing it.
+
+Waste of time working for someone in this info age
+
+Amazing advice. This is so helpful!
+
+This was definitely helpful. How come I only know about this channel now ?!
+
+This is great. Thank you. I was recently promoted to Senior Engineer and this bolsters my confidence to continue to push back against the constant onslaught of hyperbolic discounting from the POs, PMs, and stake holders.
+
+Just encountered your channel today, and I can't fathom as to what was stopping me from getting a promotion, you nailed it! Thank you for this! My question is say you have been "laterally moved"(i.e. at the same level) to a new team, how do you make sure to get the promotion? I believe the manager of the new team will obviously promote those who have been on the team since the beginning(and have been doing all the things that are required for next level)? Please don't get me wrong, My question is more centered around "how to place yourself as one of the candidates for promotion after you join a new team"? all the points you mentioned still matter + ramping up rapidly? what other points am I missing?
+
+Great advice for all.  I’m not SE but looking for a job in customer relations/sales.  The job I’m looking for in mid level manager.  While I had very senior manager roles before, this will be a new industry and skillset.  Your videos gave me some good ideas on now I should position myself and what kind of stories I should prepare.  Your content is gold and should not be compared to “Tech Lead”, whom I followed for several months before deciding he was a blowhard. 😊. Hope you will do more videos.
+
+I’m so close to getting to senior. Thanks for making this video, it will help me phrase some things in my 1 on 1s with my manager. Super practical, actionable advice. Thanks for not just having platitudes
+
+Someone sounds a little full of themself...
+
+Thank You for a great suggestions
+
+How do you find work you actually want to work on? The problems we solve and the process of our work has hit ultimate boredom. I thought we were changing the world, instead we're making ads and meme coins.
+
+I seldom engage, subscribe, like and comment. Your content's delivery and depth have been greatly appreciated. Thank you and please keep going.
+
+Okay okay, you've talked me into it...I want to apply to amazon now and I want to work with you....
+
+Literally priceless channel.
+
+Thanks so much for the advice
+
+I'm happy I found your channel just exactly when I need it the most.
+Thank you for such divergent but extremely valuable content
+
+Excellent video explaining the difference between leaders and managers: leaders set direction, managers are concerned with execution.
+
+The summary at 10:42 lists 4 universal characteristics of senior engineers. The three things preventing promotion to senior are:
+* focusing too much on delivery and tech depth
+* conflating leadership with management
+* unsustainable time management (by putting in more hours instead of mentoring others)
+
+Thank you!💯
+
+Thank you. Your video teaches me a lot for the senior level
+
+This is the kind of advice I wish I had 10-12 years ago. One thing I experienced, even as I became reached the senior level, is that sometimes there's no space to provide leadership, especially when there are older or more entrenched senior developers in the organization. In situations like that, the only way to break through is through "incidental" changes (people leaving the company or changing jobs completely.)
+
+Man, found you doing random search, trying to filter between all the content on cracking the interview at FAANG companies. But now inside Amazon I found super helpful this advice. I hope you can find the time to keep the content!
+
+Thank you so much for this informational and to the point video. Its really going to help me and many other folks who look forward to growing in life professionally. Subscribed as well.
+
+Wow that burnout is exactly what I'm dealing with now.  I pushed so hard that I burnt out and, became a toxic dick...  I used to be fun!
+
+Please keep on making these videos. My father has over 35 years in the software industry and you sound just like him! So rare to see someone who really have a different perspective making videos like this, all of the video that I see are just the same. One lesson learned from my old man: the technical part is NOT the most important one, learn to improve your other skills as well... awesome video :)
+
+This is what we badly needed. God bless YouTube algorithm for suggesting your channel to me
+
+this is so good
+
+The shit this dude says is the same stuff you read on reddit repeated over and over,seems like they both got their ideials from the same place... like as if we were being influenced by commenters we don't know are real or not.
+
+I see lots of senior engineers who are good at leading but suck ass at coding. Thoughts on that?
+
+Agree completely. Optimize. Rutlhless time efficiency and ensuring you grow others.
+
+Much needed and scarce content for new software developers
+
+Unapreciable thanks!
+
+This is advice for large companies or companies at scale. For small startups and SME it largely discounting the future, to keep the fire running.
+
+if you are, please avoid reading from teleprompter/notes, its distracting, your eye balls keep moving, as if they are reading off of somewhere, I find it VERY distracting. Content is superb, but maybe look in the camera eye to eye as if talking to a person.
+
+Great video, thanks 👍
+
+This is a very good advice. I have just been a junior. Thank you. I subscribed.
+
+Very nice wall of Whisky, I see a few bottle from The Scotch Malt Whisky Society, Sláinte!
+
+Leadership not management. That sentence clicked with me in my head, it explains what I believe all too well.
+
+This description really reminds me of the senior engineer on my current team
+
+I have to disagree -- that song needed more cowbell...
+
+Eye opening talk
+
+Thanks for providing such valuable info and advice Meta! Excited for more vids to come!
+
+Completely agree with you. Delegation and growing people around is the only right way.
+
+Hi Meta, could you make a video on how to grow others around us?
+
+Ahhhhh, I've been avoiding moving up to the next level. Thanks for making this process so easy to understand that I have no excuse!
+
+Great advice. Mentorship like this is difficult to come by. Thanks for sharing your experience!
+
+More content please
+
+Spoken as a senior engineer which is head drive and honest.
+
+Can I like and subscribe twice?
+
+As an ordinary non lead, non principle non senior engineer I am expected to work on tickets that I was assigned to. How can I make more time for deep analysis in this case? I don’t have any direct reports. I can’t just delegate my tickets to another ordinary developer because that would result  
+in me not doing what is expected of me
+
+“If you want to be a senior dev you you have to be opinionated and your opinions need to be good”
+
+Okay. But what to do if my opinions aren’t good? I simply fail to come with ideas as clever as my development manager and lead? How can I get smarter?
+
+Wow! love this advice thanks a lot
+
+These were great actionable tips  ... 😃 ....
+
+Really?! where?!
+
+Sde stands for someone who does everything. Leadership and project planning is a big part of being a senior.
+
+How do I get in a 1 on 1 meeting with you?
+
+That's an golden piece of advice. High quality content, thank you for sharing this. Means so much for all of us and this is what makes the dev community awesome. Subscribed!
+
+Wow, gold mine of information in a random YouTube video I found!
+
+Fantastic advice & channel!
+
+Being a Principal at Amazon : Please smash that like button and subscribe
+
+This!
+
+If you don't suck up, you don't go up.
+
+helpful video, but i think you are deeply misrepresenting the snl skit. legendary producer bruce dickinson is suggesting that the song needs more cowbell, and will ferrell's character is merely obliging, your incorrect use of this analogy is deeply troubling and gives me no choice but to take everything you say with a grain of salt
+
+These days, I don't care. Everyone on a team regardless of skill will have their own ideas how to do things, they will happily implement them without checking with seniors, and management won't care because they want to see everyone typing. Even the external contractors think they know better. You wind up herding cats and are lucky to keep things going forward instead of sideways. If you complain, management will say "well, there's no sacred cows, you're not the only one with good ideas, we want to hear from everyone, we don't want hierarchy, etc. etc."
+
+Sir, this is lovely, exactly what I needed.
+
+The one time youtube has recommended something life changing to me thanks @Meta for your brilliant insights
+
+Wow, amazing channel. More videos on system design walkthroughs or mocks  please! How d you approach different types of system design problems in ML, AI and data science field e.g. model deployement in cloud....much appreciated
+
+First, thank you for this video!
+Second, I'll go ahead and give you a (hopefully!) useful piece of advice regarding the usage of the prompter; hope it doesn't come too abrupt.
+The further away you are from the prompter, the least we will be able to notice it.
+Of course, adapt the text size accordingly :D
+
+you got it bro
+
+really good advice. thanks for sharing <3
+
+There's only one thing.  There's only ever one thing.  Them being afraid you'll quit and you being willing to quit.  That's it.  Everything else is overcomplicated BS created for views/subscribers. Make yourself undeniable.   I wish it weren't all just a power game, I wish it were a meritocracy, but it isn't.  It's a complex web of pain.
+
+This is the first YouTube channel I've watched where I subscribed after only watching one of their videos. This was such sound, actionable advice that I haven't seen elsewhere. Looking forward to watching your other videos @Meta.
+
+Its 2AM in czech republic here. And I just struck gold. This content is just out of this world. Liked. Subscribed. Added video to rewatch it later again. Great job. Please do some course or write a book :D
+
+Titles are meaningless.  I know people that were principal engineers after 6 months, because a nice title is cheaper then more money.  It is rare even in large tech companies for them to care about the future.  I've tired to future proof services or design things to be reusable, and instead of getting credit I got blamed for being slow. 
+
+Want to get promoted?  Kiss ass and switch jobs often.  Took me 10 years to learn the only way to get ahead is to play company politics not work hard.
+
+Useful tips for all sorts of jobs. Thanks!
+
+The secret is no secret. If you are citizen of USA or Canada and you are born outside North America then you will have zero chance to advance in Hi Tech industry. You will only be allowed to advance if you are into admin or manegerial or labour work. My 30+ years of experience in North America clearly told me that those born outside North America will never have the chance to truly advance in their profession, the system will never allow it.
+
+You are much needed. Thank you for this.
+
+💯💯💯
+
+This is a very informative video! Thanks for sharing your thoughts.
+
+Amazon is an absolutely dystopian company and all these sad people wearing suits in their profile pictures in the comments are proof of what's wrong with the world.
+
+Damn! How much can he get for the name of his YouTube channel. Haha
+
+Don’t focus on the titles but be mindful on the pay scale since there is a large overlapping between the grades. You don’t get promoted unless you’re already there doing to work of the people who’s one step above you.
+
+That's an interesting way to think about it. Thank you.
+
+thanks!))
+
+what are my chances of catching that promotion to senior whatever if ive never worked or had any interest in working a job sitting on my ass,
+
+great content but some sections are bit too fast to keep up. thanks for sharing your experience.
+
+Absolute GEM here! Thank you for the fantastic advice.  I am at a level in my career where things are taking a turn towards senior/lead territory.  In fact, I am acting as Lead currently.  However, there are obvious skillsets that I'm lacking .. and the main ones, you have touched upon here!  I have a ton of self-reflection to do after watching this.  Much appreciated 🙏
+
+Thanks a lot. Please can you share a video on a popular question. How do you scale a software with 1k users to 1m users
+
+oh yes, the three things that prevent me from being a senior engineer at uhhh....software...stuff
+
+Follow this channel if you want the META  on being an out of touch wierdo
+
+this, I feel, is extremely good advice in general regarding leadership.
+
+I will follow your advice and channel.
+
+I have all 4 of those traits. I've been doing this a long time and people consistently are surprised I don't have a senior or higher title. But I can't get any well known company to setup an interview. I get canned responses about 'it not being a good fit'. So I keep leaving companies just to restart as a sde title. I'm quite frustrated.
+
+This was a great video.
+
+The best advice I needed.
+
+This is awesome not just for Tech but any career in general. I should be able to accurately guesstimate your title simply by the way you carry yourself and discuss topics in a meeting; as well as the amount of positive pull you generate in the board room
+
+Growing others around you to gain more bandwidth makes sense considering oneself, but if your peers do the same doesn't that mean you might get more responsibility. Is the strategy not then to not learn those tasks that only your peers know how to do? Obviously that's kind of a dick move since you could be helping them out, but I mean that does seem to cost time.
+
+Please help create one for how you manage time
+
+Thanks my man.
+
+I am now worried that I don't even have the opportunity to senior sde because I only report to L5 manager and my skip is L6 manager. Based on this, i would say I will end up L5 in Amazon for 10 years if unlucky.
+
+Great video!
+
+1. engineering degree
+2. job at an engineering firm
+3. elden ring
+
+This is pure meaty content! Thank you so much!
+
+Great comparison. Many many managers are not good leaders and always do things just to cover their butts and blame someone else for their short comings.
+
+Wonderful advice would you mind doing a video from SSE to SSE level two.
+
+Thank you for cheating this channel. Great direction and advice and full of proven wisdom.
+
+Good advices !
+
+I can't believe I found this guy by accident! Finally, found a gem in the dump of useless channels on YT.
+
+This. The same issue persists in Data Analysis. You can find a million videos about "How to be a Data Analyst" but few to say "How to become a Senior Data Analyst"
+
+Absolute king right here
+
+🚀
+
+Brilliant. Subscribed.
+
+Wow spot on with your assertion that YouTube is chock full with advice for how to become an entry level engineer but there’s very little about how to progress once there. I’ve been a de facto senior engineer for 3 years because I’m the most senior one at my startup, but I have no guidance on how to actually become senior level at a big company. Just found your channel and videos like this are exactly what I’ve been needing to take the next step in my career.
+
+You made my day man.
+
+11 min, 41 sec of some of the *Best Professional Advice* you may hear--regardless of your profession. Hyperbole? Uh... Not! I recommend playing this at 0.75 speed for full impact. It's worth it. I usually speed videos up; not this one.
+
+I got promoted to senior engineer around 4 months into my first job. Even i was a bit shocked myself at the time, but with hindsight i can see what i did right.
+1: my first priority upon starting the job was understanding not only the technical aspects of the work but also the environment, processes, redundant annoying tasks that the team was going through
+
+2: a week into the job, started taking some time to build internal tools for the team to facilitate, if not outright eliminate, said annoying tasks, and sending an email to the whole team each time such a tool was added to our repo. This somehow also created a culture that encouraged all team members to build internal tools that solved real problems they faced in their job.
+
+3: i started formally documenting the ad-hoc parts of the code base (and simplifying it where it made sense), so that there were no longer cases of "we can't work on this part because Joe is not here and he's the only one who understands it"
+
+4: (this is where luck comes in) i got an offer from another company 4 months into that gig. my direct boss at the time had my back though, and convinced upper management to make a counteroffer way higher than what the other company was offering me and a promotion to tech lead.
+
+Granted i only lasted 5 more months at that company until my boss resigned and was replaced by a micromanaging asshat, but by then 22 years old me was already a senior engineer 😅
+
+Tl:dr, bring technical value to your team and make sure your reporting line sees it, i don't guarantee it always works but it had terrific effects in my case. Older jaded me thinks it's a shame it took me almost leaving for it to happen but meh 😅
+
+I'm already a Senior Engineer, but I can definitely get better at promoting other developers' skills. I oftentimes will take on more tasks because I can get them done quicker, but am quickly realizing the poor scalability of that.
+
+Nice video!
+
+There are a lot of things I can't do so I often think I can't get to senior...but you hit something on the head, the way you carry yourself and how you work is more important than what you can or can't do technically. I have guys who would probably be inclined to say they'd have thought I was senior, despite an admin error that caused my assigned level to be incorrect. This week I got a little low and decided to pull back on doing what I do best but I see that was to my own detriment. I think your video saved me from looking worse overall but also made me realise my goals aren't as far off as I think...
+
+Smartest video I've ever watched on youtube
+
+Or just focus on what the job is about - getting paid. Follow the money and job hop until you get paid shamefully well and then you can watch videos like this in your free time, wondering why people still struggle to get others to appreciate them...
+
+A better tip would be how to be the boss!
+
+1. Lack of engineering degree
+2. Lack of engineering experience
+3. Lack of engineering job
+
+I'm really grateful that you're producing these videos.
+
+YouTube is full of beginner level videos, but it's awesome to hear your perspective on how I can further my career and startup.
+
+I really like this video. Can you do one for struggling devs? People who are new and find themselves feeling like every word in a technical meeting isn't english.
+
+amazing advice
+
+Love your video, your advice can also be applied to other engineering jobs.
+
+Should have watched that many years ago. This advice would have been perfect when I was in my early 30s. (I'm more a Sales/Business Development person. all the stuff from your video applies there, too. It's easier to see in hindsight, though)
+
+Please find a colleague who is a principal applied scientist. Would be helpful for other class of tech role.
+
+Couldn't be more relevant. Thank you.
+
+The problem is, getting technically deep is the only trait that really takes a long time, so that is why everyone always focuses on it. It is the most important
+
+I wish people felt this way about auto mechanics!
+
+Interesting
+
+definitely using “be aware of too much cowbell here” in the future
+
+Respect
+
+Thank you. As someone in the path to senior engineer this is really helpful
+
+This is the best senior engineer advice I have seen around!!!
+
+What should I do if the people around you are unwilling or unable to adapt? My company recently completed a massive turn into Blockchain. But some people were not Blockchain savy enough to take charge of the new projects. When you are placed on a project with these guys, what do you do? I'm currently working my ass off and your video makes me realize sacrificing my own time is not the way
+
+2nd question - Do you have advice on how to sell your ideas to leadership? I know they care about different things from developers, but I find it hard to hit their sweet point. Maybe I'm missing their perspectives? A video would be great ☺️
+
+Incredibly practical and helpful content, thanks for sharing the advice! I especially love how you carry yourself as you talk and the crispiness you articulate. Do you have advice on how to be a more concise and sharper communicator like you? I often find myself going too lengthy and not as organized when I talk as I think, e.g. dumping too many details at once, attempting to immediately elaborate what I said with detailed examples. What's a good balance between making my points strong vs. making sure the points are accurately conveyed? Thanks in advance!
+
+💯
+
+Could you make a video on switching tech stacks at a senior level ?
+
+Very good advice. Thanks Meta!
+
+8:56 LOL, sounds like techLead to me...
+
+Thanks for sharing
+
+Great content
+
+I liked the summary at the end.
+
+This was SO good!
+
+I'd love to hear more about growing others around you.
+
+Actual good detailed advice from real life experience.  Looking forward to more.
+
+Incredible content! Can't wait to your next advice video
+
+Great video.
+
+Gosh meta, your advices are good but too much corporate jargon. Speak English not "Hyperbolic discounting", this is YouTube not university, make your content as digestible as possible at 2X speed.
+
+Great advice! Really puts into perspective what it takes to get to get to a senior position, I particularly liked the discussion about the pitfalls.
+
+Thank you for all the good advices! I truly believe that you need to maker more of your time instead of putting in more hours.
+Meta, can you recommend a good link to study system design?
+
+Subscribed!
+
+More videos please
+
+got promoted 2 years back. def gold advice.
+
+It is a shame you only have a few vids. You are so good.
+
+There's so much wisdom in these 11 minutes. Thank you Meta.
+
+Please keep making videos !! Loved ur content !!
+
+Hi there.
+I would like to ask, if I have 3-5 years Software Engineering experiences, but I do have other IT engineering roles work experiences as well.
+If I join Amazon as SDE,  how do Amazon determine whether I'm SDE I or SDE II or Senior SDE?
+
+What a nice content and suit my need exactly. Look forward to new videos about how senior developers approach difficult tasks.
+
+Watched (multiple times) and loved all your videos, very informative and thought provoking.
+I really hope you make more of these sharing anything about engineering, career, or life advice.
+
+Do u have wife and kids?
+
+I can tell you're reading a script. It comes off as inauthentic
+
+hi meta, can you please make a roadmap for 1 year experienced devs
+
+Where'd you go Meta? Best prep channel out there!
+
+Thank you for this content. This are amazing tips to become Senior engineers.
+
+How to handle companies lobbies? Hahaha.
+
+Every word this guy said is gold
+
+Bruh you should sell your channel name
+
+I'm the 1000th like on this video :) Thank you for the advice, you are talking directly to me, I'm an SDE2 at Amazon, still new to the company but good to hear all the advices early on, thank you!
+
+I recently found out just how much leadership it takes! Great content
+
+This video is so awesome because I don’t see that many managers / coaches or seniors can tell me what exactly to do
+
+Legitimately good content !
+Please make content on design thinking for beginner SDEs.
+
+This is so helpful, your mentees are so lucky.
+
+Dude, thanks so much for the content! That’s exactly what Ive been searching for in the last couple months.
+
+great advice
+
+Wow the advice on making more time by making others better is gold!
+
+Awesome advice, thanks for sharing!
+I'd like to ask you some advice on how to go from a regular developer (even with years of experience) to a good one.
+When I compare myself to FAANG engineers (or in big companies), I feel 100% of imposter syndrome. What's your advice on how to get to next level?
+
+Hello Greetings from Mexico, I saw all your videos and I think you are a very intelligent and wise person, thanks for all the advice!
+
+How do you demonstrate this without being senior already? If I’m at a mid level role. Then I need to build up people around me, delegate to them so I can think about the future and not do as much of the IC work assigned to me myself so that I can get promoted?  I feel like the role gives you authority to do this without it seeming like your slacking off as a IC
+
+Keep up the good work .. thanks
+
+Thank for very much for sharing. This is exactly what I need.
+
+You must be a very busy man, but this content is phenomenal. Thank you for sharing your thoughts and experience. I'm about 4 years into my career and just started thinking about principle and staff roles. I feel behind but over the next year, I'll make the effort to change my mentality. Thanks again.
+
+Dang it, this video is a must-have. This channel will become gold/big soon.
+
+Wow love your tone. love the content.
+
+more content! ✌️
+
+Super meta advice! This was really useful, I'm currently a mid-level engineer and now I know what I need to do to reach the senior level.
+
+I've just noticed the background!!! Great Whisky collection I guess.
+
+Great content. There's a ton of content for fresh or junior engineers on YT and others, but hardly anything for senior engineers. I hope your channel help narrow this gap
+
+Your content it amazing. You are right, there aren't any videos on youtube that teach this stuff and engineers end up learning by making many mistakes which costs time. 
+Please keep up the good work.
+
+Nice!
+
+Subscribed!!!!
+
+The overall idea sounds reasonable, but the example at 2:59 is a bad solution imho. An asynchronous API can usually be easily implemented on top of the synchronous one as a 'wrapper' around the synchronous API. Such a solution provides a somewhat 'best of both worlds' solution without introducing additional risk into the project near the deadline. You get both APIs, clients who commited to the synchronous API can use it until they cutover to the async one at an appropriate time.
+
+Subscribed! Please do more of these videos. Keep it up!
+
+hey Meta, I’m about to be a fresher frontend dev and I’m curious about how you started in tech and how your career progressed over time.
+
+This is great content. I would definitely pay for a whole course on this type of stuff.
+
+Awesome advice, you need to start posting more videos man!
+
+This is EXACTLY the kind of advise I've been looking for. Subscribed! Would love to see more content in the future about small daily steps low-level engineers can take towards building their experience and skills towards seniority/tech leadership.
+
+Wow, that's some great advice. Thanks for sharing, Meta!
+
+This is excellent advice
+
+So much great wisdom! Also are you a DJ?
+
+Authentic Advice, Any Chance of Q&A Anytime ?
+
+Could you do a video on what skills generally junior engineer need to improve on or pay attention to get promoted to a midlevel? Or maybe a breakdown of the skills needed at each engineering level (junior, midlevel, senior, principal, management)?
+
+This channel is going to blow up really fast!
+Thanks for the great advice. Reminds me of the quote, "The best things in life are almost always free."
+
+As an SDE II, I couldn't agree more. Putting in extra time, is often a waste of time.
+
+This channel is a gold find !!!!!
+
+it's obvious you are reading off a teleprompter. Make the width smaller or fewer words per line so your eyes don't race back and forth so much. Great content. Delete this comment after you read it.
+
+Really thoughtful breakdown of what it takes to be a senior. I’m not a SWE but I would say the same general principles apply to nearly all senior leadership roles. Thanks for taking time to lay this out for folks.
+
+I am asking a topic to create a vedio, in the event of breaking down microservices future more to categorize them as state ful and stateless services to perform more asynchronous to reduce latencies, what are some tradeoffs, ex: ecommerce distributed transaction patterns
+
+Suddenly I've found my role model. Thank you for your helpful information. I wish I would get a chance to meet you in person . Thank you
+
+Isn't the advice on hyperbolic discounting tailored for those working on established projects? I'd imagine senior engineers working in startups would have different views on that?
+
+What are your thoughts on PIP?
+
+Hey Meta, do you have any tips for people who are Staff Engs? 
+
+1) How do you empower others to take ownership of projects or help maintain projects that you might have initially started? 
+2) How do you stop doing everything and start asking for help? (That grit and self-reliance might have gotten you there)
+3) Do you think being staff+ and having 2 or fewer reports is a good way to scale your work?
+4) Why choose the staff+ IC route over the management one?
+5) What are some things you should stop doing once you reach Staff+?
+6) Are there trade-offs you have to make the higher up you go? Does WLB have to suffer?
+
+Thanks for this video!
+
+can you share how to be good/excellent at system design?
+
+Dude, I have been looking for this content on YouTube forever. Thank you!
+
+Love your content man!! Great new channel to binge.  I already know you're gonna blow up 🚀
+
+Hey there - I'm just an incoming intern at Amazon; but it's great to see content that isn't focused on entry-level! I'll keep watching your videos as I move up the ranks :)
+
+Thanks for the advice. Thank you for taking out time to make these videos. Its a huge help to the devs like me who are self taught and are constantly looking for sound advice!
+
+Great video! Thanks for sharing
+
+Super glad I found your channel early in my software engineering career. Thank you for doing this Meta! What are your thoughts on creating models of your team’s code base as a new member to increase visibility?
+
+I really appreciate the content you are sharing! Thanks!
+
+Btw, which turntables do you have back there? And what kind of music do you mix? DJing is also a hobby of mine 😄
+
+Best regards
+
+Just saying: this guy's voice sounds kinda brainwashy.  Am I the only one who thinks that???
+
+Fantastic video Meta!
+
+was that a subtle Tech Lead reference 😂
+
+@Meta, I did a similar (but longer) video from a different perspective. (1hr) https://www.youtube.com/watch?v=LEFSRzR-hzk
+Your thoughts would be appreciated if you feel you have time.
+
+Thanks for sharing this video, Meta.
+
