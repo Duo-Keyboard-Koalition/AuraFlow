@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --radius: 0.5rem;
+
+    /* AuraFlow original brand palette */
+    --af-cyan: #31d4ff;
+    --af-blue: #5da7ff;
+    --af-purple: #ca8fff;
+    --af-bg: #05070d;
+    --af-surface: rgba(15, 23, 42, 0.68);
+    --af-surface-soft: rgba(17, 24, 39, 0.72);
+    --af-border: rgba(116, 136, 170, 0.34);
+    --af-text: #f8fafc;
+    --af-muted: #94a3b8;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    background-color: var(--af-bg);
+  }
+}
+
+@layer components {
+  /* Layout Structures */
+  .af-shell {
+    background-color: var(--af-bg);
+    color: var(--af-text);
+  }
+
+  .af-bg-overlay {
+    background:
+      radial-gradient(900px 420px at 12% -8%, color-mix(in srgb, var(--af-cyan) 20%, transparent), transparent 60%),
+      radial-gradient(900px 520px at 88% -6%, color-mix(in srgb, var(--af-purple) 18%, transparent), transparent 62%),
+      linear-gradient(135deg, #0a0e16 0%, #05070d 55%, #090c14 100%);
+  }
+
+  .af-top-glow {
+    background: linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--af-cyan) 15%, transparent),
+      color-mix(in srgb, var(--af-purple) 10%, transparent),
+      transparent
+    );
+  }
+
+  /* Components */
+  .af-navbar {
+    background-color: color-mix(in srgb, var(--af-bg) 72%, transparent);
+    @apply backdrop-blur-md border-b;
+    border-color: var(--af-border);
+  }
+
+  .af-panel {
+    background-color: var(--af-surface);
+    border-color: var(--af-border);
+    @apply shadow-xl backdrop-blur-sm border;
+  }
+
+  .af-text-gradient {
+    background: linear-gradient(120deg, var(--af-cyan) 0%, var(--af-blue) 55%, var(--af-purple) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .af-btn-primary {
+    background: linear-gradient(120deg, var(--af-cyan) 0%, var(--af-blue) 55%, var(--af-purple) 100%);
+    @apply text-white font-bold transition-all border-none hover:brightness-110 active:scale-95;
+  }
+
+  /* Interaction Utilities */
+  .af-icon-hover-cyan { @apply hover:text-af-cyan hover:bg-af-cyan/10; }
+  .af-icon-hover-pink { @apply hover:text-pink-600 hover:bg-pink-600/10; }
+  .af-icon-hover-green { @apply hover:text-green-500 hover:bg-green-500/10; }
+
+  /* Tab States */
+  .af-tab-trigger[data-state="active"] {
+    background: linear-gradient(120deg, var(--af-cyan) 0%, var(--af-blue) 55%, var(--af-purple) 100%);
+    @apply text-white;
+  }
+
+  /* Dots & Status */
+  .af-dot-online { @apply bg-af-cyan shadow-[0_0_8px_var(--af-cyan)]; }
+  .af-dot-offline { @apply bg-zinc-700; }
+}
+
+/* Animations */
+@keyframes brand-pulse {
+  0% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.8; }
+}
+
+.animate-brand-pulse {
+  animation: brand-pulse 2s infinite ease-in-out;
+}
