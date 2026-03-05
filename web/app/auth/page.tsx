@@ -56,14 +56,14 @@ export default function AuthPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-black to-gray-900 px-4">
+    <div className="min-h-screen flex items-center justify-center px-4">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-white">Influencer Workspace</h1>
+          <h1 className="text-4xl font-bold af-text-gradient">Influencer Workspace</h1>
           <p className="text-gray-400 mt-2">Create your profile, run agents, and grow your campaigns</p>
         </div>
 
-        <Card className="bg-gray-800 border-gray-700">
+        <Card className="af-panel-soft">
           <CardHeader>
             <CardTitle className="text-white">Welcome</CardTitle>
             <CardDescription className="text-gray-400">
@@ -73,8 +73,8 @@ export default function AuthPage() {
           <CardContent>
             <Tabs defaultValue="signin" className="w-full">
               <TabsList className="grid w-full grid-cols-2 bg-gray-700">
-                <TabsTrigger value="signin" className="data-[state=active]:bg-purple-600">Sign In</TabsTrigger>
-                <TabsTrigger value="signup" className="data-[state=active]:bg-purple-600">Sign Up</TabsTrigger>
+                <TabsTrigger value="signin" className="af-tab-trigger">Sign In</TabsTrigger>
+                <TabsTrigger value="signup" className="af-tab-trigger">Sign Up</TabsTrigger>
               </TabsList>
 
               <TabsContent value="signin">
@@ -108,7 +108,7 @@ export default function AuthPage() {
                   )}
                   <Button
                     type="submit"
-                    className="w-full bg-purple-600 hover:bg-purple-700"
+                    className="w-full af-btn-primary"
                     disabled={isLoading}
                   >
                     {isLoading ? "Signing in..." : "Sign In"}
@@ -175,7 +175,7 @@ export default function AuthPage() {
                   )}
                   <Button
                     type="submit"
-                    className="w-full bg-purple-600 hover:bg-purple-700"
+                    className="w-full af-btn-primary"
                     disabled={isLoading}
                   >
                     {isLoading ? "Creating account..." : "Sign Up"}

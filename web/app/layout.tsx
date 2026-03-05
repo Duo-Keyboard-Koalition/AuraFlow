@@ -20,9 +20,9 @@ export default function RootLayout({
     <html lang="en" className="dark">
       <body className={inter.className}>
         <AuthProvider>
-          <div className="relative flex flex-col min-h-screen bg-black">
-            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-gray-900 via-black to-gray-900 opacity-80"></div>
-            <div className="absolute top-0 left-0 w-full h-[50vh] bg-gradient-to-b from-purple-900/30 via-blue-900/10 to-transparent"></div>
+          <div className="relative flex flex-col min-h-screen af-shell">
+            <div className="absolute top-0 left-0 w-full h-full af-bg-overlay"></div>
+            <div className="absolute top-0 left-0 w-full h-[50vh] af-top-glow"></div>
             <main className="relative z-10 flex-grow">{children}</main>
           </div>
         </AuthProvider>

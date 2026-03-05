@@ -227,7 +227,7 @@ export default function DashboardPage() {
   if (loading) {
     return (
       <div className="flex justify-center items-center min-h-screen">
-        <Loader2 className="h-16 w-16 animate-spin text-purple-500" />
+        <Loader2 className="h-16 w-16 animate-spin" style={{ color: "var(--af-blue)" }} />
       </div>
     )
   }
@@ -239,14 +239,14 @@ export default function DashboardPage() {
   return (
     <div className="min-h-screen text-white">
       <div className="flex min-h-screen">
-        <aside className="w-[72px] bg-black/40 backdrop-blur-sm border-r border-gray-800 flex flex-col items-center py-4 gap-3 shrink-0">
-          <div className="h-12 w-12 rounded-2xl bg-purple-600 flex items-center justify-center text-white font-bold">AF</div>
+        <aside className="w-[72px] af-navbar backdrop-blur-sm border-r flex flex-col items-center py-4 gap-3 shrink-0">
+          <div className="h-12 w-12 rounded-2xl af-server-active flex items-center justify-center text-white font-bold">AF</div>
           <div className="h-px w-8 bg-white/10" />
           {servers.map((server) => (
             <button
               key={server.id}
               className={`h-12 w-12 rounded-2xl transition-colors text-sm font-semibold ${
-                activeServerId === server.id ? "bg-purple-600" : "bg-gray-900 hover:bg-purple-600"
+                activeServerId === server.id ? "af-server-active" : "af-server-idle"
               }`}
               onClick={() => {
                 setActiveServerId(server.id)
@@ -260,7 +260,7 @@ export default function DashboardPage() {
         </aside>
 
         <aside
-          className={`bg-gray-900/80 backdrop-blur-sm border-r border-gray-800 transition-all duration-300 overflow-hidden shrink-0 ${
+          className={`af-panel-soft backdrop-blur-sm border-r transition-all duration-300 overflow-hidden shrink-0 ${
             sidebarExpanded ? "w-[280px]" : "w-[0px]"
           }`}
         >
@@ -276,7 +276,7 @@ export default function DashboardPage() {
                 <button
                   key={channel.id}
                   className={`w-full flex items-center gap-2 rounded-md px-2 py-2 text-sm transition-colors ${
-                    activeChannelId === channel.id ? "bg-purple-600/40 text-white" : "text-zinc-200 hover:bg-gray-800"
+                    activeChannelId === channel.id ? "af-row-active" : "af-row-idle"
                   }`}
                   onClick={() => setActiveChannelId(channel.id)}
                 >
@@ -289,10 +289,10 @@ export default function DashboardPage() {
         </aside>
 
         <main className="flex-1 bg-transparent min-w-0 flex flex-col">
-          <header className="h-16 px-6 border-b border-gray-800 bg-black/20 backdrop-blur-sm flex items-center justify-between">
+          <header className="h-16 px-6 border-b af-navbar backdrop-blur-sm flex items-center justify-between">
             <div className="flex items-center gap-3 min-w-0">
               <button
-                className="h-8 w-8 rounded-md bg-gray-900 flex items-center justify-center hover:bg-purple-600 transition-colors"
+                className="h-8 w-8 rounded-md af-server-idle flex items-center justify-center af-outline-hover transition-colors"
                 onClick={() => setSidebarExpanded((prev) => !prev)}
                 aria-label="Toggle channel sidebar"
               >
@@ -302,11 +302,11 @@ export default function DashboardPage() {
               <h1 className="text-lg font-semibold truncate">{activeChannel.name}</h1>
             </div>
             <div className="flex items-center gap-2">
-              <span className={`h-2 w-2 rounded-full ${connected ? "bg-purple-300" : "bg-purple-700"}`} />
+              <span className={`h-2 w-2 rounded-full ${connected ? "af-dot-online" : "af-dot-offline"}`} />
               <span className="hidden md:inline text-xs text-zinc-300">{connected ? "bridge online" : "bridge offline"}</span>
               <Button
                 variant="outline"
-                className="border-white/30 text-white bg-transparent hover:bg-purple-600 hover:text-white"
+                className="border-white/30 text-white bg-transparent af-outline-hover"
                 onClick={() => signOut()}
               >
                 Sign Out
@@ -316,14 +316,14 @@ export default function DashboardPage() {
 
           <div className="flex-1 p-4 md:p-6 overflow-y-auto space-y-3">
             {messages.map((message) => (
-              <div key={message.id} className="flex gap-3 rounded-lg bg-gray-900/50 border border-gray-800 p-3">
+              <div key={message.id} className="flex gap-3 rounded-lg af-panel border p-3">
                 <div
                   className={`h-9 w-9 rounded-full flex items-center justify-center shrink-0 ${
                     message.role === "user"
-                      ? "bg-purple-500"
+                      ? "af-avatar-user"
                       : message.role === "agent"
-                        ? "bg-purple-600"
-                        : "bg-purple-700"
+                        ? "af-avatar-agent"
+                        : "af-avatar-system"
                   }`}
                 >
                   {message.role === "user" ? "U" : message.role === "agent" ? "S" : "!"}
@@ -340,7 +340,7 @@ export default function DashboardPage() {
           </div>
 
           <form className="p-4 md:p-6 pt-0" onSubmit={handleSend}>
-            <div className="rounded-lg bg-gray-900/70 border border-gray-700 px-3 py-2 flex items-center gap-2">
+            <div className="rounded-lg af-panel-soft border px-3 py-2 flex items-center gap-2">
               <input
                 className="flex-1 bg-transparent outline-none text-sm text-zinc-200 placeholder:text-zinc-400"
                 placeholder={`Message #${activeChannel.name}`}
@@ -349,7 +349,7 @@ export default function DashboardPage() {
               />
               <button
                 type="submit"
-                className="h-8 w-8 rounded-md bg-purple-600 flex items-center justify-center hover:bg-purple-700 transition-colors"
+                className="h-8 w-8 rounded-md af-btn-primary flex items-center justify-center transition-colors"
               >
                 <Send className="h-4 w-4" />
               </button>

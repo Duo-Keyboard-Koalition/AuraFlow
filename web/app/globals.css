@@ -24,6 +24,17 @@
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
     --radius: 0.5rem;
+
+    /* AuraFlow brand palette */
+    --af-cyan: #31d4ff;
+    --af-blue: #5da7ff;
+    --af-purple: #ca8fff;
+    --af-bg: #05070d;
+    --af-surface: rgba(15, 23, 42, 0.68);
+    --af-surface-soft: rgba(17, 24, 39, 0.72);
+    --af-border: rgba(116, 136, 170, 0.34);
+    --af-text: #f8fafc;
+    --af-muted: #94a3b8;
   }
 }
 
@@ -33,5 +44,115 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .af-shell {
+    background-color: var(--af-bg);
+    color: var(--af-text);
+  }
+
+  .af-bg-overlay {
+    background:
+      radial-gradient(900px 420px at 12% -8%, color-mix(in srgb, var(--af-cyan) 28%, transparent), transparent 60%),
+      radial-gradient(900px 520px at 88% -6%, color-mix(in srgb, var(--af-purple) 24%, transparent), transparent 62%),
+      linear-gradient(135deg, #0a0e16 0%, #05070d 55%, #090c14 100%);
+  }
+
+  .af-top-glow {
+    background: linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--af-cyan) 20%, transparent),
+      color-mix(in srgb, var(--af-purple) 14%, transparent),
+      transparent
+    );
+  }
+
+  .af-navbar {
+    background-color: color-mix(in srgb, var(--af-bg) 72%, transparent);
+    border-color: var(--af-border);
+  }
+
+  .af-panel {
+    background-color: var(--af-surface);
+    border-color: var(--af-border);
+  }
+
+  .af-panel-soft {
+    background-color: var(--af-surface-soft);
+    border-color: var(--af-border);
+  }
+
+  .af-text-gradient {
+    background: linear-gradient(120deg, var(--af-cyan) 0%, var(--af-blue) 55%, var(--af-purple) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .af-btn-primary {
+    background: linear-gradient(120deg, var(--af-cyan) 0%, var(--af-blue) 55%, var(--af-purple) 100%);
+    color: #fff;
+    border: 1px solid transparent;
+  }
+
+  .af-btn-primary:hover {
+    filter: brightness(1.08);
+  }
+
+  .af-outline-hover:hover {
+    background: linear-gradient(120deg, var(--af-cyan) 0%, var(--af-blue) 55%, var(--af-purple) 100%);
+    color: #fff;
+  }
+
+  .af-tab-trigger[data-state="active"] {
+    background: linear-gradient(120deg, var(--af-cyan) 0%, var(--af-blue) 55%, var(--af-purple) 100%);
+    color: #fff;
+  }
+
+  .af-server-active {
+    background: linear-gradient(120deg, var(--af-cyan) 0%, var(--af-blue) 55%, var(--af-purple) 100%);
+  }
+
+  .af-server-idle {
+    background-color: color-mix(in srgb, #111827 88%, transparent);
+  }
+
+  .af-server-idle:hover {
+    background: linear-gradient(120deg, var(--af-cyan) 0%, var(--af-blue) 55%, var(--af-purple) 100%);
+  }
+
+  .af-row-active {
+    background-color: color-mix(in srgb, var(--af-blue) 34%, transparent);
+    color: #fff;
+  }
+
+  .af-row-idle {
+    color: #e2e8f0;
+  }
+
+  .af-row-idle:hover {
+    background-color: color-mix(in srgb, #1f2937 92%, transparent);
+  }
+
+  .af-dot-online {
+    background-color: color-mix(in srgb, var(--af-cyan) 78%, #fff 22%);
+  }
+
+  .af-dot-offline {
+    background-color: color-mix(in srgb, var(--af-purple) 62%, #000 38%);
+  }
+
+  .af-avatar-user {
+    background-color: var(--af-blue);
+  }
+
+  .af-avatar-agent {
+    background-color: color-mix(in srgb, var(--af-purple) 68%, var(--af-blue) 32%);
+  }
+
+  .af-avatar-system {
+    background-color: color-mix(in srgb, var(--af-cyan) 38%, #0b1220 62%);
   }
 }
