@@ -38,9 +38,6 @@ const servers: Server[] = [
   },
 ]
 
-const wsUrl = process.env.NEXT_PUBLIC_AURAFLOW_BRIDGE_WS_URL || "ws://127.0.0.1:8765"
-const wsToken = process.env.NEXT_PUBLIC_AURAFLOW_BRIDGE_TOKEN || ""
-
 function nowLabel() {
   return new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })
 }
@@ -53,24 +50,28 @@ export default function DashboardPage() {
   const [activeServerId, setActiveServerId] = useState(servers[0].id)
   const [activeChannelId, setActiveChannelId] = useState(servers[0].channels[0].id)
   const [input, setInput] = useState("")
-  const [messages, setMessages] = useState<ChatMessage[]>([
-    {
-      id: "system-init",
-      author: "system",
-      role: "system",
-      content: "Connect auraflow-bridge, then send a message here to test live bot replies.",
-      time: nowLabel(),
-    },
-  ])
+  const [sending, setSending] = useState(false)
+  const [messages, setMessages] = useState<ChatMessage[]>([])
   const [connected, setConnected] = useState(false)
 
-  const wsRef = useRef<WebSocket | null>(null)
+  const healthPollRef = useRef<number | null>(null)
   const activeServer = useMemo(() => servers.find((s) => s.id === activeServerId) || servers[0], [activeServerId])
   const activeChannel = useMemo(
     () => activeServer.channels.find((c) => c.id === activeChannelId) || activeServer.channels[0],
     [activeServer, activeChannelId],
   )
-  const chatId = `${activeServer.id}:${activeChannel.id}:${user?.id || "guest"}`
+
+  const origin = useMemo(
+    () => ({
+      workspaceId: "auraflow",
+      serverId: activeServer.id,
+      channelId: activeChannel.id,
+      threadId: "main",
+      userId: user?.id || "guest",
+    }),
+    [activeChannel.id, activeServer.id, user?.id],
+  )
+  const routeKey = `${origin.workspaceId}:${origin.serverId}:${origin.channelId}:${origin.threadId}:${origin.userId}`
 
   useEffect(() => {
     if (!loading && !user) {
@@ -81,107 +82,32 @@ export default function DashboardPage() {
   useEffect(() => {
     if (!user) return
 
-    const ws = new WebSocket(wsUrl)
-    wsRef.current = ws
-
-    ws.onopen = () => {
-      setConnected(true)
-      if (wsToken) {
-        ws.send(JSON.stringify({ type: "auth", token: wsToken }))
-      }
-      ws.send(JSON.stringify({ type: "subscribe", chatId }))
-      setMessages((prev) => [
-        ...prev,
-        {
-          id: `system-connected-${Date.now()}`,
-          author: "system",
-          role: "system",
-          content: `Connected to auraflow-bridge at ${wsUrl}`,
-          time: nowLabel(),
-        },
-      ])
-    }
-
-    ws.onmessage = (event) => {
+    const pollBridgeHealth = async () => {
       try {
-        const payload = JSON.parse(event.data)
-        if (payload.type === "reply" && payload.chatId === chatId) {
-          setMessages((prev) => [
-            ...prev,
-            {
-              id: `agent-${Date.now()}`,
-              author: payload.author || "agent",
-              role: "agent",
-              content: String(payload.content || ""),
-              time: nowLabel(),
-            },
-          ])
-        }
-
-        if (payload.type === "error") {
-          setMessages((prev) => [
-            ...prev,
-            {
-              id: `system-error-${Date.now()}`,
-              author: "system",
-              role: "system",
-              content: `Bridge error: ${String(payload.error || "unknown")}`,
-              time: nowLabel(),
-            },
-          ])
-        }
+        const response = await fetch("/api/bridge/health", { cache: "no-store" })
+        setConnected(response.ok)
       } catch {
-        setMessages((prev) => [
-          ...prev,
-          {
-            id: `system-parse-${Date.now()}`,
-            author: "system",
-            role: "system",
-            content: "Received non-JSON bridge payload.",
-            time: nowLabel(),
-          },
-        ])
+        setConnected(false)
       }
     }
 
-    ws.onclose = () => {
-      setConnected(false)
-      setMessages((prev) => [
-        ...prev,
-        {
-          id: `system-close-${Date.now()}`,
-          author: "system",
-          role: "system",
-          content: "Bridge disconnected.",
-          time: nowLabel(),
-        },
-      ])
-    }
-
-    ws.onerror = () => {
-      setConnected(false)
-      setMessages((prev) => [
-        ...prev,
-        {
-          id: `system-ws-error-${Date.now()}`,
-          author: "system",
-          role: "system",
-          content: "Failed to connect to auraflow-bridge.",
-          time: nowLabel(),
-        },
-      ])
-    }
+    void pollBridgeHealth()
+    healthPollRef.current = window.setInterval(() => {
+      void pollBridgeHealth()
+    }, 10000)
 
     return () => {
-      ws.close()
-      wsRef.current = null
+      if (healthPollRef.current !== null) {
+        window.clearInterval(healthPollRef.current)
+      }
+      healthPollRef.current = null
     }
-  }, [chatId, user])
+  }, [user])
 
-  const handleSend = (e: FormEvent) => {
+  const handleSend = async (e: FormEvent) => {
     e.preventDefault()
     const content = input.trim()
-    if (!content) return
+    if (!content || sending) return
 
     setMessages((prev) => [
       ...prev,
@@ -194,34 +120,56 @@ export default function DashboardPage() {
       },
     ])
 
-    const ws = wsRef.current
-    if (!ws || ws.readyState !== WebSocket.OPEN) {
+    setInput("")
+    setSending(true)
+
+    try {
+      const response = await fetch("/api/bridge/inbound", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          type: "user.message",
+          text: content,
+          origin: {
+            ...origin,
+            messageId: `m-${Date.now()}`,
+          },
+          target: {
+            agentType: activeChannel.id,
+            agentId: activeChannel.id,
+          },
+        }),
+      })
+
+      if (!response.ok) {
+        const body = await response.json().catch(() => ({}))
+        throw new Error(String(body?.error || `HTTP ${response.status}`))
+      }
+
       setMessages((prev) => [
         ...prev,
         {
-          id: `system-not-open-${Date.now()}`,
+          id: `system-sent-${Date.now()}`,
           author: "system",
           role: "system",
-          content: "Bridge is not connected. Start auraflow-bridge and reconnect.",
+          content: `Message forwarded to bridge for route ${routeKey}.`,
           time: nowLabel(),
         },
       ])
-      setInput("")
-      return
+    } catch (error) {
+      setMessages((prev) => [
+        ...prev,
+        {
+          id: `system-send-error-${Date.now()}`,
+          author: "system",
+          role: "system",
+          content: `Failed to send to bridge webhook: ${error instanceof Error ? error.message : "unknown error"}`,
+          time: nowLabel(),
+        },
+      ])
+    } finally {
+      setSending(false)
     }
-
-    ws.send(
-      JSON.stringify({
-        type: "message",
-        senderId: user?.id || "guest",
-        chatId,
-        serverId: activeServer.id,
-        channelId: activeChannel.id,
-        content,
-        requestId: `req-${Date.now()}`,
-      }),
-    )
-    setInput("")
   }
 
   if (loading) {
@@ -303,7 +251,9 @@ export default function DashboardPage() {
             </div>
             <div className="flex items-center gap-2">
               <span className={`h-2 w-2 rounded-full ${connected ? "af-dot-online" : "af-dot-offline"}`} />
-              <span className="hidden md:inline text-xs text-zinc-300">{connected ? "bridge online" : "bridge offline"}</span>
+              <span className="hidden md:inline text-xs text-zinc-300">
+                {connected ? "bridge backend online" : "bridge backend offline"}
+              </span>
               <Button
                 variant="outline"
                 className="border-white/30 text-white bg-transparent af-outline-hover"
@@ -349,9 +299,10 @@ export default function DashboardPage() {
               />
               <button
                 type="submit"
-                className="h-8 w-8 rounded-md af-btn-primary flex items-center justify-center transition-colors"
+                className="h-8 w-8 rounded-md af-btn-primary flex items-center justify-center transition-colors disabled:opacity-50"
+                disabled={sending}
               >
-                <Send className="h-4 w-4" />
+                {sending ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
               </button>
             </div>
           </form>
