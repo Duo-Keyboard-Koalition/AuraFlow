@@ -1,97 +1,34 @@
-# AuraFlow 🌊
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-> **Multi-agent creative platform** — AI-powered generation for images, video, audio, and text. The website is just one frontend service.
+## Getting Started
 
-## Vision
-
-AuraFlow is a distributed system of specialized AI agents that handle creative generation at scale. Each agent is a standalone service. They communicate through a shared queue, store metadata in a central database, and save generated content to object storage.
-
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                         CLIENTS                                 │
-│   [ Web App ]   [ Mobile ]   [ API ]   [ Discord Bot ]          │
-└──────────────────────┬──────────────────────────────────────────┘
-                       │ REST / WebSocket
-┌──────────────────────▼──────────────────────────────────────────┐
-│                     ORCHESTRATOR                                │
-│   Receives jobs → validates → routes to queue → tracks status   │
-└──────┬───────────┬────────────┬──────────────┬──────────────────┘
-       │           │            │              │
- ┌─────▼──┐  ┌────▼────┐  ┌───▼────┐  ┌─────▼──────┐
- │ Image  │  │  Video  │  │ Agent  │  │   Text     │
- │ Agent  │  │  Agent  │  │ Audio  │  │   Agent    │
- └─────┬──┘  └────┬────┘  └───┬────┘  └─────┬──────┘
-       └──────────┴────────────┴─────────────┘
-                       │ store outputs
-          ┌────────────▼──────────────────┐
-          │       MinIO (S3-compat)       │
-          │  images/ videos/ audio/ text/ │
-          └───────────────────────────────┘
-                       │ write metadata
-          ┌────────────▼──────────────────┐
-          │         PostgreSQL            │
-          │  jobs / content / agents      │
-          └───────────────────────────────┘
-                       │
-          ┌────────────▼──────────────────┐
-          │       Redis + BullMQ          │
-          │  job queue + completion alerts│
-          └───────────────────────────────┘
-```
-
-## Open Source Stack
-
-| Component      | Technology        | Purpose                             |
-|----------------|-------------------|-------------------------------------|
-| Agents         | Python/TypeScript | Specialized AI generation workers   |
-| Web Frontend   | Next.js           | One of many client services         |
-| Database       | PostgreSQL        | Job metadata, content refs, history |
-| Object Storage | MinIO             | S3-compatible store for all content |
-| Queue          | Redis + BullMQ    | Job dispatch + completion events    |
-| Orchestrator   | Node.js/TypeScript| Routes jobs, monitors agents        |
-
-## Quick Start
+First, run the development server:
 
 ```bash
-# Start the full stack
-docker compose up -d
-
-# Submit a generation job
-curl -X POST http://localhost:3001/jobs \
-  -H "Content-Type: application/json" \
-  -d '{"type": "image", "prompt": "a forest at dusk, cinematic"}'
-
-# Check job status
-curl http://localhost:3001/jobs/<job-id>
+npm run dev
+# or
+yarn dev
+# or
+bun dev
 ```
 
-## Repo Structure
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-```
-AuraFlow/
-├── agents/
-│   ├── orchestrator/     # Routes jobs, monitors queue
-│   ├── image-agent/      # Image generation (Stable Diffusion / ComfyUI)
-│   ├── video-agent/      # Video generation (CogVideoX, Wan)
-│   ├── audio-agent/      # Audio/music generation (MusicGen)
-│   └── text-agent/       # Text, captions, prompts
-├── apps/
-│   └── web/              # Next.js frontend (one of many clients)
-├── infra/
-│   ├── postgres/         # DB schema + migrations
-│   ├── minio/            # Object storage config
-│   ├── queue/            # Redis + BullMQ config
-│   └── jobs/             # Job tracker REST API
-├── legacy/
-│   └── scorpion/         # Migrated from scorpion (decommissioned)
-└── docker-compose.yml    # Full stack
-```
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-## Contributing
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-All open source. All agents are pluggable — build your own and connect it to the queue.
+## Learn More
 
-See [ARCHITECTURE.md](./ARCHITECTURE.md) for deep dive.
+To learn more about Next.js, take a look at the following resources:
 
----
-*Part of the [Dark Forge](https://github.com/Duo-Keyboard-Koalition) collective.*
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
