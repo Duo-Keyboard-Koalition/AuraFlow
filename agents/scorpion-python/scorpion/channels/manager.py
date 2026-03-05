@@ -215,6 +215,23 @@ class ChannelManager:
             except ImportError as e:
                 logger.warning("Slack channel not available: {}", e)
 
+        # AuraFlow bridge channel
+        if self.config.channels.auraflow.enabled:
+            try:
+                from scorpion.channels.auraflow import AuraFlowChannel
+
+                self.channels["auraflow"] = AuraFlowChannel(
+                    self.config.channels.auraflow,
+                    self.bus,
+                )
+                logger.info(
+                    "AuraFlow channel enabled on {}:{}",
+                    self.config.channels.auraflow.host,
+                    self.config.channels.auraflow.port,
+                )
+            except ImportError as e:
+                logger.warning("AuraFlow channel not available: {}", e)
+
 
 
     async def _start_channel(self, name: str, channel: BaseChannel) -> None:

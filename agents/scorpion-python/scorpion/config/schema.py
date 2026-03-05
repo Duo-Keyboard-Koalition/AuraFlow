@@ -101,6 +101,16 @@ class SlackConfig(Base):
     dm: SlackDMConfig = Field(default_factory=SlackDMConfig)
 
 
+class AuraFlowConfig(Base):
+    """AuraFlow bridge channel configuration."""
+
+    enabled: bool = False
+    host: str = "127.0.0.1"
+    port: int = 8765
+    token: str = ""
+    allow_from: list[str] = Field(default_factory=list)
+
+
 class ChannelsConfig(Base):
     """Configuration for chat channels."""
 
@@ -109,6 +119,7 @@ class ChannelsConfig(Base):
     telegram: TelegramConfig = Field(default_factory=TelegramConfig)
     email: EmailConfig = Field(default_factory=EmailConfig)
     slack: SlackConfig = Field(default_factory=SlackConfig)
+    auraflow: AuraFlowConfig = Field(default_factory=AuraFlowConfig)
 
 
 class AgentDefaults(Base):
