@@ -38,8 +38,8 @@ const servers: Server[] = [
   },
 ]
 
-const wsUrl = process.env.NEXT_PUBLIC_SCORPION_WS_URL || "ws://127.0.0.1:8765"
-const wsToken = process.env.NEXT_PUBLIC_SCORPION_BRIDGE_TOKEN || ""
+const wsUrl = process.env.NEXT_PUBLIC_AURAFLOW_BRIDGE_WS_URL || "ws://127.0.0.1:8765"
+const wsToken = process.env.NEXT_PUBLIC_AURAFLOW_BRIDGE_TOKEN || ""
 
 function nowLabel() {
   return new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })
@@ -58,7 +58,7 @@ export default function DashboardPage() {
       id: "system-init",
       author: "system",
       role: "system",
-      content: "Connect scorpion gateway, then send a message here to test live bridge replies.",
+      content: "Connect auraflow-bridge, then send a message here to test live bot replies.",
       time: nowLabel(),
     },
   ])
@@ -96,7 +96,7 @@ export default function DashboardPage() {
           id: `system-connected-${Date.now()}`,
           author: "system",
           role: "system",
-          content: `Connected to scorpion bridge at ${wsUrl}`,
+          content: `Connected to auraflow-bridge at ${wsUrl}`,
           time: nowLabel(),
         },
       ])
@@ -110,7 +110,7 @@ export default function DashboardPage() {
             ...prev,
             {
               id: `agent-${Date.now()}`,
-              author: "scorpion",
+              author: payload.author || "agent",
               role: "agent",
               content: String(payload.content || ""),
               time: nowLabel(),
@@ -166,7 +166,7 @@ export default function DashboardPage() {
           id: `system-ws-error-${Date.now()}`,
           author: "system",
           role: "system",
-          content: "Failed to connect to scorpion bridge.",
+          content: "Failed to connect to auraflow-bridge.",
           time: nowLabel(),
         },
       ])
@@ -202,7 +202,7 @@ export default function DashboardPage() {
           id: `system-not-open-${Date.now()}`,
           author: "system",
           role: "system",
-          content: "Bridge is not connected. Start scorpion gateway with AuraFlow channel enabled.",
+          content: "Bridge is not connected. Start auraflow-bridge and reconnect.",
           time: nowLabel(),
         },
       ])
@@ -303,7 +303,7 @@ export default function DashboardPage() {
             </div>
             <div className="flex items-center gap-2">
               <span className={`h-2 w-2 rounded-full ${connected ? "bg-purple-300" : "bg-purple-700"}`} />
-              <span className="hidden md:inline text-xs text-zinc-300">{connected ? "scorpion online" : "scorpion offline"}</span>
+              <span className="hidden md:inline text-xs text-zinc-300">{connected ? "bridge online" : "bridge offline"}</span>
               <Button
                 variant="outline"
                 className="border-white/30 text-white bg-transparent hover:bg-purple-600 hover:text-white"
