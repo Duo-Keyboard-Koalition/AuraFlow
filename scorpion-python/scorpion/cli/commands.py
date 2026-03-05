@@ -233,7 +233,7 @@ def gateway(
     """Start the scorpion gateway."""
     from scorpion.config.loader import load_config, get_data_dir
     from scorpion.bus.queue import MessageBus
-    from scorpion.adk.loop import AdkAgentLoop
+    from scorpion.agent.loop import AdkAgentLoop
     from scorpion.channels.manager import ChannelManager
     from scorpion.session.manager import SessionManager
     from scorpion.cron.service import CronService
@@ -398,7 +398,7 @@ def agent(
     """Interact with the agent directly."""
     from scorpion.config.loader import load_config, get_data_dir
     from scorpion.bus.queue import MessageBus
-    from scorpion.adk.loop import AdkAgentLoop
+    from scorpion.agent.loop import AdkAgentLoop
     from scorpion.cron.service import CronService
     from loguru import logger
 
@@ -786,7 +786,7 @@ def cron_run(
     from scorpion.cron.service import CronService
     from scorpion.cron.types import CronJob
     from scorpion.bus.queue import MessageBus
-    from scorpion.adk.loop import AdkAgentLoop
+    from scorpion.agent.loop import AdkAgentLoop
     logger.disable("scorpion")
 
     config = load_config()

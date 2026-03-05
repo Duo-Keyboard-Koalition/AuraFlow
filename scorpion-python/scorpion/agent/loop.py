@@ -33,7 +33,7 @@ if TYPE_CHECKING:
     from scorpion.cron.service import CronService
 
 
-class AgentLoop:
+class AdkAgentLoop:
     """
     The agent loop is the core processing engine.
 
