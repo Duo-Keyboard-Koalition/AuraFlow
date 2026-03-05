@@ -24,7 +24,6 @@ export default function AuthPage() {
   const [signUpPassword, setSignUpPassword] = useState("")
   const [signUpFirstName, setSignUpFirstName] = useState("")
   const [signUpLastName, setSignUpLastName] = useState("")
-  const [signUpAccountType, setSignUpAccountType] = useState<"brand" | "influencer">("brand")
 
   const handleSignIn = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -46,7 +45,7 @@ export default function AuthPage() {
     setError("")
     setIsLoading(true)
 
-    const result = await signUp(signUpEmail, signUpPassword, signUpFirstName, signUpLastName, signUpAccountType)
+    const result = await signUp(signUpEmail, signUpPassword, signUpFirstName, signUpLastName, "influencer")
 
     if (result.success) {
       router.push("/dashboard")
@@ -60,15 +59,15 @@ export default function AuthPage() {
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-black to-gray-900 px-4">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-white">AuraSight</h1>
-          <p className="text-gray-400 mt-2">Vibe-Based Influencer Matching</p>
+          <h1 className="text-4xl font-bold text-white">Influencer Workspace</h1>
+          <p className="text-gray-400 mt-2">Create your profile, run agents, and grow your campaigns</p>
         </div>
 
         <Card className="bg-gray-800 border-gray-700">
           <CardHeader>
             <CardTitle className="text-white">Welcome</CardTitle>
             <CardDescription className="text-gray-400">
-              Sign in to your account or create a new one
+              Sign in or create your influencer account
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -116,7 +115,6 @@ export default function AuthPage() {
                   </Button>
                   <div className="mt-4 p-3 bg-gray-700 rounded text-xs text-gray-300">
                     <p className="font-semibold mb-1">Demo Credentials:</p>
-                    <p>Brand: brand@example.com / password123</p>
                     <p>Influencer: influencer@example.com / password123</p>
                   </div>
                 </form>
@@ -171,27 +169,6 @@ export default function AuthPage() {
                       className="bg-gray-700 border-gray-600 text-white"
                       required
                     />
-                  </div>
-                  <div>
-                    <Label className="text-white">I am a</Label>
-                    <div className="grid grid-cols-2 gap-2 mt-2">
-                      <Button
-                        type="button"
-                        variant={signUpAccountType === "brand" ? "default" : "outline"}
-                        className={signUpAccountType === "brand" ? "bg-purple-600 hover:bg-purple-700" : "border-gray-600 text-white hover:bg-gray-700"}
-                        onClick={() => setSignUpAccountType("brand")}
-                      >
-                        Brand
-                      </Button>
-                      <Button
-                        type="button"
-                        variant={signUpAccountType === "influencer" ? "default" : "outline"}
-                        className={signUpAccountType === "influencer" ? "bg-purple-600 hover:bg-purple-700" : "border-gray-600 text-white hover:bg-gray-700"}
-                        onClick={() => setSignUpAccountType("influencer")}
-                      >
-                        Influencer
-                      </Button>
-                    </div>
                   </div>
                   {error && (
                     <p className="text-red-400 text-sm">{error}</p>

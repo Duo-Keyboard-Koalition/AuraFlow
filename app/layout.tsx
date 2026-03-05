@@ -7,8 +7,8 @@ import "./globals.css"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "AuraSight - Vibe-Based Influencer Matching",
-  description: "AuraSight connects brands and influencers through authentic vibe and aura alignment.",
+  title: "Influencer Workspace",
+  description: "Influencer-first workspace powered by specialized agents.",
 }
 
 export default function RootLayout({
