@@ -16,12 +16,6 @@ interface AuraContextType {
     reach: string
     topVibe: string
   }
-  sidebar: {
-    leftCollapsed: boolean
-    rightCollapsed: boolean
-    toggleLeft: () => void
-    toggleRight: () => void
-  }
   refreshAll: () => Promise<void>
 }
 
@@ -42,12 +36,6 @@ export function AuraProvider({ children }: { children: React.ReactNode }) {
     reach: "24.8k",
     topVibe: "Cyber-Neo"
   })
-
-  const [leftCollapsed, setLeftCollapsed] = useState(false)
-  const [rightCollapsed, setRightCollapsed] = useState(false)
-
-  const toggleLeft = () => setLeftCollapsed(prev => !prev)
-  const toggleRight = () => setRightCollapsed(prev => !prev)
 
   const refreshAll = useCallback(async () => {
     try {
@@ -72,12 +60,6 @@ export function AuraProvider({ children }: { children: React.ReactNode }) {
       suggestions,
       networkStatus,
       engagement,
-      sidebar: {
-        leftCollapsed,
-        rightCollapsed,
-        toggleLeft,
-        toggleRight
-      },
       refreshAll
     }}>
       {children}
