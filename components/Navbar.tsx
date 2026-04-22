@@ -32,10 +32,10 @@ export default function Navbar() {
         <nav className="flex-1 flex justify-center items-center gap-1 sm:gap-2 px-4">
           <NavIcon href="/home" icon={<Home className="h-5 w-5" />} active={pathname === '/home'} />
           <NavIcon href="/feed" icon={<Hash className="h-5 w-5" />} active={pathname === '/feed'} />
-          <NavIcon href="#" icon={<Bell className="h-5 w-5" />} />
-          <NavIcon href="#" icon={<Mail className="h-5 w-5" />} />
-          <NavIcon href="#" icon={<Bookmark className="h-5 w-5" />} />
-          <NavIcon href="#" icon={<List className="h-5 w-5" />} />
+          <NavIcon href="/notifications" icon={<Bell className="h-5 w-5" />} active={pathname === '/notifications'} />
+          <NavIcon href="/messages" icon={<Mail className="h-5 w-5" />} active={pathname === '/messages'} />
+          <NavIcon href="/bookmarks" icon={<Bookmark className="h-5 w-5" />} active={pathname === '/bookmarks'} />
+          <NavIcon href="/lists" icon={<List className="h-5 w-5" />} active={pathname === '/lists'} />
         </nav>
       )}
       

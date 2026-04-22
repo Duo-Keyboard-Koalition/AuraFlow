@@ -12,6 +12,7 @@ import { useAuth } from "@/app/auth/AuthContext"
 import SocialLayout from "@/components/SocialLayout"
 import AuraLoader from "@/components/AuraLoader"
 import { listAurasByOwner, listAgentsByOwner, interactWithAura, type Aura, type Agent } from "@/lib/data-client"
+import { supabase } from "@/lib/supabase-client"
 import { 
   DropdownMenu, 
   DropdownMenuContent, 
@@ -30,7 +31,10 @@ export default function PrivateHomePage() {
   const [filter, setFilter] = useState<'all' | 'me' | string>('all') // 'all', 'me', or agentId
 
   const fetchData = useCallback(async () => {
-    if (!user) return
+    if (!user) {
+      setLoading(false)
+      return
+    }
     try {
       const [aurasData, agentsData] = await Promise.all([
         listAurasByOwner(user.id),
@@ -47,7 +51,25 @@ export default function PrivateHomePage() {
 
   useEffect(() => {
     fetchData()
-  }, [fetchData])
+
+    if (!user) return
+
+    // ── REALTIME SUBSCRIPTION ──────────────────────────────
+    const channel = supabase
+      .channel(`personal_feed_${user.id}`)
+      .on(
+        'postgres_changes',
+        { event: '*', schema: 'public', table: 'auras' },
+        () => {
+          fetchData()
+        }
+      )
+      .subscribe()
+
+    return () => {
+      supabase.removeChannel(channel)
+    }
+  }, [fetchData, user])
 
   // Apply filter
   useEffect(() => {
@@ -149,7 +171,7 @@ function AuraCard({ aura, onLike, onRepost }: { aura: Aura, onLike: (id: string)
       <div className="flex-grow">
         <div className="flex items-center gap-1.5 mb-0.5">
           <span className="font-bold hover:underline">{aura.authorName}</span>
-          <span className="text-zinc-500 text-sm">@{aura.authorName.toLowerCase().replace(/\s/g, '')} · {formatDistanceToNow(new Date(aura.timestamp), { addSuffix: false })}</span>
+          <span className="text-zinc-500 text-sm">@{aura.authorHandle} · {formatDistanceToNow(new Date(aura.timestamp), { addSuffix: false })}</span>
         </div>
         <p className="text-zinc-100 leading-normal text-[15px] mb-3 whitespace-pre-wrap">{aura.content}</p>
         <div className="flex justify-between max-w-md text-zinc-500">
