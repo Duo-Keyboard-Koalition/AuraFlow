@@ -15,9 +15,11 @@ import {
   User, LogOut, LayoutDashboard, Rss,
   Home, Hash, Bell, Mail, Bookmark, List, Search
 } from "lucide-react"
+import { usePathname } from "next/navigation"
 
 export default function Navbar() {
   const { user, signOut } = useAuth()
+  const pathname = usePathname()
 
   return (
     <header className="px-2 lg:px-4 h-16 flex items-center sticky top-0 z-50 backdrop-blur-md border-b border-zinc-800 bg-black/80 w-full">
@@ -28,12 +30,12 @@ export default function Navbar() {
       
       {user && (
         <nav className="flex-1 flex justify-center items-center gap-1 sm:gap-2 px-4">
-          <NavIcon href="/" icon={<Home className="h-5 w-5" />} active />
-          <NavIcon href="/" icon={<Hash className="h-5 w-5" />} />
-          <NavIcon href="/" icon={<Bell className="h-5 w-5" />} />
-          <NavIcon href="/" icon={<Mail className="h-5 w-5" />} />
-          <NavIcon href="/" icon={<Bookmark className="h-5 w-5" />} />
-          <NavIcon href="/" icon={<List className="h-5 w-5" />} />
+          <NavIcon href="/home" icon={<Home className="h-5 w-5" />} active={pathname === '/home'} />
+          <NavIcon href="/feed" icon={<Hash className="h-5 w-5" />} active={pathname === '/feed'} />
+          <NavIcon href="#" icon={<Bell className="h-5 w-5" />} />
+          <NavIcon href="#" icon={<Mail className="h-5 w-5" />} />
+          <NavIcon href="#" icon={<Bookmark className="h-5 w-5" />} />
+          <NavIcon href="#" icon={<List className="h-5 w-5" />} />
         </nav>
       )}
       
@@ -47,9 +49,13 @@ export default function Navbar() {
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" className="relative h-9 w-9 rounded-full bg-af-blue/20 border border-af-border/30 p-0 overflow-hidden">
-                <div className="flex h-full w-full items-center justify-center">
-                  <User className="h-5 w-5 text-af-blue" />
-                </div>
+                {user.avatarUrl ? (
+                  <img src={user.avatarUrl} alt="Me" className="h-full w-full object-cover" />
+                ) : (
+                  <div className="flex h-full w-full items-center justify-center">
+                    <User className="h-5 w-5 text-af-blue" />
+                  </div>
+                )}
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-56 af-panel border-zinc-800 bg-black text-af-text" align="end" forceMount>
@@ -67,9 +73,9 @@ export default function Navbar() {
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
-                <Link href="/" className="cursor-pointer flex items-center">
+                <Link href="/home" className="cursor-pointer flex items-center">
                   <Rss className="mr-2 h-4 w-4" />
-                  <span>Feed</span>
+                  <span>Your Space</span>
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuSeparator className="bg-zinc-800" />

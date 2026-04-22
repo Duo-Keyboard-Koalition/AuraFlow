@@ -1,9 +1,10 @@
--- AuraFlow Supabase Schema (Real Auth Model)
+-- AuraFlow Supabase Schema (Unified Model)
 
--- 1. User Profiles (Linked to real auth.users)
+-- 1. User Profiles
 CREATE TABLE profiles (
   id           UUID PRIMARY KEY REFERENCES auth.users ON DELETE CASCADE,
   email        TEXT NOT NULL,
+  handle       TEXT UNIQUE,
   first_name   TEXT,
   last_name    TEXT,
   account_type TEXT CHECK (account_type IN ('brand', 'influencer')),
@@ -18,6 +19,7 @@ CREATE TABLE profiles (
 CREATE TABLE agents (
   id          UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   owner_id    UUID NOT NULL REFERENCES profiles(id) ON DELETE CASCADE,
+  handle      TEXT UNIQUE NOT NULL,
   name        TEXT NOT NULL,
   public_key  TEXT NOT NULL UNIQUE,
   vibe        TEXT DEFAULT 'neutral',
@@ -63,31 +65,55 @@ VALUES
   ('jobs', 'jobs', false, 104857600, NULL)
 ON CONFLICT (id) DO NOTHING;
 
--- 6. Strict RLS Storage Policies
-DO $$
-BEGIN
-  DROP POLICY IF EXISTS "Public Read Access" ON storage.objects;
-  DROP POLICY IF EXISTS "Authenticated Upload" ON storage.objects;
-  DROP POLICY IF EXISTS "Owner Resource Management" ON storage.objects;
-  
-  CREATE POLICY "Public Read Access" ON storage.objects FOR SELECT 
-  USING (bucket_id IN ('avatars', 'content'));
+-- 6. RLS Setup
+ALTER TABLE profiles ENABLE ROW LEVEL SECURITY;
+ALTER TABLE agents ENABLE ROW LEVEL SECURITY;
+ALTER TABLE auras ENABLE ROW LEVEL SECURITY;
+ALTER TABLE interactions ENABLE ROW LEVEL SECURITY;
 
-  CREATE POLICY "Authenticated Upload" ON storage.objects FOR INSERT 
-  TO authenticated
-  WITH CHECK (bucket_id IN ('avatars', 'content', 'jobs'));
+-- 7. Table Policies
+CREATE POLICY "Public Profiles" ON profiles FOR SELECT USING (true);
+CREATE POLICY "Owner Profile Update" ON profiles FOR UPDATE USING (auth.uid() = id);
 
-  CREATE POLICY "Owner Resource Management" ON storage.objects FOR ALL
-  TO authenticated
-  USING (auth.uid()::text = (storage.foldername(name))[1]);
-END $$;
+CREATE POLICY "Public Agents" ON agents FOR SELECT USING (true);
+CREATE POLICY "Owner Agent Manage" ON agents FOR ALL USING (auth.uid() = owner_id);
 
--- 7. Automatic Profile Creation Trigger
+CREATE POLICY "Public Auras" ON auras FOR SELECT USING (true);
+CREATE POLICY "Auth User Insert Aura" ON auras FOR INSERT TO authenticated WITH CHECK (
+  (author_user_id = auth.uid()) OR 
+  (author_agent_id IN (SELECT id FROM agents WHERE owner_id = auth.uid()))
+);
+
+CREATE POLICY "Public Interactions" ON interactions FOR SELECT USING (true);
+CREATE POLICY "Auth User Manage Interaction" ON interactions FOR ALL TO authenticated USING (
+  (actor_user_id = auth.uid()) OR 
+  (actor_agent_id IN (SELECT id FROM agents WHERE owner_id = auth.uid()))
+);
+
+-- 8. Storage Policies
+CREATE POLICY "Public Read Access" ON storage.objects FOR SELECT USING (bucket_id IN ('avatars', 'content'));
+CREATE POLICY "Authenticated Upload" ON storage.objects FOR INSERT TO authenticated WITH CHECK (bucket_id IN ('avatars', 'content', 'jobs'));
+CREATE POLICY "Owner Management" ON storage.objects FOR ALL TO authenticated USING (auth.uid()::text = (storage.foldername(name))[1]);
+
+-- 9. Automatic Profile Creation Trigger
 CREATE OR REPLACE FUNCTION public.handle_new_user()
 RETURNS trigger AS $$
+DECLARE
+  base_handle TEXT;
+  final_handle TEXT;
+  counter INTEGER := 0;
 BEGIN
-  INSERT INTO public.profiles (id, email, first_name)
-  VALUES (new.id, new.email, split_part(new.email, '@', 1));
+  base_handle := split_part(new.email, '@', 1);
+  final_handle := base_handle;
+  
+  -- Handle potential handle collisions
+  WHILE EXISTS (SELECT 1 FROM public.profiles WHERE handle = final_handle) LOOP
+    counter := counter + 1;
+    final_handle := base_handle || counter::TEXT;
+  END LOOP;
+
+  INSERT INTO public.profiles (id, email, first_name, handle)
+  VALUES (new.id, new.email, base_handle, final_handle);
   RETURN new;
 END;
 $$ LANGUAGE plpgsql SECURITY DEFINER;

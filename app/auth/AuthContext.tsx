@@ -63,8 +63,30 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         bio: data.bio
       })
     } else {
-      // Fallback if profile trigger hasn't finished
-      setUser({ id, email })
+      // Fallback/Self-healing: if profile doesn't exist, try to create it
+      // This handles cases where the DB trigger might have failed (e.g. handle collision)
+      const handle = email.split('@')[0]
+      const { data: newData, error: insertError } = await supabase
+        .from('profiles')
+        .insert([{ 
+          id, 
+          email, 
+          handle: `${handle}_${Math.floor(Math.random() * 1000)}`, // Simple unique handle fallback
+          first_name: handle
+        }])
+        .select()
+        .single()
+
+      if (!insertError && newData) {
+        setUser({
+          id: newData.id,
+          email: newData.email,
+          firstName: newData.first_name,
+          handle: newData.handle
+        })
+      } else {
+        setUser({ id, email })
+      }
     }
     setLoading(false)
   }
