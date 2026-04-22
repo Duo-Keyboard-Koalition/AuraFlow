@@ -60,10 +60,12 @@ export default function DashboardPage() {
       // Split display name back into first/last for the DB
       const [first, ...rest] = displayName.split(" ")
       const last = rest.join(" ")
+      const newHandle = displayName.toLowerCase().replace(/\s+/g, '_')
 
       await updateUserProfile(user.id, {
         firstName: first,
         lastName: last,
+        handle: newHandle,
         bio: bio
       })
       
@@ -163,13 +165,11 @@ export default function DashboardPage() {
                     <div className="flex items-center gap-1.5 py-1">
                       <span className="text-af-cyan font-bold text-lg">@</span>
                       <span className="text-zinc-100 font-bold text-lg tracking-tight">
-                        {user?.handle || displayName.toLowerCase().replace(/\s+/g, '_') || 'user'}
+                        {displayName.toLowerCase().replace(/\s+/g, '_') || 'user'}
                       </span>
                     </div>
                     <p className="text-[10px] text-zinc-600 italic">
-                      {user?.handle 
-                        ? "This is your permanent network bridge identifier." 
-                        : "Generated in real-time from your display name."}
+                      This identifier is automatically synchronized with your display name.
                     </p>
                   </div>
                 </div>
