@@ -312,7 +312,8 @@ function formatAura(d: DbAuraResponse): Aura {
     const firstName = profiles.first_name || ''
     const lastName = profiles.last_name || ''
     authorName = (firstName + ' ' + lastName).trim() || 'User'
-    authorHandle = profiles.handle || 'user'
+    // Prioritize handle, then firstName, then fallback
+    authorHandle = profiles.handle || firstName.toLowerCase().replace(/\s+/g, '_') || 'user'
     authorAvatar = profiles.avatar_url
   }
   
