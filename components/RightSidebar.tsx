@@ -12,7 +12,7 @@ export default function RightSidebar() {
   }, [])
 
   return (
-    <aside className="hidden lg:flex flex-col w-full h-full py-4 gap-6 px-4 bg-black overflow-y-auto">
+    <aside className="hidden lg:flex flex-col w-full h-full py-4 gap-6 px-4 overflow-y-auto">
       <div className="bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 shadow-xl">
         <h3 className="px-4 py-4 text-lg font-bold border-b border-zinc-800">Who to follow</h3>
         <div className="divide-y divide-zinc-800">

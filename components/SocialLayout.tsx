@@ -9,7 +9,7 @@ export default function SocialLayout({ children }: { children: React.ReactNode }
   const [rightCollapsed, setRightCollapsed] = useState(false)
 
   return (
-    <div className="flex min-h-screen bg-black text-white w-full overflow-x-hidden">
+    <div className="flex w-full overflow-x-hidden">
       {/* Left Sidebar Toggle */}
       <button 
         onClick={() => setLeftCollapsed(!leftCollapsed)}
