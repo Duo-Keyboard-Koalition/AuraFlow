@@ -2,6 +2,7 @@
 
 import React from "react"
 import Navbar from "./Navbar"
+import { AuraProvider } from "@/app/context/AuraContext"
 
 /**
  * AuraShell is the single source of truth for the application's global layout structure.
@@ -14,7 +15,8 @@ export default function AuraShell({ children }: { children: React.ReactNode }) {
   const NAVBAR_HEIGHT = "64px" // h-16 equivalent
 
   return (
-    <div className="relative flex flex-col min-h-screen af-shell overflow-x-hidden">
+    <AuraProvider>
+      <div className="relative flex flex-col min-h-screen af-shell overflow-x-hidden">
       {/* Global Background Aesthetics */}
       <div className="fixed top-0 left-0 w-full h-full af-bg-overlay pointer-events-none" />
       <div className="fixed top-0 left-0 w-full h-[50vh] af-top-glow pointer-events-none" />
@@ -38,5 +40,6 @@ export default function AuraShell({ children }: { children: React.ReactNode }) {
         {children}
       </main>
     </div>
+    </AuraProvider>
   )
 }

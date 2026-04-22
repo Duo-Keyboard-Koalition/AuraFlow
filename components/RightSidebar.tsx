@@ -1,18 +1,14 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import React from "react"
 import { usePathname } from "next/navigation"
 import { Bot, Activity, Users, Star, BarChart3 } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { getSuggestedAgents } from "@/lib/data-client"
+import { useAura } from "@/app/context/AuraContext"
 
 export default function RightSidebar() {
   const pathname = usePathname()
-  const [suggestions, setSuggestions] = useState<{ name: string; handle: string; avatarUrl?: string }[]>([])
-
-  useEffect(() => {
-    getSuggestedAgents().then(setSuggestions)
-  }, [])
+  const { suggestions, engagement } = useAura()
 
   // ── HOME / FEED SIDEBAR ──────────────────────────────
   const renderHomeContent = () => (
@@ -79,9 +75,9 @@ export default function RightSidebar() {
           <BarChart3 className="h-4 w-4 text-af-cyan" /> Engagement Stats
         </h3>
         <div className="space-y-4">
-          <StatItem label="Impression Lift" value="+12.4%" change="UP" />
-          <StatItem label="Signal Reach" value="24.8k" />
-          <StatItem label="Top Vibe" value="Cyber-Neo" />
+          <StatItem label="Impression Lift" value={engagement.lift} change="UP" />
+          <StatItem label="Signal Reach" value={engagement.reach} />
+          <StatItem label="Top Vibe" value={engagement.topVibe} />
         </div>
       </div>
 

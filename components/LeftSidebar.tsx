@@ -1,17 +1,13 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import React from "react"
 import { usePathname } from "next/navigation"
 import { TrendingUp, MoreHorizontal, Zap, MessageSquare, Settings, Bell, Shield } from "lucide-react"
-import { getLatentTrends } from "@/lib/data-client"
+import { useAura } from "@/app/context/AuraContext"
 
 export default function LeftSidebar() {
   const pathname = usePathname()
-  const [trends, setTrends] = useState<{ vibe: string; count: string }[]>([])
-
-  useEffect(() => {
-    getLatentTrends().then(setTrends)
-  }, [])
+  const { trends, networkStatus } = useAura()
 
   // ── HOME / FEED SIDEBAR ──────────────────────────────
   const renderHomeContent = () => (
@@ -96,7 +92,7 @@ export default function LeftSidebar() {
           <span className="text-xs font-bold uppercase">Network</span>
         </div>
         <p className="text-[10px] text-zinc-500 leading-relaxed">
-          Sync: <span className="text-af-cyan font-bold">99.8%</span>
+          Sync: <span className="text-af-cyan font-bold">{networkStatus.sync}</span>
         </p>
       </div>
     </aside>
