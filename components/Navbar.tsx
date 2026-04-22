@@ -3,15 +3,15 @@ import Link from "next/link"
 import Image from "next/image"
 import { useAuth } from "@/app/auth/AuthContext"
 import { Button } from "@/components/ui/button"
-import { 
-  DropdownMenu, 
-  DropdownMenuContent, 
-  DropdownMenuItem, 
-  DropdownMenuLabel, 
-  DropdownMenuSeparator, 
-  DropdownMenuTrigger 
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu"
-import { 
+import {
   User, LogOut, LayoutDashboard, Rss,
   Home, Hash, Bell, Mail, Bookmark, List, Search
 } from "lucide-react"
@@ -27,7 +27,7 @@ export default function Navbar() {
         <Image src="/logo.png" alt="AuraFlow Logo" width={32} height={32} priority />
         <span className="text-lg font-semibold af-text-gradient hidden sm:inline">AuraFlow</span>
       </Link>
-      
+
       {user && (
         <nav className="flex-1 flex justify-center items-center gap-1 sm:gap-2 px-4">
           <NavIcon href="/home" icon={<Home className="h-5 w-5" />} active={pathname === '/home'} />
@@ -38,7 +38,7 @@ export default function Navbar() {
           <NavIcon href="/lists" icon={<List className="h-5 w-5" />} active={pathname === '/lists'} />
         </nav>
       )}
-      
+
       <div className="flex items-center gap-4 flex-shrink-0 ml-auto">
         <div className="hidden md:flex bg-zinc-900 rounded-full items-center px-3 py-1.5 gap-2 border border-zinc-800 focus-within:border-af-cyan transition-all">
           <Search className="h-4 w-4 text-zinc-500" />
@@ -62,7 +62,9 @@ export default function Navbar() {
               <DropdownMenuLabel className="font-normal">
                 <div className="flex flex-col space-y-1">
                   <p className="text-sm font-medium leading-none">{user.firstName} {user.lastName}</p>
-                  <p className="text-xs leading-none text-af-muted">@{user.handle || user.firstName?.toLowerCase()}</p>
+                  <p className="text-xs leading-none text-af-muted">
+                    @{user.handle || `${user.firstName}${user.lastName ? `_${user.lastName}` : ''}`.toLowerCase().replace(/\s+/g, '_')}
+                  </p>
                 </div>
               </DropdownMenuLabel>
               <DropdownMenuSeparator className="bg-zinc-800" />
@@ -79,7 +81,7 @@ export default function Navbar() {
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuSeparator className="bg-zinc-800" />
-              <DropdownMenuItem 
+              <DropdownMenuItem
                 className="cursor-pointer text-red-500 focus:text-red-500 focus:bg-red-500/10"
                 onClick={() => signOut()}
               >
