@@ -24,12 +24,16 @@ export default function AuraShell({ children }: { children: React.ReactNode }) {
       
       {/* 
         The Global Content Container 
-        - h-[calc(100vh-NAVBAR_HEIGHT)]: This dictates the viewport spacing.
-        - overflow-hidden: Prevents body scroll, handing scroll control to child layouts/pages.
+        - marginTop: Dictates the global spacing from the navbar.
+        - height: Adjusted to fill the remaining viewport height.
+        - overflow-hidden: Handled at this level, but sub-layouts can overflow-y-auto.
       */}
       <main 
         className="relative z-10 flex-grow overflow-hidden"
-        style={{ height: `calc(100vh - ${NAVBAR_HEIGHT})` }}
+        style={{ 
+          marginTop: NAVBAR_HEIGHT,
+          height: `calc(100vh - ${NAVBAR_HEIGHT})` 
+        }}
       >
         {children}
       </main>
