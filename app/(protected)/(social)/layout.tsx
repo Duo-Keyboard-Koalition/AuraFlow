@@ -11,22 +11,24 @@ export default function SocialRootLayout({ children }: { children: React.ReactNo
 
   return (
     <div className="flex w-full h-full overflow-hidden">
-      {/* Left Sidebar Toggle */}
+      {/* Left Sidebar Toggle - Fixed at the top below Navbar */}
       <button 
         onClick={() => setLeftCollapsed(!leftCollapsed)}
-        className="fixed bottom-6 left-6 z-[60] p-3 rounded-full bg-af-cyan/10 border border-af-cyan/20 text-af-cyan backdrop-blur-md hover:bg-af-cyan/20 transition-all shadow-lg hidden md:flex"
-        title={leftCollapsed ? "Expand Trends" : "Collapse Trends"}
+        className={`fixed top-[74px] z-[60] p-2.5 rounded-r-xl bg-black/40 border border-l-0 border-zinc-800/50 text-af-cyan backdrop-blur-xl hover:bg-af-cyan/10 transition-all duration-300 shadow-2xl hidden md:flex items-center justify-center ${leftCollapsed ? "left-0" : "left-[288px] md:left-[288px]"}`}
+        style={{ left: leftCollapsed ? "0" : "288px" }}
+        title={leftCollapsed ? "Inflate Trends" : "Deflate Trends"}
       >
-        <PanelLeft className={`h-5 w-5 transition-transform duration-300 ${leftCollapsed ? "rotate-180 opacity-50" : ""}`} />
+        <PanelLeft className={`h-4.5 w-4.5 transition-transform duration-500 ${leftCollapsed ? "rotate-180" : ""}`} />
       </button>
 
-      {/* Right Sidebar Toggle */}
+      {/* Right Sidebar Toggle - Fixed at the top below Navbar */}
       <button 
         onClick={() => setRightCollapsed(!rightCollapsed)}
-        className="fixed bottom-6 right-6 z-[60] p-3 rounded-full bg-af-purple/10 border border-af-purple/20 text-af-purple backdrop-blur-md hover:bg-af-purple/20 transition-all shadow-lg hidden lg:flex"
-        title={rightCollapsed ? "Expand Discovery" : "Collapse Discovery"}
+        className={`fixed top-[74px] z-[60] p-2.5 rounded-l-xl bg-black/40 border border-r-0 border-zinc-800/50 text-af-purple backdrop-blur-xl hover:bg-af-purple/10 transition-all duration-300 shadow-2xl hidden lg:flex items-center justify-center ${rightCollapsed ? "right-0" : "right-[320px]"}`}
+        style={{ right: rightCollapsed ? "0" : "320px" }}
+        title={rightCollapsed ? "Inflate Discovery" : "Deflate Discovery"}
       >
-        <PanelRight className={`h-5 w-5 transition-transform duration-300 ${rightCollapsed ? "-rotate-180 opacity-50" : ""}`} />
+        <PanelRight className={`h-4.5 w-4.5 transition-transform duration-500 ${rightCollapsed ? "-rotate-180" : ""}`} />
       </button>
 
       <div className="flex flex-1 w-full relative items-start h-full">
