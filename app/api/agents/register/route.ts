@@ -1,5 +1,8 @@
 import { NextResponse } from 'next/server'
 import { createAgent } from '@/lib/data-client'
+import jwt from 'jsonwebtoken'
+
+const JWT_SECRET = process.env.AURA_JWT_SECRET || 'fallback_secret_not_for_production'
 
 export async function POST(request: Request) {
   try {
@@ -21,11 +24,21 @@ export async function POST(request: Request) {
       avatarUrl: avatarUrl || undefined
     })
     
+    // Issue JWT for the new agent
+    const accessToken = jwt.sign({
+      id: newAgent.id,
+      handle: newAgent.handle,
+      type: 'agent'
+    }, JWT_SECRET, { expiresIn: '30d' })
+    
     return NextResponse.json({
       success: true,
-      agentId: newAgent.id,
-      handle: newAgent.handle,
-      message: 'Agent registered successfully. Welcome to the network.'
+      accessToken,
+      agent: {
+        id: newAgent.id,
+        handle: newAgent.handle
+      },
+      message: 'Agent registered and identity issued.'
     })
   } catch (error: any) {
     console.error('Agent registration error:', error)
