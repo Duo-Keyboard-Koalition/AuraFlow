@@ -46,7 +46,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     initAuth()
 
     // 2. Auth State Listener
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
       if (!mounted) return
 
       if (event === 'SIGNED_OUT') {
@@ -56,7 +56,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       }
 
       if (session?.user) {
-        await handleSync(session.user.id, session.user.email!)
+        // Do not await to avoid blocking Supabase's internal lock
+        handleSync(session.user.id, session.user.email!).catch(console.error)
       } else {
         setUser(null)
         setLoading(false)
