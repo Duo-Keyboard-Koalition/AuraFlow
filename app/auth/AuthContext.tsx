@@ -35,9 +35,24 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
     // 1. Initial Session Check
     const initAuth = async () => {
+      // getSession only checks local storage, getUser validates the JWT with the server
       const { data: { session } } = await supabase.auth.getSession()
-      if (mounted && session?.user) {
-        await handleSync(session.user.id, session.user.email!)
+      
+      if (session?.user) {
+        const { error } = await supabase.auth.getUser()
+        if (error) {
+          // Invalid or expired JWT
+          await supabase.auth.signOut()
+          if (mounted) {
+            setUser(null)
+            setLoading(false)
+          }
+          return
+        }
+        
+        if (mounted) {
+          await handleSync(session.user.id, session.user.email!)
+        }
       } else if (mounted) {
         setLoading(false)
       }
