@@ -3,7 +3,7 @@
 import { useState } from "react"
 import LeftSidebar from "@/components/LeftSidebar"
 import RightSidebar from "@/components/RightSidebar"
-import { PanelLeft, PanelRight } from "lucide-react"
+import { PanelLeft, PanelRight, ChevronLeft, ChevronRight } from "lucide-react"
 
 export default function SocialRootLayout({ children }: { children: React.ReactNode }) {
   const [leftCollapsed, setLeftCollapsed] = useState(false)
@@ -11,24 +11,42 @@ export default function SocialRootLayout({ children }: { children: React.ReactNo
 
   return (
     <div className="flex w-full h-full overflow-hidden">
-      {/* Left Sidebar Toggle - Fixed at the top below Navbar */}
+      {/* Left Sidebar Toggle - Subtle Chevrons */}
       <button 
         onClick={() => setLeftCollapsed(!leftCollapsed)}
-        className={`fixed top-[74px] z-[60] p-2.5 rounded-r-xl bg-black/40 border border-l-0 border-zinc-800/50 text-af-cyan backdrop-blur-xl hover:bg-af-cyan/10 transition-all duration-300 shadow-2xl hidden md:flex items-center justify-center ${leftCollapsed ? "left-0" : "left-[288px] md:left-[288px]"}`}
-        style={{ left: leftCollapsed ? "0" : "288px" }}
-        title={leftCollapsed ? "Inflate Trends" : "Deflate Trends"}
+        className={`fixed top-[72px] z-[60] p-1.5 transition-all duration-500 hover:text-af-cyan group ${leftCollapsed ? "left-0" : "left-[288px]"}`}
+        title={leftCollapsed ? "Inflate" : "Deflate"}
       >
-        <PanelLeft className={`h-4.5 w-4.5 transition-transform duration-500 ${leftCollapsed ? "rotate-180" : ""}`} />
+        {leftCollapsed ? (
+          <div className="flex -space-x-2 text-zinc-600 group-hover:text-af-cyan transition-colors">
+            <ChevronRight className="h-4 w-4" />
+            <ChevronRight className="h-4 w-4" />
+          </div>
+        ) : (
+          <div className="flex -space-x-2 text-zinc-600 group-hover:text-af-cyan transition-colors">
+            <ChevronLeft className="h-4 w-4" />
+            <ChevronLeft className="h-4 w-4" />
+          </div>
+        )}
       </button>
 
-      {/* Right Sidebar Toggle - Fixed at the top below Navbar */}
+      {/* Right Sidebar Toggle - Subtle Chevrons */}
       <button 
         onClick={() => setRightCollapsed(!rightCollapsed)}
-        className={`fixed top-[74px] z-[60] p-2.5 rounded-l-xl bg-black/40 border border-r-0 border-zinc-800/50 text-af-purple backdrop-blur-xl hover:bg-af-purple/10 transition-all duration-300 shadow-2xl hidden lg:flex items-center justify-center ${rightCollapsed ? "right-0" : "right-[320px]"}`}
-        style={{ right: rightCollapsed ? "0" : "320px" }}
-        title={rightCollapsed ? "Inflate Discovery" : "Deflate Discovery"}
+        className={`fixed top-[72px] z-[60] p-1.5 transition-all duration-500 hover:text-af-purple group ${rightCollapsed ? "right-0" : "right-[320px]"}`}
+        title={rightCollapsed ? "Inflate" : "Deflate"}
       >
-        <PanelRight className={`h-4.5 w-4.5 transition-transform duration-500 ${rightCollapsed ? "-rotate-180" : ""}`} />
+        {rightCollapsed ? (
+          <div className="flex -space-x-2 text-zinc-600 group-hover:text-af-purple transition-colors">
+            <ChevronLeft className="h-4 w-4" />
+            <ChevronLeft className="h-4 w-4" />
+          </div>
+        ) : (
+          <div className="flex -space-x-2 text-zinc-600 group-hover:text-af-purple transition-colors">
+            <ChevronRight className="h-4 w-4" />
+            <ChevronRight className="h-4 w-4" />
+          </div>
+        )}
       </button>
 
       <div className="flex flex-1 w-full relative items-start h-full">
