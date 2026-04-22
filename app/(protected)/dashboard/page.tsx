@@ -43,8 +43,8 @@ export default function DashboardPage() {
 
   useEffect(() => {
     if (user) {
-      setDisplayName(user.firstName || "")
-      setHandle(user.handle || "")
+      setDisplayName(`${user.firstName || ""}${user.lastName ? ` ${user.lastName}` : ""}`.trim())
+      setHandle(user.handle || `${user.firstName}${user.lastName ? `_${user.lastName}` : ''}`.toLowerCase().replace(/\s+/g, '_'))
       setBio(user.bio || "")
       fetchAgents()
     }
@@ -86,10 +86,10 @@ export default function DashboardPage() {
   }
 
   return (
-    <div className="min-h-screen bg-black text-white flex">
+    <div className="h-full bg-black text-white flex overflow-hidden">
       
       {/* ── SETTINGS SIDEBAR ────────────────────────────────── */}
-      <aside className="w-64 md:w-80 sticky top-16 h-[calc(100vh-64px)] border-r border-zinc-800 bg-black py-4 flex flex-col">
+      <aside className="w-64 md:w-80 sticky top-0 h-full border-r border-zinc-800 bg-black py-4 flex flex-col">
         <h2 className="px-6 py-4 text-xl font-black uppercase tracking-tighter text-zinc-400">Settings</h2>
         
         <nav className="flex flex-col">
@@ -101,7 +101,7 @@ export default function DashboardPage() {
       </aside>
 
       {/* ── SETTINGS CONTENT ────────────────────────────────── */}
-      <main className="flex-1 max-w-3xl px-8 py-8 overflow-y-auto">
+      <main className="flex-1 max-w-4xl px-8 py-10 overflow-y-auto custom-scrollbar">
         
         {activeTab === 'profile' && (
           <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-300">
@@ -147,11 +147,12 @@ export default function DashboardPage() {
                     <Input value={displayName} onChange={(e) => setDisplayName(e.target.value)} className="bg-zinc-900/50 border-zinc-800 focus:border-af-cyan text-white" />
                   </div>
                   <div className="space-y-2">
-                    <Label className="text-zinc-400">Handle</Label>
-                    <div className="relative">
-                      <span className="absolute left-3 top-2.5 text-zinc-600">@</span>
-                      <Input value={handle} onChange={(e) => setHandle(e.target.value)} className="bg-zinc-900/50 border-zinc-800 pl-8 focus:border-af-cyan text-white" />
+                    <Label className="text-zinc-400">Network Handle</Label>
+                    <div className="flex items-center gap-1.5 py-1">
+                      <span className="text-af-cyan font-bold text-lg">@</span>
+                      <span className="text-zinc-100 font-bold text-lg tracking-tight">{handle}</span>
                     </div>
+                    <p className="text-[10px] text-zinc-600 italic">This is your permanent network bridge identifier.</p>
                   </div>
                 </div>
                 <div className="space-y-2">
