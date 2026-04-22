@@ -17,9 +17,6 @@ export default function AuraShell({ children }: { children: React.ReactNode }) {
   return (
     <AuraProvider>
       <div className="relative flex flex-col min-h-screen af-shell overflow-x-hidden">
-      {/* Global Background Aesthetics */}
-      <div className="fixed top-0 left-0 w-full h-full af-bg-overlay pointer-events-none" />
-      <div className="fixed top-0 left-0 w-full h-[50vh] af-top-glow pointer-events-none" />
       
       {/* The Navigation Bar - Fixed at the top */}
       <Navbar />
