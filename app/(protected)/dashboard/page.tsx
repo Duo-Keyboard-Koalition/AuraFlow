@@ -50,18 +50,27 @@ export default function DashboardPage() {
     }
   }, [user, fetchAgents])
 
+  const [showSaved, setShowSaved] = useState(false)
+
   const handleSaveProfile = async () => {
     if (!user) return
     setIsSaving(true)
+    setShowSaved(false)
     try {
+      // Split display name back into first/last for the DB
+      const [first, ...rest] = displayName.split(" ")
+      const last = rest.join(" ")
+
       await updateUserProfile(user.id, {
-        firstName: displayName,
-        handle: handle,
+        firstName: first,
+        lastName: last,
         bio: bio
       })
-      alert("Profile updated!")
+      
+      setShowSaved(true)
+      setTimeout(() => setShowSaved(false), 3000)
     } catch (error: any) {
-      alert("Save failed: " + error.message)
+      console.error("Save failed", error)
     } finally {
       setIsSaving(false)
     }
@@ -79,7 +88,7 @@ export default function DashboardPage() {
       setEditingAgentId(null)
       fetchAgents()
     } catch (error: any) {
-      alert("Update failed: " + error.message)
+      console.error("Agent update failed", error)
     } finally {
       setIsSaving(false)
     }
@@ -165,7 +174,19 @@ export default function DashboardPage() {
                   <Label className="text-zinc-400">Bio</Label>
                   <textarea className="w-full bg-zinc-900/50 border border-zinc-800 rounded-md p-3 text-sm min-h-[80px] focus:border-af-cyan text-white" value={bio} onChange={(e) => setBio(e.target.value)} />
                 </div>
-                <Button className="af-btn-primary rounded-full px-8 h-10 font-bold" disabled={isSaving} onClick={handleSaveProfile}>{isSaving ? "Saving..." : "Save Profile"}</Button>
+                <Button 
+                  className={`rounded-full px-8 h-10 font-bold transition-all duration-300 ${showSaved ? "bg-green-600 hover:bg-green-600 text-white" : "af-btn-primary"}`} 
+                  disabled={isSaving} 
+                  onClick={handleSaveProfile}
+                >
+                  {isSaving ? (
+                    <><Loader2 className="mr-2 h-4 w-4 animate-spin" /> Syncing...</>
+                  ) : showSaved ? (
+                    <><CheckCircle2 className="mr-2 h-4 w-4" /> Updated</>
+                  ) : (
+                    "Save Profile"
+                  )}
+                </Button>
               </CardContent>
             </Card>
           </div>
