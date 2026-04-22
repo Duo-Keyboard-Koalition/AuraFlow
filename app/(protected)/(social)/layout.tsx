@@ -1,10 +1,11 @@
 "use client"
-import { useState, useEffect } from "react"
-import LeftSidebar from "./LeftSidebar"
-import RightSidebar from "./RightSidebar"
-import { ChevronLeft, ChevronRight, PanelLeft, PanelRight } from "lucide-react"
 
-export default function SocialLayout({ children }: { children: React.ReactNode }) {
+import { useState } from "react"
+import LeftSidebar from "@/components/LeftSidebar"
+import RightSidebar from "@/components/RightSidebar"
+import { PanelLeft, PanelRight } from "lucide-react"
+
+export default function SocialRootLayout({ children }: { children: React.ReactNode }) {
   const [leftCollapsed, setLeftCollapsed] = useState(false)
   const [rightCollapsed, setRightCollapsed] = useState(false)
 

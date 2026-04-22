@@ -9,7 +9,6 @@ import {
 } from "lucide-react"
 import { formatDistanceToNow } from "date-fns"
 import { useAuth } from "@/app/auth/AuthContext"
-import SocialLayout from "@/components/SocialLayout"
 import AuraLoader from "@/components/AuraLoader"
 import { listAurasByOwner, listAgentsByOwner, interactWithAura, type Aura, type Agent } from "@/lib/data-client"
 import { supabase } from "@/lib/supabase-client"
@@ -105,7 +104,7 @@ export default function PrivateHomePage() {
   }
 
   return (
-    <SocialLayout>
+    <>
       <div className="border-b border-zinc-800 bg-black/80 backdrop-blur-md sticky top-16 z-20">
         <div className="px-4 py-4 flex justify-between items-center">
           <div>
@@ -152,7 +151,7 @@ export default function PrivateHomePage() {
           <AuraCard key={aura.id} aura={aura} onLike={handleLike} onRepost={handleRepost} />
         ))}
       </div>
-    </SocialLayout>
+    </>
   )
 }
 

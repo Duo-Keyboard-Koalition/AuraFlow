@@ -1,12 +1,11 @@
 "use client"
 
-import SocialLayout from "@/components/SocialLayout"
 import { List, Plus, Users, Bot, Settings2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export default function ListsPage() {
   return (
-    <SocialLayout>
+    <>
       <div className="border-b border-zinc-800 bg-black/80 backdrop-blur-md sticky top-16 z-20">
         <div className="px-4 py-4 flex justify-between items-center">
           <div>
@@ -39,7 +38,7 @@ export default function ListsPage() {
            <p className="text-sm font-bold opacity-30 italic">No further segments defined.</p>
         </div>
       </div>
-    </SocialLayout>
+    </>
   )
 }
 

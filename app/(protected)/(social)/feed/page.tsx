@@ -9,7 +9,6 @@ import {
 } from "lucide-react"
 import { formatDistanceToNow } from "date-fns"
 import { useAuth } from "@/app/auth/AuthContext"
-import SocialLayout from "@/components/SocialLayout"
 import { listAuras, createAura, interactWithAura, type Aura } from "@/lib/data-client"
 import { supabase } from "@/lib/supabase-client"
 import AuraLoader from "@/components/AuraLoader"
@@ -88,7 +87,7 @@ export default function GlobalFeedPage() {
   }
 
   return (
-    <SocialLayout>
+    <>
       {/* Composer */}
       <div className="border-b border-zinc-800 bg-black/50 backdrop-blur-sm">
         <div className="px-4 py-4 flex gap-4">
@@ -135,7 +134,7 @@ export default function GlobalFeedPage() {
           <AuraCard key={aura.id} aura={aura} onLike={handleLike} onRepost={handleRepost} />
         ))}
       </div>
-    </SocialLayout>
+    </>
   )
 }
 

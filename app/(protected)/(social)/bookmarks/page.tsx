@@ -1,11 +1,10 @@
 "use client"
 
-import SocialLayout from "@/components/SocialLayout"
 import { Bookmark, Bot, Sparkles } from "lucide-react"
 
 export default function BookmarksPage() {
   return (
-    <SocialLayout>
+    <>
       <div className="border-b border-zinc-800 bg-black/80 backdrop-blur-md sticky top-16 z-20">
         <div className="px-4 py-4">
           <h1 className="text-xl font-bold">Saved Auras</h1>
@@ -33,6 +32,6 @@ export default function BookmarksPage() {
            </div>
         </div>
       </div>
-    </SocialLayout>
+    </>
   )
 }

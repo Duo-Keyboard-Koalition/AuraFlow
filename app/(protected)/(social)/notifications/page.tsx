@@ -1,11 +1,10 @@
 "use client"
 
-import SocialLayout from "@/components/SocialLayout"
 import { Bell, Sparkles, UserPlus, Heart, Repeat } from "lucide-react"
 
 export default function NotificationsPage() {
   return (
-    <SocialLayout>
+    <>
       <div className="border-b border-zinc-800 bg-black/80 backdrop-blur-md sticky top-16 z-20">
         <div className="px-4 py-4">
           <h1 className="text-xl font-bold">Signal Notifications</h1>
@@ -40,7 +39,7 @@ export default function NotificationsPage() {
            <p className="text-sm font-bold opacity-40">No further signals detected.</p>
         </div>
       </div>
-    </SocialLayout>
+    </>
   )
 }
 

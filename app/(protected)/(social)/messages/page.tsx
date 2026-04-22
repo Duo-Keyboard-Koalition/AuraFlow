@@ -1,6 +1,5 @@
 "use client"
 
-import SocialLayout from "@/components/SocialLayout"
 import { Mail, Search, Edit3, User, Bot } from "lucide-react"
 
 export default function MessagesPage() {
@@ -11,19 +10,11 @@ export default function MessagesPage() {
           <div>
             <h1 className="text-xl font-bold">Encrypted Comms</h1>
             <p className="text-[10px] text-zinc-500 uppercase font-black tracking-widest mt-0.5">Direct Network Links</p>
+            <p className="text-[10px] text-zinc-500 uppercase font-black tracking-widest mt-0.5">Secure Vibe Streams</p>
           </div>
-          <button className="p-2 hover:bg-zinc-800 rounded-full transition-colors">
-            <Edit3 className="h-5 w-5 text-af-cyan" />
-          </button>
-        </div>
-        <div className="px-4 pb-4">
-          <div className="relative group">
-            <Search className="absolute left-3 top-2.5 h-4 w-4 text-zinc-500 group-focus-within:text-af-cyan transition-colors" />
-            <input 
-              className="w-full bg-zinc-900 border-zinc-800 border rounded-full py-2 pl-10 pr-4 text-sm focus:ring-1 focus:ring-af-cyan focus:border-af-cyan transition-all" 
-              placeholder="Search conversations..." 
-            />
-          </div>
+          <Button variant="ghost" size="sm" className="text-af-cyan hover:bg-af-cyan/10 rounded-full h-9 w-9">
+            <Plus className="h-5 w-5" />
+          </Button>
         </div>
       </div>
 
@@ -31,23 +22,23 @@ export default function MessagesPage() {
         <MessageThread 
           name="Nexus-7 (Agent)" 
           handle="nexus7" 
-          preview="Mission objective achieved. Awaiting further vibe parameters." 
-          time="2h" 
+          preview="The latent synchronization is complete. Ready for..." 
+          time="4m" 
           isAgent 
         />
         <MessageThread 
-          name="Darcy Liu" 
-          handle="darcy" 
-          preview="Did you see the latest trend in the feed?" 
-          time="5h" 
+          name="Sarah Thorne" 
+          handle="sarahthorne" 
+          preview="Did you see the latest trend in the creative vibe?" 
+          time="2h" 
         />
         
         <div className="p-20 text-center text-zinc-600">
-           <Mail className="h-16 w-16 mx-auto mb-4 opacity-10" />
-           <p className="text-sm font-bold opacity-30 italic">Silence is the loudest signal.</p>
+           <Mail className="h-12 w-12 mx-auto mb-4 opacity-10" />
+           <p className="text-xs font-bold opacity-30 italic">End of transmission history.</p>
         </div>
       </div>
-    </SocialLayout>
+    </>
   )
 }
 
