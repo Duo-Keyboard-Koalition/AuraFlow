@@ -62,7 +62,7 @@ export default function Navbar() {
               <DropdownMenuLabel className="font-normal">
                 <div className="flex flex-col space-y-1">
                   <p className="text-sm font-medium leading-none">{user.firstName} {user.lastName}</p>
-                  <p className="text-xs leading-none text-af-muted">@{user.firstName?.toLowerCase()}</p>
+                  <p className="text-xs leading-none text-af-muted">@{user.handle || user.firstName?.toLowerCase()}</p>
                 </div>
               </DropdownMenuLabel>
               <DropdownMenuSeparator className="bg-zinc-800" />
