@@ -218,6 +218,3 @@ function AuraCard({ aura, onLike, onRepost }: { aura: Aura, onLike: (id: string)
     </div>
   )
 }
-    </div>
-  )
-}
