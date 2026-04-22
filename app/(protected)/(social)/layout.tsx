@@ -10,7 +10,7 @@ export default function SocialRootLayout({ children }: { children: React.ReactNo
   const [rightCollapsed, setRightCollapsed] = useState(false)
 
   return (
-    <div className="flex w-full overflow-x-hidden">
+    <div className="flex w-full h-full overflow-hidden">
       {/* Left Sidebar Toggle */}
       <button 
         onClick={() => setLeftCollapsed(!leftCollapsed)}
@@ -29,19 +29,19 @@ export default function SocialRootLayout({ children }: { children: React.ReactNo
         <PanelRight className={`h-5 w-5 transition-transform duration-300 ${rightCollapsed ? "-rotate-180 opacity-50" : ""}`} />
       </button>
 
-      <div className="flex flex-1 w-full relative items-start">
-        {/* Left Sidebar Container - Sticky and Fixed Height */}
-        <div className={`transition-all duration-300 ease-in-out overflow-hidden flex-shrink-0 border-r border-zinc-800/50 sticky h-screen ${leftCollapsed ? "w-0 opacity-0" : "w-64 md:w-72 opacity-100"}`}>
+      <div className="flex flex-1 w-full relative items-start h-full">
+        {/* Left Sidebar Container - Sticky within this container */}
+        <div className={`transition-all duration-300 ease-in-out overflow-hidden flex-shrink-0 border-r border-zinc-800/50 sticky top-0 h-full ${leftCollapsed ? "w-0 opacity-0" : "w-64 md:w-72 opacity-100"}`}>
           <LeftSidebar />
         </div>
         
-        {/* Main Feed Container - Solid background to ensure flush alignment */}
-        <main className="flex-1 min-w-0 relative min-h-screen bg-black/40 backdrop-blur-md">
+        {/* Main Feed Container - THE NEW SCROLL AREA */}
+        <main className="flex-1 min-w-0 relative h-full overflow-y-auto bg-black/40 backdrop-blur-md">
           {children}
         </main>
         
-        {/* Right Sidebar Container - Sticky and Fixed Height */}
-        <div className={`transition-all duration-300 ease-in-out overflow-hidden flex-shrink-0 border-l border-zinc-800/50 sticky h-screen ${rightCollapsed ? "w-0 opacity-0" : "w-80 opacity-100"}`}>
+        {/* Right Sidebar Container */}
+        <div className={`transition-all duration-300 ease-in-out overflow-hidden flex-shrink-0 border-l border-zinc-800/50 sticky top-0 h-full ${rightCollapsed ? "w-0 opacity-0" : "w-80 opacity-100"}`}>
           <RightSidebar />
         </div>
       </div>

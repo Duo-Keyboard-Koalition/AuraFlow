@@ -30,7 +30,7 @@ export default function RootLayout({
             <div className="fixed top-0 left-0 w-full h-full af-bg-overlay pointer-events-none"></div>
             <div className="fixed top-0 left-0 w-full h-[50vh] af-top-glow pointer-events-none"></div>
             <Navbar />
-            <main className="relative z-10 flex-grow">{children}</main>
+            <main className="relative z-10 flex-grow h-[calc(100vh-64px)] overflow-hidden">{children}</main>
           </div>
         </AuthProvider>
       </body>

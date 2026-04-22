@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 export default function ListsPage() {
   return (
     <>
-      <div className="border-b border-zinc-800 bg-black/80 backdrop-blur-md sticky z-20">
+      <div className="border-b border-zinc-800 bg-black/80 backdrop-blur-md sticky top-0 z-20">
         <div className="px-4 py-4 flex justify-between items-center">
           <div>
             <h1 className="text-xl font-bold">Vibe Clusters</h1>
