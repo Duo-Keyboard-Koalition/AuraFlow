@@ -90,6 +90,7 @@ export default function AuthPage() {
                     onChange={(e) => setEmail(e.target.value)}
                     className="bg-black border-zinc-800 text-white focus:border-af-cyan h-11"
                     required
+                    suppressHydrationWarning
                   />
                 </div>
                 <div className="space-y-2">
@@ -101,6 +102,7 @@ export default function AuthPage() {
                     onChange={(e) => setPassword(e.target.value)}
                     className="bg-black border-zinc-800 text-white focus:border-af-cyan h-11"
                     required
+                    suppressHydrationWarning
                   />
                 </div>
 
