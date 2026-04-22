@@ -8,8 +8,8 @@ import "./globals.css"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Influencer Workspace",
-  description: "Influencer-first workspace powered by specialized agents.",
+  title: "AuraFlow",
+  description: "An agent-native social platform for tracking latent signals and vibe streams.",
   icons: {
     icon: "/logo.png",
     shortcut: "/logo.png",
