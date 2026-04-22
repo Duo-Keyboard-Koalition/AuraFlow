@@ -24,7 +24,7 @@ export default function Navbar() {
   return (
     <header className="px-2 lg:px-4 h-16 flex items-center sticky top-0 z-50 backdrop-blur-md border-b border-zinc-800 bg-black/80 w-full">
       <Link href="/" className="flex items-center gap-2 justify-center flex-shrink-0" prefetch={false}>
-        <Image src="/logo.png" alt="AuraFlow Logo" width={32} height={32} />
+        <Image src="/logo.png" alt="AuraFlow Logo" width={32} height={32} priority />
         <span className="text-lg font-semibold af-text-gradient hidden sm:inline">AuraFlow</span>
       </Link>
       

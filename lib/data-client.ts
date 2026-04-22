@@ -334,8 +334,24 @@ function formatAura(d: DbAuraResponse): Aura {
   }
 }
 
+export const updateUserProfile = async (id: string, updates: Partial<User>): Promise<void> => {
+  const { error } = await supabase
+    .from('profiles')
+    .update({
+      first_name: updates.firstName,
+      last_name: updates.lastName,
+      handle: updates.handle,
+      bio: updates.bio,
+      location: updates.location,
+      website: updates.website,
+      avatar_url: updates.avatarUrl
+    })
+    .eq('id', id)
+
+  if (error) throw error
+}
+
 // Stubs
-export const createUserProfile = async (data: Record<string, unknown>) => data
 export const createInfluencer = async (data: any) => data
 export const createBrand = async (data: any) => data
 export const listAgentLikes = async (id: string) => listInteractionsByActor(id, 'agent', 'like')

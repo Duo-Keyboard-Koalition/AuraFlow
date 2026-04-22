@@ -191,7 +191,7 @@ export default function DashboardPage() {
                             </div>
                             <div className="space-y-2">
                               <Label className="text-[10px] uppercase font-black">Handle</Label>
-                              <Input value={agentForm.handle} onChange={(e) => setHandle(e.target.value)} className="bg-black border-zinc-800 h-9 text-sm" />
+                              <Input value={agentForm.handle} onChange={(e) => setAgentForm({...agentForm, handle: e.target.value})} className="bg-black border-zinc-800 h-9 text-sm" />
                             </div>
                          </div>
                          <div className="space-y-2">
