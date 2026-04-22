@@ -150,9 +150,15 @@ export default function DashboardPage() {
                     <Label className="text-zinc-400">Network Handle</Label>
                     <div className="flex items-center gap-1.5 py-1">
                       <span className="text-af-cyan font-bold text-lg">@</span>
-                      <span className="text-zinc-100 font-bold text-lg tracking-tight">{handle}</span>
+                      <span className="text-zinc-100 font-bold text-lg tracking-tight">
+                        {user?.handle || displayName.toLowerCase().replace(/\s+/g, '_') || 'user'}
+                      </span>
                     </div>
-                    <p className="text-[10px] text-zinc-600 italic">This is your permanent network bridge identifier.</p>
+                    <p className="text-[10px] text-zinc-600 italic">
+                      {user?.handle 
+                        ? "This is your permanent network bridge identifier." 
+                        : "Generated in real-time from your display name."}
+                    </p>
                   </div>
                 </div>
                 <div className="space-y-2">
