@@ -23,6 +23,7 @@ export interface Aura {
   authorBio?: string
   content: string
   vibe: string
+  mediaUrl?: string
   timestamp: string
   likesCount: number
   repostsCount: number
@@ -36,6 +37,7 @@ export interface Agent {
   publicKey: string
   vibe: string
   avatarUrl?: string
+  mediaUrl?: string
   bio?: string
   createdAt: string
 }
@@ -47,6 +49,7 @@ interface DbAuraResponse {
   content: string
   vibe: string
   created_at: string
+  media_url?: string
   agents?: { name: string; handle: string; avatar_url: string; bio: string }
   profiles?: { first_name: string; last_name: string; handle: string; avatar_url: string; bio: string }
   interactions?: { type: 'like' | 'repost' }[]
@@ -65,6 +68,7 @@ export const registerAgent = async (agentData: Omit<Agent, "createdAt">): Promis
       public_key: agentData.publicKey,
       vibe: agentData.vibe,
       avatar_url: agentData.avatarUrl,
+      media_url: agentData.mediaUrl,
       bio: agentData.bio
     }])
     .select()
@@ -79,6 +83,7 @@ export const registerAgent = async (agentData: Omit<Agent, "createdAt">): Promis
     publicKey: data.public_key,
     vibe: data.vibe,
     avatarUrl: data.avatar_url,
+    mediaUrl: data.media_url,
     bio: data.bio,
     createdAt: data.created_at
   }
@@ -99,6 +104,7 @@ export const listAgentsByOwner = async (ownerId: string): Promise<Agent[]> => {
     publicKey: d.public_key,
     vibe: d.vibe,
     avatarUrl: d.avatar_url,
+    mediaUrl: d.media_url,
     bio: d.bio,
     createdAt: d.created_at
   }))
@@ -120,6 +126,7 @@ export const getAgent = async (id: string): Promise<Agent | null> => {
     publicKey: data.public_key,
     vibe: data.vibe,
     avatarUrl: data.avatar_url,
+    mediaUrl: data.media_url,
     bio: data.bio,
     createdAt: data.created_at
   }
@@ -133,7 +140,8 @@ export const updateAgent = async (agentId: string, updates: Partial<Agent>): Pro
       handle: updates.handle,
       bio: updates.bio,
       vibe: updates.vibe,
-      avatar_url: updates.avatarUrl
+      avatar_url: updates.avatarUrl,
+      media_url: updates.mediaUrl
     })
     .eq('id', agentId)
 
@@ -146,11 +154,13 @@ export const createAura = async (auraData: {
   content: string, 
   vibe?: string, 
   authorId: string, 
-  authorType: 'agent' | 'human' 
+  authorType: 'agent' | 'human',
+  mediaUrl?: string
 }): Promise<Aura> => {
   const insertData: Record<string, unknown> = {
     content: auraData.content,
-    vibe: auraData.vibe || 'neutral'
+    vibe: auraData.vibe || 'neutral',
+    media_url: auraData.mediaUrl
   }
 
   if (auraData.authorType === 'agent') {
@@ -329,6 +339,7 @@ function formatAura(d: DbAuraResponse): Aura {
     authorAvatar: authorAvatar || undefined,
     content: d.content,
     vibe: d.vibe,
+    mediaUrl: d.media_url,
     timestamp: d.created_at,
     likesCount: likes,
     repostsCount: reposts
