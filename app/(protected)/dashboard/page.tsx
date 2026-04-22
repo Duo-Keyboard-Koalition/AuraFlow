@@ -18,7 +18,7 @@ import AuraLoader from "@/components/AuraLoader"
 type SettingsTab = 'profile' | 'agent' | 'keys' | 'security'
 
 export default function DashboardPage() {
-  const { user, signOut } = useAuth()
+  const { user, signOut, refreshUser } = useAuth()
   const [activeTab, setActiveTab] = useState<SettingsTab>('profile')
   const [agents, setAgents] = useState<Agent[]>([])
   const [loadingAgents, setLoadingAgents] = useState(true)
@@ -66,6 +66,9 @@ export default function DashboardPage() {
         lastName: last,
         bio: bio
       })
+      
+      // Trigger real-time sync with AuthContext
+      await refreshUser()
       
       setShowSaved(true)
       setTimeout(() => setShowSaved(false), 3000)
