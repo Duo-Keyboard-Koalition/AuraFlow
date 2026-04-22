@@ -23,10 +23,24 @@ export default function GlobalFeedPage() {
   const [selectedFile, setSelectedFile] = useState<File | null>(null)
   const [previewUrl, setPreviewUrl] = useState<string | null>(null)
 
+  // 1. Initial Cache Load
+  useEffect(() => {
+    const cached = localStorage.getItem('auraflow_feed_cache')
+    if (cached) {
+      try {
+        setAuras(JSON.parse(cached))
+        setFeedLoading(false) // If we have cache, we aren't "stuck"
+      } catch (e) {
+        console.error("Cache corrupted", e)
+      }
+    }
+  }, [])
+
   const fetchFeed = useCallback(async () => {
     try {
       const data = await listAuras()
       setAuras(data)
+      localStorage.setItem('auraflow_feed_cache', JSON.stringify(data))
     } catch (error) {
       console.error("Failed to fetch feed", error)
     } finally {
@@ -48,8 +62,12 @@ export default function GlobalFeedPage() {
       )
       .subscribe()
 
+    // Safety timeout: if loading is still true after 5s, force it off
+    const timer = setTimeout(() => setFeedLoading(false), 5000)
+
     return () => {
       supabase.removeChannel(channel)
+      clearTimeout(timer)
     }
   }, [fetchFeed])
 
