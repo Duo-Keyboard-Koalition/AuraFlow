@@ -13,27 +13,30 @@ export default function SocialRootLayout({ children }: { children: React.ReactNo
     <div className="flex w-full h-full overflow-hidden">
       {/* ── Left Sidebar ─────────────────────────────── */}
       {leftCollapsed ? (
-        /* Collapsed: thin vertical strip with expand chevron */
-        <div className="flex-shrink-0 h-full border-r border-zinc-800/50 hidden md:flex flex-col items-center">
+        <div className="flex-shrink-0 h-full border-r border-zinc-800/50 hidden md:flex flex-col items-center pt-2">
           <button
             onClick={() => setLeftCollapsed(false)}
-            className="mt-3 p-1 rounded-md text-zinc-600 hover:text-af-cyan hover:bg-zinc-800/50 transition-colors"
+            className="p-1.5 rounded-md text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors"
             title="Expand sidebar"
           >
             <ChevronRight className="h-4 w-4" />
           </button>
         </div>
       ) : (
-        /* Expanded: full sidebar with collapse chevron at top-right */
-        <div className="flex-shrink-0 w-64 md:w-72 h-full border-r border-zinc-800/50 hidden md:flex flex-col relative">
-          <button
-            onClick={() => setLeftCollapsed(true)}
-            className="absolute top-3 right-2 z-10 p-1 rounded-md text-zinc-600 hover:text-af-cyan hover:bg-zinc-800/50 transition-colors"
-            title="Collapse sidebar"
-          >
-            <ChevronLeft className="h-4 w-4" />
-          </button>
-          <LeftSidebar />
+        <div className="flex-shrink-0 w-64 md:w-72 h-full border-r border-zinc-800/50 hidden md:flex flex-col">
+          {/* Sidebar header with collapse control */}
+          <div className="flex items-center justify-end px-2 py-2 flex-shrink-0">
+            <button
+              onClick={() => setLeftCollapsed(true)}
+              className="p-1.5 rounded-md text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors"
+              title="Collapse sidebar"
+            >
+              <ChevronLeft className="h-4 w-4" />
+            </button>
+          </div>
+          <div className="flex-1 overflow-y-auto">
+            <LeftSidebar />
+          </div>
         </div>
       )}
 
@@ -44,27 +47,30 @@ export default function SocialRootLayout({ children }: { children: React.ReactNo
 
       {/* ── Right Sidebar ────────────────────────────── */}
       {rightCollapsed ? (
-        /* Collapsed: thin vertical strip with expand chevron */
-        <div className="flex-shrink-0 h-full border-l border-zinc-800/50 hidden lg:flex flex-col items-center">
+        <div className="flex-shrink-0 h-full border-l border-zinc-800/50 hidden lg:flex flex-col items-center pt-2">
           <button
             onClick={() => setRightCollapsed(false)}
-            className="mt-3 p-1 rounded-md text-zinc-600 hover:text-af-purple hover:bg-zinc-800/50 transition-colors"
+            className="p-1.5 rounded-md text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors"
             title="Expand sidebar"
           >
             <ChevronLeft className="h-4 w-4" />
           </button>
         </div>
       ) : (
-        /* Expanded: full sidebar with collapse chevron at top-left */
-        <div className="flex-shrink-0 w-80 h-full border-l border-zinc-800/50 hidden lg:flex flex-col relative">
-          <button
-            onClick={() => setRightCollapsed(true)}
-            className="absolute top-3 left-2 z-10 p-1 rounded-md text-zinc-600 hover:text-af-purple hover:bg-zinc-800/50 transition-colors"
-            title="Collapse sidebar"
-          >
-            <ChevronRight className="h-4 w-4" />
-          </button>
-          <RightSidebar />
+        <div className="flex-shrink-0 w-80 h-full border-l border-zinc-800/50 hidden lg:flex flex-col">
+          {/* Sidebar header with collapse control */}
+          <div className="flex items-center justify-start px-2 py-2 flex-shrink-0">
+            <button
+              onClick={() => setRightCollapsed(true)}
+              className="p-1.5 rounded-md text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors"
+              title="Collapse sidebar"
+            >
+              <ChevronRight className="h-4 w-4" />
+            </button>
+          </div>
+          <div className="flex-1 overflow-y-auto">
+            <RightSidebar />
+          </div>
         </div>
       )}
     </div>
