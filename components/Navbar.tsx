@@ -22,7 +22,7 @@ export default function Navbar() {
   const pathname = usePathname()
 
   return (
-    <header className="px-2 lg:px-4 h-16 flex items-center fixed top-0 left-0 z-50 backdrop-blur-md border-b border-zinc-800 bg-black/80 w-full">
+    <header className="px-2 lg:px-4 h-16 flex items-center fixed top-0 left-0 z-50 backdrop-blur-md border-b border-af-border-subtle bg-af-surface-0/80 w-full">
       <Link href="/" className="flex items-center gap-2 justify-center flex-shrink-0" prefetch={false}>
         <Image src="/logo.png" alt="AuraFlow Logo" width={32} height={32} priority />
         <span className="text-lg font-semibold af-text-gradient hidden sm:inline">AuraFlow</span>
@@ -40,15 +40,15 @@ export default function Navbar() {
       )}
 
       <div className="flex items-center gap-4 flex-shrink-0 ml-auto">
-        <div className="hidden md:flex bg-zinc-900 rounded-full items-center px-3 py-1.5 gap-2 border border-zinc-800 focus-within:border-af-cyan transition-all">
-          <Search className="h-4 w-4 text-zinc-500" />
-          <input className="bg-transparent border-none focus:ring-0 text-xs text-white w-32" placeholder="Search Auras" />
+        <div className="hidden md:flex bg-af-surface-1 rounded-full items-center px-3 py-1.5 gap-2 border border-af-border-subtle focus-within:border-af-cyan transition-all">
+          <Search className="h-4 w-4 text-af-text-muted" />
+          <input className="bg-transparent border-none focus:ring-0 text-xs text-af-text-primary w-32" placeholder="Search Auras" />
         </div>
 
         {user ? (
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" className="relative h-9 w-9 rounded-full bg-af-blue/20 border border-af-border/30 p-0 overflow-hidden">
+              <Button variant="ghost" className="relative h-9 w-9 rounded-full bg-af-blue/20 border border-af-border-subtle p-0 overflow-hidden">
                 {user.avatarUrl ? (
                   <img src={user.avatarUrl} alt="Me" className="h-full w-full object-cover" />
                 ) : (
@@ -58,16 +58,16 @@ export default function Navbar() {
                 )}
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-56 af-panel border-zinc-800 bg-black text-af-text" align="end" forceMount>
+            <DropdownMenuContent className="w-56 af-panel border-af-border-strong bg-af-surface-3 text-af-text" align="end" forceMount>
               <DropdownMenuLabel className="font-normal">
                 <div className="flex flex-col space-y-1">
-                  <p className="text-sm font-medium leading-none">{user.firstName} {user.lastName}</p>
-                  <p className="text-xs leading-none text-af-muted">
+                  <p className="text-sm font-medium leading-none text-af-text-primary">{user.firstName} {user.lastName}</p>
+                  <p className="text-xs leading-none text-af-text-muted">
                     @{user.handle || `${user.firstName}${user.lastName ? `_${user.lastName}` : ''}`.toLowerCase().replace(/\s+/g, '_')}
                   </p>
                 </div>
               </DropdownMenuLabel>
-              <DropdownMenuSeparator className="bg-zinc-800" />
+              <DropdownMenuSeparator className="bg-af-border-subtle" />
               <DropdownMenuItem asChild>
                 <Link href="/dashboard" className="cursor-pointer flex items-center">
                   <LayoutDashboard className="mr-2 h-4 w-4" />
@@ -80,7 +80,7 @@ export default function Navbar() {
                   <span>Your Space</span>
                 </Link>
               </DropdownMenuItem>
-              <DropdownMenuSeparator className="bg-zinc-800" />
+              <DropdownMenuSeparator className="bg-af-border-subtle" />
               <DropdownMenuItem
                 className="cursor-pointer text-red-500 focus:text-red-500 focus:bg-red-500/10"
                 onClick={() => signOut()}
@@ -102,7 +102,7 @@ export default function Navbar() {
 
 function NavIcon({ icon, href, active = false }: { icon: React.ReactNode, href: string, active?: boolean }) {
   return (
-    <Link href={href} className={`p-2.5 rounded-full transition-all hover:bg-zinc-900 ${active ? "text-af-cyan bg-af-cyan/5" : "text-zinc-400 hover:text-white"}`}>
+    <Link href={href} className={`p-2.5 rounded-full transition-all hover:bg-af-surface-2 ${active ? "text-af-cyan bg-af-cyan/5" : "text-af-text-secondary hover:text-white"}`}>
       {icon}
     </Link>
   )

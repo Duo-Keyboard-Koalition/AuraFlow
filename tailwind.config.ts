@@ -20,6 +20,7 @@ const config = {
     },
     extend: {
       colors: {
+        // ── shadcn/ui base tokens ─────────────────────
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -52,6 +53,29 @@ const config = {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
+        },
+
+        // ── AuraFlow brand palette (single source of truth) ──
+        af: {
+          cyan:    "var(--af-cyan)",
+          blue:    "var(--af-blue)",
+          purple:  "var(--af-purple)",
+          bg:      "var(--af-bg)",
+          text:    "var(--af-text)",
+          muted:   "var(--af-muted)",
+          border:  "var(--af-border)",
+          surface: "var(--af-surface)",
+
+          // Semantic surface scale (replaces hardcoded zinc)
+          "surface-0":    "var(--af-surface-0)",    // deepest bg
+          "surface-1":    "var(--af-surface-1)",    // cards, sidebars
+          "surface-2":    "var(--af-surface-2)",    // hover states
+          "surface-3":    "var(--af-surface-3)",    // elevated panels
+          "border-subtle":"var(--af-border-subtle)", // light dividers
+          "border-strong":"var(--af-border-strong)", // prominent borders
+          "text-primary": "var(--af-text-primary)",
+          "text-secondary":"var(--af-text-secondary)",
+          "text-muted":   "var(--af-text-muted)",
         },
       },
       borderRadius: {

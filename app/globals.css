@@ -4,6 +4,7 @@
 
 @layer base {
   :root {
+    /* ── shadcn/ui base (dark theme) ───────────────── */
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
     --card: 222.2 84% 4.9%;
@@ -25,16 +26,33 @@
     --ring: 212.7 26.8% 83.9%;
     --radius: 0.5rem;
 
-    /* AuraFlow original brand palette */
+    /* ── AuraFlow Brand Palette ────────────────────── */
     --af-cyan: #31d4ff;
     --af-blue: #5da7ff;
     --af-purple: #ca8fff;
-    --af-bg: #05070d;
-    --af-surface: rgba(15, 23, 42, 0.68);
-    --af-surface-soft: rgba(17, 24, 39, 0.72);
-    --af-border: rgba(116, 136, 170, 0.34);
-    --af-text: #f8fafc;
-    --af-muted: #94a3b8;
+
+    /* ── AuraFlow Semantic Surface Scale ───────────── */
+    /* These replace all hardcoded zinc values.        */
+    /* Change these to retheme the entire platform.    */
+    --af-bg:             #05070d;
+    --af-surface-0:      #05070d;   /* page background               */
+    --af-surface-1:      #0c1018;   /* sidebars, cards, panels        */
+    --af-surface-2:      #141a26;   /* hover states, elevated cards   */
+    --af-surface-3:      #1c2333;   /* popovers, modals, dropdowns    */
+    --af-surface:        rgba(15, 23, 42, 0.68);
+    --af-surface-soft:   rgba(17, 24, 39, 0.72);
+
+    /* ── AuraFlow Semantic Border Scale ────────────── */
+    --af-border:         rgba(116, 136, 170, 0.34);
+    --af-border-subtle:  rgba(255, 255, 255, 0.06);
+    --af-border-strong:  rgba(255, 255, 255, 0.12);
+
+    /* ── AuraFlow Semantic Text Scale ─────────────── */
+    --af-text:           #f8fafc;
+    --af-text-primary:   #f1f5f9;
+    --af-text-secondary: #94a3b8;
+    --af-text-muted:     #64748b;
+    --af-muted:          #94a3b8;
   }
 }
 
@@ -45,6 +63,7 @@
   body {
     @apply bg-background text-foreground antialiased;
     background-color: var(--af-bg);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
   }
 }
 
@@ -109,7 +128,13 @@
 
   /* Dots & Status */
   .af-dot-online { @apply bg-af-cyan shadow-[0_0_8px_var(--af-cyan)]; }
-  .af-dot-offline { @apply bg-zinc-700; }
+  .af-dot-offline { background-color: var(--af-text-muted); }
+
+  /* Scrollbar */
+  .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+  .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+  .custom-scrollbar::-webkit-scrollbar-thumb { background: var(--af-border-subtle); border-radius: 4px; }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: var(--af-border-strong); }
 }
 
 /* Animations */
