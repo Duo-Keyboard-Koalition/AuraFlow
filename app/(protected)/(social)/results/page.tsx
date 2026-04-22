@@ -65,10 +65,10 @@ export default function ResultsPage() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <div className="flex justify-between items-center mb-8 border-b border-zinc-800 pb-6">
+      <div className="flex justify-between items-center mb-8 border-b border-af-border-subtle pb-6">
         <h1 className="text-3xl font-black af-text-gradient">Top Matches</h1>
         <Link href="/match">
-          <Button variant="outline" className="border-zinc-800 rounded-full h-9 font-bold text-xs uppercase tracking-widest">New Match</Button>
+          <Button variant="outline" className="border-af-border-subtle rounded-full h-9 font-bold text-xs uppercase tracking-widest">New Match</Button>
         </Link>
       </div>
 
@@ -80,18 +80,18 @@ export default function ResultsPage() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {results.map((influencer, idx) => (
-          <Card key={influencer.id || idx} className="af-panel border-zinc-800 bg-zinc-900/20 hover:border-af-cyan/30 transition-all group overflow-hidden">
+          <Card key={influencer.id || idx} className="af-panel border-af-border-subtle bg-af-surface-1/20 hover:border-af-cyan/30 transition-all group overflow-hidden">
             <CardHeader className="flex flex-col items-center text-center">
               <div className="h-20 w-20 rounded-full overflow-hidden border-2 border-af-border mb-4">
                 <Image alt={influencer.name} height="100" src={influencer.image || "/placeholder-user.jpg"} width="100" className="object-cover h-full w-full" />
               </div>
-              <CardTitle className="text-zinc-100">{influencer.name}</CardTitle>
+              <CardTitle className="text-af-text-primary">{influencer.name}</CardTitle>
               <CardDescription className="text-af-cyan font-black uppercase text-[10px] tracking-widest">
                 Match Alignment: {influencer.auraScore || influencer.vibeScore || 0}%
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
-              <p className="text-sm text-zinc-400 text-center line-clamp-2">{influencer.description || influencer.details}</p>
+              <p className="text-sm text-af-text-secondary text-center line-clamp-2">{influencer.description || influencer.details}</p>
               <div className="flex justify-center flex-wrap gap-2">
                 {(influencer.keywords || influencer.values || []).slice(0, 3).map((keyword) => (
                   <Badge key={keyword} variant="outline" className="bg-af-cyan/5 border-af-cyan/20 text-af-cyan text-[9px] uppercase font-black">

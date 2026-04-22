@@ -105,31 +105,31 @@ export default function PrivateHomePage() {
 
   return (
     <>
-      <div className="border-b border-zinc-800 bg-black/80 backdrop-blur-md sticky top-0 z-20">
+      <div className="border-b border-af-border-subtle bg-af-surface-0 backdrop-blur-md sticky top-0 z-20">
         <div className="px-4 py-4 flex justify-between items-center">
           <div>
             <h1 className="text-xl font-bold">Personal Latent Space</h1>
-            <p className="text-[10px] text-zinc-500 uppercase font-black tracking-widest mt-0.5">Your Private Auras</p>
+            <p className="text-[10px] text-af-text-muted uppercase font-black tracking-widest mt-0.5">Your Private Auras</p>
           </div>
 
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="outline" size="sm" className="border-zinc-800 rounded-full gap-2 h-9 bg-zinc-900/50 hover:bg-zinc-800">
+              <Button variant="outline" size="sm" className="border-af-border-subtle rounded-full gap-2 h-9 bg-af-surface-1/50 hover:bg-af-surface-2">
                 <Filter className="h-4 w-4" /> 
                 <span className="text-xs">Filter: {filter === 'all' ? 'All' : filter === 'me' ? 'My Posts' : agents.find(a => a.id === filter)?.name}</span>
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-56 af-panel border-zinc-800 bg-black text-white" align="end">
-              <DropdownMenuLabel className="text-xs text-zinc-500">View Options</DropdownMenuLabel>
-              <DropdownMenuSeparator className="bg-zinc-800" />
+            <DropdownMenuContent className="w-56 af-panel border-af-border-subtle bg-af-surface-0 text-white" align="end">
+              <DropdownMenuLabel className="text-xs text-af-text-muted">View Options</DropdownMenuLabel>
+              <DropdownMenuSeparator className="bg-af-surface-2" />
               <DropdownMenuItem onClick={() => setFilter('all')} className="flex justify-between items-center cursor-pointer">
                 Everything {filter === 'all' && <Check className="h-3 w-3 text-af-cyan" />}
               </DropdownMenuItem>
               <DropdownMenuItem onClick={() => setFilter('me')} className="flex justify-between items-center cursor-pointer">
                 Only My Posts {filter === 'me' && <Check className="h-3 w-3 text-af-cyan" />}
               </DropdownMenuItem>
-              <DropdownMenuSeparator className="bg-zinc-800" />
-              <DropdownMenuLabel className="text-xs text-zinc-500">Your AI Agents</DropdownMenuLabel>
+              <DropdownMenuSeparator className="bg-af-surface-2" />
+              <DropdownMenuLabel className="text-xs text-af-text-muted">Your AI Agents</DropdownMenuLabel>
               {agents.map(agent => (
                 <DropdownMenuItem key={agent.id} onClick={() => setFilter(agent.id)} className="flex justify-between items-center cursor-pointer">
                   {agent.name} {filter === agent.id && <Check className="h-3 w-3 text-af-purple" />}
@@ -140,10 +140,10 @@ export default function PrivateHomePage() {
         </div>
       </div>
 
-      <div className="divide-y divide-zinc-800">
+      <div className="divide-y divide-af-border-subtle">
         {filteredAuras.length === 0 ? (
-           <div className="p-20 text-center text-zinc-500">
-             <Bot className="h-12 w-12 text-zinc-800 mx-auto mb-4" />
+           <div className="p-20 text-center text-af-text-muted">
+             <Bot className="h-12 w-12 text-af-text-muted mx-auto mb-4" />
              <p className="text-lg font-bold">No matches found for this filter.</p>
              <p className="text-xs mt-2">Share a new Aura or deploy an agent to see signals here.</p>
            </div>
@@ -170,10 +170,10 @@ function AuraCard({ aura, onLike, onRepost }: { aura: Aura, onLike: (id: string)
       <div className="flex-grow">
         <div className="flex items-center gap-1.5 mb-0.5">
           <span className="font-bold hover:underline">{aura.authorName}</span>
-          <span className="text-zinc-500 text-sm">@{aura.authorHandle} · {formatDistanceToNow(new Date(aura.timestamp), { addSuffix: false })}</span>
+          <span className="text-af-text-muted text-sm">@{aura.authorHandle} · {formatDistanceToNow(new Date(aura.timestamp), { addSuffix: false })}</span>
         </div>
-        <p className="text-zinc-100 leading-normal text-[15px] mb-3 whitespace-pre-wrap">{aura.content}</p>
-        <div className="flex justify-between max-w-md text-zinc-500">
+        <p className="text-af-text-primary leading-normal text-[15px] mb-3 whitespace-pre-wrap">{aura.content}</p>
+        <div className="flex justify-between max-w-md text-af-text-muted">
           <button className="flex items-center gap-2 group hover:text-af-cyan transition-colors"><div className="p-2 rounded-full group-hover:bg-af-cyan/10 transition-colors"><MessageSquare className="h-[18px] w-[18px]" /></div><span className="text-xs">0</span></button>
           <button onClick={() => onRepost(aura.id)} className="flex items-center gap-2 group hover:text-green-500 transition-colors"><div className="p-2 rounded-full group-hover:bg-green-500/10 transition-colors"><Repeat className="h-[18px] w-[18px]" /></div><span className="text-xs">{aura.repostsCount}</span></button>
           <button onClick={() => onLike(aura.id)} className="flex items-center gap-2 group hover:text-pink-600 transition-colors"><div className="p-2 rounded-full group-hover:bg-pink-600/10 transition-colors"><Heart className="h-[18px] w-[18px]" /></div><span className="text-xs">{aura.likesCount}</span></button>

@@ -133,7 +133,7 @@ export default function GlobalFeedPage() {
   return (
     <>
       {/* Composer */}
-      <div className="border-b border-zinc-800 bg-black/50 backdrop-blur-sm">
+      <div className="border-b border-af-border-subtle bg-af-surface-0 backdrop-blur-sm">
         <div className="px-4 py-4 flex gap-4">
           <div className="h-11 w-11 rounded-full bg-af-blue/20 flex items-center justify-center flex-shrink-0 mt-1 overflow-hidden border border-af-border/20">
             {user?.avatarUrl ? (
@@ -144,7 +144,7 @@ export default function GlobalFeedPage() {
           </div>
           <div className="flex-grow">
             <textarea
-              className="w-full bg-transparent border-none focus:ring-0 text-xl placeholder:text-zinc-600 resize-none min-h-[60px] py-2 px-0"
+              className="w-full bg-transparent border-none focus:ring-0 text-xl placeholder:text-af-text-muted resize-none min-h-[60px] py-2 px-0"
               placeholder="What aura is flowing into the vibe space today?"
               value={composeContent}
               onChange={(e) => setComposeContent(e.target.value)}
@@ -152,7 +152,7 @@ export default function GlobalFeedPage() {
             />
 
             {previewUrl && (
-              <div className="relative mt-2 mb-4 rounded-2xl overflow-hidden border border-zinc-800 group max-w-lg">
+              <div className="relative mt-2 mb-4 rounded-2xl overflow-hidden border border-af-border-subtle group max-w-lg">
                 <img src={previewUrl} alt="Preview" className="w-full h-auto object-cover max-h-[400px]" />
                 <Button 
                   variant="ghost" 
@@ -166,7 +166,7 @@ export default function GlobalFeedPage() {
             )}
           </div>
         </div>
-        <div className="flex justify-between items-center py-3 px-4 border-t border-zinc-800">
+        <div className="flex justify-between items-center py-3 px-4 border-t border-af-border-subtle">
           <div className="flex text-af-cyan ml-12 sm:ml-14 gap-0.5 sm:gap-1">
             <label className="cursor-pointer p-2 hover:bg-af-cyan/10 rounded-full h-9 w-9 flex items-center justify-center transition-colors">
               <ImageIcon className="h-[18px] w-[18px]" />
@@ -185,7 +185,7 @@ export default function GlobalFeedPage() {
         </div>
       </div>
 
-      <div className="divide-y divide-zinc-800">
+      <div className="divide-y divide-af-border-subtle">
         {feedLoading && auras.length === 0 ? (
           <>
             <AuraSkeleton />
@@ -193,9 +193,9 @@ export default function GlobalFeedPage() {
             <AuraSkeleton />
           </>
         ) : auras.length === 0 ? (
-          <div className="p-12 text-center text-zinc-500">
-            <Bot className="h-10 w-10 text-zinc-700 mx-auto mb-4" />
-            <p className="text-xl font-bold mb-2 text-zinc-300">Latent Silence</p>
+          <div className="p-12 text-center text-af-text-muted">
+            <Bot className="h-10 w-10 text-af-text-muted mx-auto mb-4" />
+            <p className="text-xl font-bold mb-2 text-af-text-secondary">Latent Silence</p>
           </div>
         ) : (
           auras.map((aura) => (
@@ -211,22 +211,22 @@ function AuraSkeleton() {
   return (
     <div className="p-4 flex gap-4 animate-pulse">
       <div className="flex-shrink-0">
-        <div className="h-11 w-11 rounded-full bg-zinc-800" />
+        <div className="h-11 w-11 rounded-full bg-af-surface-2" />
       </div>
       <div className="flex-grow">
         <div className="flex items-center gap-2 mb-2">
-          <div className="h-4 w-24 bg-zinc-800 rounded" />
-          <div className="h-3 w-16 bg-zinc-900 rounded" />
+          <div className="h-4 w-24 bg-af-surface-2 rounded" />
+          <div className="h-3 w-16 bg-af-surface-1 rounded" />
         </div>
         <div className="space-y-2">
-          <div className="h-4 w-full bg-zinc-800/50 rounded" />
-          <div className="h-4 w-3/4 bg-zinc-800/50 rounded" />
+          <div className="h-4 w-full bg-af-surface-2/50 rounded" />
+          <div className="h-4 w-3/4 bg-af-surface-2/50 rounded" />
         </div>
         <div className="flex justify-between max-w-md mt-4">
-          <div className="h-4 w-8 bg-zinc-900 rounded" />
-          <div className="h-4 w-8 bg-zinc-900 rounded" />
-          <div className="h-4 w-8 bg-zinc-900 rounded" />
-          <div className="h-4 w-8 bg-zinc-900 rounded" />
+          <div className="h-4 w-8 bg-af-surface-1 rounded" />
+          <div className="h-4 w-8 bg-af-surface-1 rounded" />
+          <div className="h-4 w-8 bg-af-surface-1 rounded" />
+          <div className="h-4 w-8 bg-af-surface-1 rounded" />
         </div>
       </div>
     </div>
@@ -248,17 +248,17 @@ function AuraCard({ aura, onLike, onRepost }: { aura: Aura, onLike: (id: string)
       <div className="flex-grow">
         <div className="flex items-center gap-1.5 mb-0.5">
           <span className="font-bold hover:underline">{aura.authorName}</span>
-          <span className="text-zinc-500 text-sm">@{aura.authorHandle} · {formatDistanceToNow(new Date(aura.timestamp), { addSuffix: false })}</span>
+          <span className="text-af-text-muted text-sm">@{aura.authorHandle} · {formatDistanceToNow(new Date(aura.timestamp), { addSuffix: false })}</span>
         </div>
-        <p className="text-zinc-100 leading-normal text-[15px] mb-2 whitespace-pre-wrap">{aura.content}</p>
+        <p className="text-af-text-primary leading-normal text-[15px] mb-2 whitespace-pre-wrap">{aura.content}</p>
         
         {aura.mediaUrl && (
-          <div className="mt-3 mb-3 rounded-2xl overflow-hidden border border-zinc-800 max-w-2xl bg-zinc-900/20">
+          <div className="mt-3 mb-3 rounded-2xl overflow-hidden border border-af-border-subtle max-w-2xl bg-af-surface-1/20">
             <img src={aura.mediaUrl} alt="Aura Media" className="w-full h-auto max-h-[512px] object-contain mx-auto" />
           </div>
         )}
 
-        <div className="flex justify-between max-w-md text-zinc-500 mt-4">
+        <div className="flex justify-between max-w-md text-af-text-muted mt-4">
           <button className="flex items-center gap-2 group hover:text-af-cyan transition-colors"><div className="p-2 rounded-full group-hover:bg-af-cyan/10 transition-colors"><MessageSquare className="h-[18px] w-[18px]" /></div><span className="text-xs">0</span></button>
           <button onClick={() => onRepost(aura.id)} className="flex items-center gap-2 group hover:text-green-500 transition-colors"><div className="p-2 rounded-full group-hover:bg-green-500/10 transition-colors"><Repeat className="h-[18px] w-[18px]" /></div><span className="text-xs">{aura.repostsCount}</span></button>
           <button onClick={() => onLike(aura.id)} className="flex items-center gap-2 group hover:text-pink-600 transition-colors"><div className="p-2 rounded-full group-hover:bg-pink-600/10 transition-colors"><Heart className="h-[18px] w-[18px]" /></div><span className="text-xs">{aura.likesCount}</span></button>

@@ -6,20 +6,20 @@ import { Button } from "@/components/ui/button"
 export default function ListsPage() {
   return (
     <>
-      <div className="border-b border-zinc-800 bg-black/80 backdrop-blur-md sticky top-0 z-20">
+      <div className="border-b border-af-border-subtle bg-af-surface-0 backdrop-blur-md sticky top-0 z-20">
         <div className="px-4 py-4 flex justify-between items-center">
           <div>
             <h1 className="text-xl font-bold">Vibe Clusters</h1>
-            <p className="text-[10px] text-zinc-500 uppercase font-black tracking-widest mt-0.5">Custom Feed Segments</p>
+            <p className="text-[10px] text-af-text-muted uppercase font-black tracking-widest mt-0.5">Custom Feed Segments</p>
           </div>
-          <Button variant="outline" size="sm" className="border-zinc-800 rounded-full gap-2 h-9 bg-zinc-900/50">
+          <Button variant="outline" size="sm" className="border-af-border-subtle rounded-full gap-2 h-9 bg-af-surface-1/50">
             <Plus className="h-4 w-4 text-af-cyan" />
             <span className="text-xs font-bold">New Cluster</span>
           </Button>
         </div>
       </div>
 
-      <div className="divide-y divide-zinc-800">
+      <div className="divide-y divide-af-border-subtle">
         <ListItem 
           name="Core Agent Fleet" 
           description="Signals from your high-fidelity autonomous agents."
@@ -33,7 +33,7 @@ export default function ListsPage() {
           icon={<Users className="h-5 w-5 text-af-blue" />}
         />
         
-        <div className="p-20 text-center text-zinc-600">
+        <div className="p-20 text-center text-af-text-muted">
            <List className="h-16 w-16 mx-auto mb-4 opacity-10" />
            <p className="text-sm font-bold opacity-30 italic">No further segments defined.</p>
         </div>
@@ -45,15 +45,15 @@ export default function ListsPage() {
 function ListItem({ name, description, count, icon }: { name: string, description: string, count: number, icon: React.ReactNode }) {
   return (
     <div className="p-4 hover:bg-white/[0.02] transition-colors cursor-pointer flex gap-4 items-center">
-      <div className="h-12 w-12 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-center flex-shrink-0">
+      <div className="h-12 w-12 rounded-xl bg-af-surface-1 border border-af-border-subtle flex items-center justify-center flex-shrink-0">
         {icon}
       </div>
       <div className="flex-grow min-w-0">
         <h3 className="font-bold text-sm">{name}</h3>
-        <p className="text-[10px] text-zinc-500 line-clamp-1">{description}</p>
-        <p className="text-[10px] text-zinc-600 mt-1 uppercase font-black tracking-tighter">{count} tracked nodes</p>
+        <p className="text-[10px] text-af-text-muted line-clamp-1">{description}</p>
+        <p className="text-[10px] text-af-text-muted mt-1 uppercase font-black tracking-tighter">{count} tracked nodes</p>
       </div>
-      <Button variant="ghost" size="sm" className="text-zinc-600 hover:text-white">
+      <Button variant="ghost" size="sm" className="text-af-text-muted hover:text-white">
         <Settings2 className="h-4 w-4" />
       </Button>
     </div>

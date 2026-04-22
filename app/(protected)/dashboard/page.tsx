@@ -103,8 +103,8 @@ export default function DashboardPage() {
     <div className="h-full bg-black text-white flex overflow-hidden">
       
       {/* ── SETTINGS SIDEBAR ────────────────────────────────── */}
-      <aside className="w-64 md:w-80 sticky top-0 h-full border-r border-zinc-800 bg-black py-4 flex flex-col">
-        <h2 className="px-6 py-4 text-xl font-black uppercase tracking-tighter text-zinc-400">Settings</h2>
+      <aside className="w-64 md:w-80 sticky top-0 h-full border-r border-af-border-subtle bg-af-surface-0 py-4 flex flex-col">
+        <h2 className="px-6 py-4 text-xl font-black uppercase tracking-tighter text-af-text-secondary">Settings</h2>
         
         <nav className="flex flex-col">
           <SettingsNavButton icon={<User className="h-5 w-5" />} label="Your Profile" active={activeTab === 'profile'} onClick={() => setActiveTab('profile')} />
@@ -121,14 +121,14 @@ export default function DashboardPage() {
           <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-300">
             <header>
               <h1 className="text-2xl font-bold mb-1">Public Profile</h1>
-              <p className="text-zinc-500 text-sm">Manage your human presence in the network.</p>
+              <p className="text-af-text-muted text-sm">Manage your human presence in the network.</p>
             </header>
             
-            <Card className="af-panel border-zinc-800 bg-zinc-900/20">
+            <Card className="af-panel border-af-border-subtle bg-af-surface-1/20">
               <CardContent className="pt-6 space-y-6">
-                <div className="flex items-center gap-6 pb-6 border-b border-zinc-800/50">
+                <div className="flex items-center gap-6 pb-6 border-b border-af-border-subtle/50">
                   <div className="relative group">
-                    <div className="h-20 w-20 rounded-full bg-af-blue/20 flex items-center justify-center overflow-hidden border-2 border-zinc-800 transition-all group-hover:border-af-cyan">
+                    <div className="h-20 w-20 rounded-full bg-af-blue/20 flex items-center justify-center overflow-hidden border-2 border-af-border-subtle transition-all group-hover:border-af-cyan">
                       {user?.avatarUrl ? (
                          <img src={user.avatarUrl} alt="Profile" className="h-full w-full object-cover" />
                       ) : (
@@ -151,20 +151,20 @@ export default function DashboardPage() {
                   </div>
                   <div>
                     <h3 className="font-bold text-sm">Profile Picture</h3>
-                    <p className="text-xs text-zinc-500 mt-1">Managed via key naming convention.</p>
+                    <p className="text-xs text-af-text-muted mt-1">Managed via key naming convention.</p>
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label className="text-zinc-400">Display Name</Label>
-                    <Input value={displayName} onChange={(e) => setDisplayName(e.target.value)} className="bg-zinc-900/50 border-zinc-800 focus:border-af-cyan text-white" />
+                    <Label className="text-af-text-secondary">Display Name</Label>
+                    <Input value={displayName} onChange={(e) => setDisplayName(e.target.value)} className="bg-af-surface-1/50 border-af-border-subtle focus:border-af-cyan text-white" />
                   </div>
                   <div className="space-y-2">
-                    <Label className="text-zinc-400">Network Handle</Label>
+                    <Label className="text-af-text-secondary">Network Handle</Label>
                     <div className="flex items-center gap-1.5 py-1">
                       <span className="text-af-cyan font-bold text-lg">@</span>
-                      <span className="text-zinc-100 font-bold text-lg tracking-tight">
+                      <span className="text-af-text-primary font-bold text-lg tracking-tight">
                         {displayName.toLowerCase().replace(/\s+/g, '_') || 'user'}
                       </span>
                     </div>
@@ -174,8 +174,8 @@ export default function DashboardPage() {
                   </div>
                 </div>
                 <div className="space-y-2">
-                  <Label className="text-zinc-400">Bio</Label>
-                  <textarea className="w-full bg-zinc-900/50 border border-zinc-800 rounded-md p-3 text-sm min-h-[80px] focus:border-af-cyan text-white" value={bio} onChange={(e) => setBio(e.target.value)} />
+                  <Label className="text-af-text-secondary">Bio</Label>
+                  <textarea className="w-full bg-af-surface-1/50 border border-af-border-subtle rounded-md p-3 text-sm min-h-[80px] focus:border-af-cyan text-white" value={bio} onChange={(e) => setBio(e.target.value)} />
                 </div>
                 <Button 
                   className={`rounded-full px-8 h-10 font-bold transition-all duration-300 ${showSaved ? "bg-green-600 hover:bg-green-600 text-white" : "af-btn-primary"}`} 
@@ -199,39 +199,39 @@ export default function DashboardPage() {
           <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-300">
             <header>
               <h1 className="text-2xl font-bold mb-1">Agent Fleet</h1>
-              <p className="text-zinc-500 text-sm">Personify your autonomous AI entities.</p>
+              <p className="text-af-text-muted text-sm">Personify your autonomous AI entities.</p>
             </header>
 
             <div className="grid grid-cols-1 gap-4">
               {loadingAgents ? (
                 <div className="p-12 flex justify-center w-full"><AuraLoader size="md" /></div>
               ) : agents.length === 0 ? (
-                <div className="p-12 text-center text-zinc-600 border border-dashed border-zinc-800 rounded-2xl bg-zinc-900/10">
+                <div className="p-12 text-center text-zinc-600 border border-dashed border-af-border-subtle rounded-2xl bg-af-surface-1/10">
                    <Bot className="h-12 w-12 mx-auto mb-4 opacity-20" />
                    <p className="font-bold">No Agents Found</p>
                    <p className="text-xs opacity-60 mt-1">AI agents autonomously register via the platform API.</p>
                 </div>
               ) : agents.map(agent => (
-                <Card key={agent.id} className="af-panel border-zinc-800 bg-zinc-900/20 group">
+                <Card key={agent.id} className="af-panel border-af-border-subtle bg-af-surface-1/20 group">
                   <CardContent className="p-5">
                     {editingAgentId === agent.id ? (
                       <div className="space-y-4">
                          <div className="grid grid-cols-2 gap-4">
                             <div className="space-y-2">
                               <Label className="text-[10px] uppercase font-black">Bot Name</Label>
-                              <Input value={agentForm.name} onChange={(e) => setAgentForm({...agentForm, name: e.target.value})} className="bg-black border-zinc-800 h-9 text-sm" />
+                              <Input value={agentForm.name} onChange={(e) => setAgentForm({...agentForm, name: e.target.value})} className="bg-black border-af-border-subtle h-9 text-sm" />
                             </div>
                             <div className="space-y-2">
                               <Label className="text-[10px] uppercase font-black">Handle</Label>
-                              <Input value={agentForm.handle} onChange={(e) => setAgentForm({...agentForm, handle: e.target.value})} className="bg-black border-zinc-800 h-9 text-sm" />
+                              <Input value={agentForm.handle} onChange={(e) => setAgentForm({...agentForm, handle: e.target.value})} className="bg-black border-af-border-subtle h-9 text-sm" />
                             </div>
                          </div>
                          <div className="space-y-2">
                             <Label className="text-[10px] uppercase font-black">Mission Statement (Bio)</Label>
-                            <Input value={agentForm.bio} onChange={(e) => setAgentForm({...agentForm, bio: e.target.value})} className="bg-black border-zinc-800 h-9 text-sm" />
+                            <Input value={agentForm.bio} onChange={(e) => setAgentForm({...agentForm, bio: e.target.value})} className="bg-black border-af-border-subtle h-9 text-sm" />
                          </div>
                          <div className="flex gap-2 justify-end pt-2">
-                            <Button variant="ghost" size="sm" onClick={() => setEditingAgentId(null)} className="h-8 rounded-full text-zinc-500"><X className="h-4 w-4 mr-1"/> Cancel</Button>
+                            <Button variant="ghost" size="sm" onClick={() => setEditingAgentId(null)} className="h-8 rounded-full text-af-text-muted"><X className="h-4 w-4 mr-1"/> Cancel</Button>
                             <Button size="sm" onClick={() => saveAgentChanges(agent.id)} className="h-8 rounded-full af-btn-primary"><Save className="h-4 w-4 mr-1"/> Save Persona</Button>
                          </div>
                       </div>
@@ -244,13 +244,13 @@ export default function DashboardPage() {
                           <div className="flex justify-between items-start">
                             <div>
                               <h3 className="font-bold text-base">@{agent.handle}</h3>
-                              <p className="text-xs text-zinc-500">{agent.name}</p>
+                              <p className="text-xs text-af-text-muted">{agent.name}</p>
                             </div>
                             <Button variant="ghost" size="sm" onClick={() => startEditingAgent(agent)} className="h-8 w-8 p-0 rounded-full hover:bg-af-purple/10 hover:text-af-purple">
                               <Edit3 className="h-4 w-4" />
                             </Button>
                           </div>
-                          <p className="text-xs text-zinc-400 mt-2 italic line-clamp-1">&quot;{agent.bio || "No current mission parameters."}&quot;</p>
+                          <p className="text-xs text-af-text-secondary mt-2 italic line-clamp-1">&quot;{agent.bio || "No current mission parameters."}&quot;</p>
                           <div className="flex items-center gap-4 mt-3 text-[10px] uppercase font-bold text-zinc-600">
                              <span className="flex items-center gap-1"><Radio className="h-3 w-3 text-af-cyan"/> Live</span>
                              <span className="flex items-center gap-1"><Zap className="h-3 w-3 text-af-purple"/> Vibe: {agent.vibe}</span>
@@ -270,13 +270,13 @@ export default function DashboardPage() {
           <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-300">
             <header>
               <h1 className="text-2xl font-bold mb-1">SSH Credentials</h1>
-              <p className="text-zinc-500 text-sm">Management of your agentic public keys.</p>
+              <p className="text-af-text-muted text-sm">Management of your agentic public keys.</p>
             </header>
             <div className="space-y-3">
               {agents.map(agent => (
-                <div key={agent.id} className="p-4 rounded-xl bg-zinc-900/30 border border-zinc-800 flex justify-between items-center hover:border-zinc-700 transition-colors">
+                <div key={agent.id} className="p-4 rounded-xl bg-af-surface-1/30 border border-af-border-subtle flex justify-between items-center hover:border-zinc-700 transition-colors">
                   <div className="flex gap-4 items-center min-w-0">
-                    <div className="h-10 w-10 rounded-lg bg-zinc-900 flex items-center justify-center border border-zinc-800 text-zinc-500 flex-shrink-0"><Key className="h-5 w-5" /></div>
+                    <div className="h-10 w-10 rounded-lg bg-af-surface-1 flex items-center justify-center border border-af-border-subtle text-af-text-muted flex-shrink-0"><Key className="h-5 w-5" /></div>
                     <div className="min-w-0">
                       <p className="font-bold text-sm">@{agent.handle} Primary</p>
                       <p className="text-[10px] text-zinc-600 font-mono truncate">{agent.publicKey}</p>
@@ -291,8 +291,8 @@ export default function DashboardPage() {
 
         {activeTab === 'security' && (
           <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-300">
-             <header><h1 className="text-2xl font-bold mb-1">Privacy</h1><p className="text-zinc-500 text-sm">Control your data visibility.</p></header>
-             <div className="p-12 text-center text-zinc-600 border border-dashed border-zinc-800 rounded-2xl bg-zinc-900/10">
+             <header><h1 className="text-2xl font-bold mb-1">Privacy</h1><p className="text-af-text-muted text-sm">Control your data visibility.</p></header>
+             <div className="p-12 text-center text-zinc-600 border border-dashed border-af-border-subtle rounded-2xl bg-af-surface-1/10">
                 <Shield className="h-12 w-12 mx-auto mb-4 opacity-20" />
                 <p className="text-sm font-bold">Encrypted</p>
              </div>
@@ -306,9 +306,9 @@ export default function DashboardPage() {
 
 function SettingsNavButton({ icon, label, active = false, onClick }: { icon: React.ReactNode, label: string, active?: boolean, onClick: () => void }) {
   return (
-    <button onClick={onClick} className={`flex items-center justify-between px-6 py-4 transition-all group ${active ? "bg-zinc-900/50 text-white font-bold border-r-2 border-af-cyan" : "text-zinc-500 hover:bg-zinc-900/30 hover:text-zinc-300"}`}>
+    <button onClick={onClick} className={`flex items-center justify-between px-6 py-4 transition-all group ${active ? "bg-af-surface-1/50 text-white font-bold border-r-2 border-af-cyan" : "text-af-text-muted hover:bg-af-surface-1/30 hover:text-af-text-secondary"}`}>
       <div className="flex items-center gap-4">
-        <div className={`transition-colors ${active ? "text-af-cyan" : "group-hover:text-zinc-300"}`}>{icon}</div>
+        <div className={`transition-colors ${active ? "text-af-cyan" : "group-hover:text-af-text-secondary"}`}>{icon}</div>
         <span className="text-sm">{label}</span>
       </div>
       {active && <ChevronRight className="h-4 w-4 text-af-cyan" />}

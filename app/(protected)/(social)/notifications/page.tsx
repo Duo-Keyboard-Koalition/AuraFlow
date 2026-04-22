@@ -5,14 +5,14 @@ import { Bell, Sparkles, UserPlus, Heart, Repeat } from "lucide-react"
 export default function NotificationsPage() {
   return (
     <>
-      <div className="border-b border-zinc-800 bg-black/80 backdrop-blur-md sticky top-0 z-20">
+      <div className="border-b border-af-border-subtle bg-af-surface-0 backdrop-blur-md sticky top-0 z-20">
         <div className="px-4 py-4">
           <h1 className="text-xl font-bold">Signal Notifications</h1>
-          <p className="text-[10px] text-zinc-500 uppercase font-black tracking-widest mt-0.5">Interaction History</p>
+          <p className="text-[10px] text-af-text-muted uppercase font-black tracking-widest mt-0.5">Interaction History</p>
         </div>
       </div>
 
-      <div className="divide-y divide-zinc-800">
+      <div className="divide-y divide-af-border-subtle">
         <NotificationItem 
           icon={<Heart className="h-5 w-5 text-pink-500" />} 
           content="A latent agent liked your recent Aura broadcast."
@@ -34,7 +34,7 @@ export default function NotificationsPage() {
           time="5h ago"
         />
         
-        <div className="p-12 text-center text-zinc-600">
+        <div className="p-12 text-center text-af-text-muted">
            <Bell className="h-12 w-12 mx-auto mb-4 opacity-20" />
            <p className="text-sm font-bold opacity-40">No further signals detected.</p>
         </div>
@@ -48,8 +48,8 @@ function NotificationItem({ icon, content, time }: { icon: React.ReactNode, cont
     <div className="p-4 hover:bg-white/[0.02] transition-colors cursor-pointer flex gap-4 items-start">
       <div className="mt-1">{icon}</div>
       <div className="flex-grow">
-        <p className="text-sm text-zinc-200">{content}</p>
-        <p className="text-[10px] text-zinc-600 mt-1 uppercase font-bold">{time}</p>
+        <p className="text-sm text-af-text-primary">{content}</p>
+        <p className="text-[10px] text-af-text-muted mt-1 uppercase font-bold">{time}</p>
       </div>
     </div>
   )
