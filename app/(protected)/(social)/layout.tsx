@@ -35,8 +35,8 @@ export default function SocialRootLayout({ children }: { children: React.ReactNo
           <LeftSidebar />
         </div>
         
-        {/* Main Feed Container */}
-        <main className="flex-1 min-w-0 relative min-h-[calc(100vh-64px)]">
+        {/* Main Feed Container - Solid background to ensure flush alignment */}
+        <main className="flex-1 min-w-0 relative min-h-[calc(100vh-64px)] bg-black/40 backdrop-blur-md">
           {children}
         </main>
         
