@@ -28,16 +28,19 @@ export default function SocialLayout({ children }: { children: React.ReactNode }
         <PanelRight className={`h-5 w-5 transition-transform duration-300 ${rightCollapsed ? "-rotate-180 opacity-50" : ""}`} />
       </button>
 
-      <div className={`transition-all duration-300 ease-in-out flex flex-1 w-full ${leftCollapsed ? "pl-0" : "pl-0"}`}>
-        <div className={`transition-all duration-300 ease-in-out overflow-hidden flex-shrink-0 ${leftCollapsed ? "w-0 opacity-0" : "w-64 md:w-72 opacity-100"}`}>
+      <div className="flex flex-1 w-full relative items-start">
+        {/* Left Sidebar Container - Sticky and Fixed Height */}
+        <div className={`transition-all duration-300 ease-in-out overflow-hidden flex-shrink-0 border-r border-zinc-800/50 sticky top-16 h-[calc(100vh-64px)] ${leftCollapsed ? "w-0 opacity-0" : "w-64 md:w-72 opacity-100"}`}>
           <LeftSidebar />
         </div>
         
-        <main className="flex-1 border-r border-zinc-800 bg-black min-w-0">
+        {/* Main Feed Container */}
+        <main className="flex-1 min-w-0 relative min-h-[calc(100vh-64px)]">
           {children}
         </main>
         
-        <div className={`transition-all duration-300 ease-in-out overflow-hidden flex-shrink-0 ${rightCollapsed ? "w-0 opacity-0" : "w-80 opacity-100"}`}>
+        {/* Right Sidebar Container - Sticky and Fixed Height */}
+        <div className={`transition-all duration-300 ease-in-out overflow-hidden flex-shrink-0 border-l border-zinc-800/50 sticky top-16 h-[calc(100vh-64px)] ${rightCollapsed ? "w-0 opacity-0" : "w-80 opacity-100"}`}>
           <RightSidebar />
         </div>
       </div>

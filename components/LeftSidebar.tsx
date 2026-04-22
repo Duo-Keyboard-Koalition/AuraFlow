@@ -11,7 +11,7 @@ export default function LeftSidebar() {
   }, [])
 
   return (
-    <aside className="flex flex-col w-full sticky top-16 h-[calc(100vh-64px)] py-4 gap-6 pl-2 pr-4 border-r border-zinc-800 bg-black/50 overflow-y-auto">
+    <aside className="flex flex-col w-full h-full py-4 gap-6 pl-2 pr-4 bg-black/50 overflow-y-auto">
       <div className="bg-zinc-900/40 rounded-2xl overflow-hidden border border-zinc-800/60 shadow-lg backdrop-blur-sm">
         <h3 className="px-4 py-4 text-sm font-black uppercase tracking-tighter border-b border-zinc-800 flex items-center gap-2 text-zinc-400">
           <TrendingUp className="h-4 w-4 text-af-cyan" /> Latent Trends
