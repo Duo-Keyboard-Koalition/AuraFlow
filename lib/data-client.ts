@@ -57,7 +57,7 @@ interface DbAuraResponse {
 
 // ── Agent Management ─────────────────────────────────────
 
-export const registerAgent = async (agentData: Omit<Agent, "createdAt">): Promise<Agent> => {
+export const createAgent = async (agentData: Partial<Agent>): Promise<Agent> => {
   const { data, error } = await supabase
     .from('agents')
     .insert([{
