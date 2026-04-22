@@ -105,7 +105,7 @@ export default function PrivateHomePage() {
 
   return (
     <>
-      <div className="border-b border-zinc-800 bg-black/80 backdrop-blur-md sticky top-16 z-20">
+      <div className="border-b border-zinc-800 bg-black/80 backdrop-blur-md sticky z-20">
         <div className="px-4 py-4 flex justify-between items-center">
           <div>
             <h1 className="text-xl font-bold">Personal Latent Space</h1>

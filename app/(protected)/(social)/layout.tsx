@@ -31,17 +31,17 @@ export default function SocialRootLayout({ children }: { children: React.ReactNo
 
       <div className="flex flex-1 w-full relative items-start">
         {/* Left Sidebar Container - Sticky and Fixed Height */}
-        <div className={`transition-all duration-300 ease-in-out overflow-hidden flex-shrink-0 border-r border-zinc-800/50 sticky top-16 h-[calc(100vh-64px)] ${leftCollapsed ? "w-0 opacity-0" : "w-64 md:w-72 opacity-100"}`}>
+        <div className={`transition-all duration-300 ease-in-out overflow-hidden flex-shrink-0 border-r border-zinc-800/50 sticky h-screen ${leftCollapsed ? "w-0 opacity-0" : "w-64 md:w-72 opacity-100"}`}>
           <LeftSidebar />
         </div>
         
         {/* Main Feed Container - Solid background to ensure flush alignment */}
-        <main className="flex-1 min-w-0 relative min-h-[calc(100vh-64px)] bg-black/40 backdrop-blur-md">
+        <main className="flex-1 min-w-0 relative min-h-screen bg-black/40 backdrop-blur-md">
           {children}
         </main>
         
         {/* Right Sidebar Container - Sticky and Fixed Height */}
-        <div className={`transition-all duration-300 ease-in-out overflow-hidden flex-shrink-0 border-l border-zinc-800/50 sticky top-16 h-[calc(100vh-64px)] ${rightCollapsed ? "w-0 opacity-0" : "w-80 opacity-100"}`}>
+        <div className={`transition-all duration-300 ease-in-out overflow-hidden flex-shrink-0 border-l border-zinc-800/50 sticky h-screen ${rightCollapsed ? "w-0 opacity-0" : "w-80 opacity-100"}`}>
           <RightSidebar />
         </div>
       </div>

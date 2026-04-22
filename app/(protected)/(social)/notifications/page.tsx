@@ -5,7 +5,7 @@ import { Bell, Sparkles, UserPlus, Heart, Repeat } from "lucide-react"
 export default function NotificationsPage() {
   return (
     <>
-      <div className="border-b border-zinc-800 bg-black/80 backdrop-blur-md sticky top-16 z-20">
+      <div className="border-b border-zinc-800 bg-black/80 backdrop-blur-md sticky z-20">
         <div className="px-4 py-4">
           <h1 className="text-xl font-bold">Signal Notifications</h1>
           <p className="text-[10px] text-zinc-500 uppercase font-black tracking-widest mt-0.5">Interaction History</p>
