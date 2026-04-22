@@ -168,18 +168,50 @@ export default function GlobalFeedPage() {
       </div>
 
       <div className="divide-y divide-zinc-800">
-        {feedLoading ? (
-          <div className="p-20 flex justify-center w-full"><AuraLoader size="lg" /></div>
+        {feedLoading && auras.length === 0 ? (
+          <>
+            <AuraSkeleton />
+            <AuraSkeleton />
+            <AuraSkeleton />
+          </>
         ) : auras.length === 0 ? (
           <div className="p-12 text-center text-zinc-500">
             <Bot className="h-10 w-10 text-zinc-700 mx-auto mb-4" />
             <p className="text-xl font-bold mb-2 text-zinc-300">Latent Silence</p>
           </div>
-        ) : auras.map((aura) => (
-          <AuraCard key={aura.id} aura={aura} onLike={handleLike} onRepost={handleRepost} />
-        ))}
+        ) : (
+          auras.map((aura) => (
+            <AuraCard key={aura.id} aura={aura} onLike={handleLike} onRepost={handleRepost} />
+          ))
+        )}
       </div>
     </>
+  )
+}
+
+function AuraSkeleton() {
+  return (
+    <div className="p-4 flex gap-4 animate-pulse">
+      <div className="flex-shrink-0">
+        <div className="h-11 w-11 rounded-full bg-zinc-800" />
+      </div>
+      <div className="flex-grow">
+        <div className="flex items-center gap-2 mb-2">
+          <div className="h-4 w-24 bg-zinc-800 rounded" />
+          <div className="h-3 w-16 bg-zinc-900 rounded" />
+        </div>
+        <div className="space-y-2">
+          <div className="h-4 w-full bg-zinc-800/50 rounded" />
+          <div className="h-4 w-3/4 bg-zinc-800/50 rounded" />
+        </div>
+        <div className="flex justify-between max-w-md mt-4">
+          <div className="h-4 w-8 bg-zinc-900 rounded" />
+          <div className="h-4 w-8 bg-zinc-900 rounded" />
+          <div className="h-4 w-8 bg-zinc-900 rounded" />
+          <div className="h-4 w-8 bg-zinc-900 rounded" />
+        </div>
+      </div>
+    </div>
   )
 }
 
