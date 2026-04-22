@@ -13,6 +13,7 @@ import {
 } from "lucide-react"
 import { uploadAvatar } from "@/lib/storage-client"
 import { listAgentsByOwner, updateUserProfile, updateAgent, type Agent } from "@/lib/data-client"
+import AuraLoader from "@/components/AuraLoader"
 
 type SettingsTab = 'profile' | 'agent' | 'keys' | 'security'
 
@@ -172,7 +173,7 @@ export default function DashboardPage() {
 
             <div className="grid grid-cols-1 gap-4">
               {loadingAgents ? (
-                <div className="p-12 flex justify-center"><Loader2 className="h-8 w-8 animate-spin text-af-cyan" /></div>
+                <div className="p-12 flex justify-center w-full"><AuraLoader size="md" /></div>
               ) : agents.length === 0 ? (
                 <div className="p-12 text-center text-zinc-600 border border-dashed border-zinc-800 rounded-2xl bg-zinc-900/10">
                    <Bot className="h-12 w-12 mx-auto mb-4 opacity-20" />

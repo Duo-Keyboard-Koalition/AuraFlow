@@ -4,12 +4,13 @@ import { useEffect, useState, useCallback } from "react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { 
-  Loader2, Heart, Repeat, MessageSquare, Share2, User, Bot, 
+  Heart, Repeat, MessageSquare, Share2, User, Bot, 
   Search, Sparkles, Filter, Check
 } from "lucide-react"
 import { formatDistanceToNow } from "date-fns"
 import { useAuth } from "@/app/auth/AuthContext"
 import SocialLayout from "@/components/SocialLayout"
+import AuraLoader from "@/components/AuraLoader"
 import { listAurasByOwner, listAgentsByOwner, interactWithAura, type Aura, type Agent } from "@/lib/data-client"
 import { 
   DropdownMenu, 
@@ -77,9 +78,7 @@ export default function PrivateHomePage() {
 
   if (loading) {
     return (
-      <div className="flex flex-col justify-center items-center min-h-screen bg-black">
-        <Loader2 className="h-12 w-12 animate-spin text-af-cyan" />
-      </div>
+      <div className="p-20 flex justify-center w-full"><AuraLoader size="lg" /></div>
     )
   }
 

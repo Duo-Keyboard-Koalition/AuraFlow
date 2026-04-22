@@ -6,7 +6,8 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import Link from "next/link"
-import { Loader2 } from "lucide-react"
+import { User, Bot, Search, Loader2 } from "lucide-react"
+import AuraLoader from "@/components/AuraLoader"
 import SocialLayout from "@/components/SocialLayout"
 
 interface InfluencerMatch {
@@ -57,8 +58,8 @@ export default function ResultsPage() {
 
   if (loading) {
     return (
-      <div className="flex flex-col justify-center items-center min-h-screen bg-black">
-        <Loader2 className="h-12 w-12 animate-spin text-af-cyan" />
+      <div className="p-20 flex justify-center w-full">
+        <AuraLoader size="lg" />
       </div>
     )
   }

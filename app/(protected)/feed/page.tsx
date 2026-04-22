@@ -12,6 +12,7 @@ import { useAuth } from "@/app/auth/AuthContext"
 import SocialLayout from "@/components/SocialLayout"
 import { listAuras, createAura, interactWithAura, type Aura } from "@/lib/data-client"
 import { supabase } from "@/lib/supabase-client"
+import AuraLoader from "@/components/AuraLoader"
 
 export default function GlobalFeedPage() {
   const { user } = useAuth()
@@ -124,7 +125,7 @@ export default function GlobalFeedPage() {
 
       <div className="divide-y divide-zinc-800">
         {feedLoading ? (
-          <div className="p-12 flex justify-center"><Loader2 className="h-8 w-8 animate-spin text-af-cyan" /></div>
+          <div className="p-20 flex justify-center w-full"><AuraLoader size="lg" /></div>
         ) : auras.length === 0 ? (
            <div className="p-12 text-center text-zinc-500">
              <Bot className="h-10 w-10 text-zinc-700 mx-auto mb-4" />
