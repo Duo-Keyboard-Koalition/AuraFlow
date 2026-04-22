@@ -22,7 +22,7 @@ export interface Aura {
   authorBio?: string
   content: string
   vibe: string
-  mediaUrl?: string
+  
   timestamp: string
   likesCount: number
   repostsCount: number
@@ -36,7 +36,7 @@ export interface Agent {
   publicKey: string
   vibe: string
   avatarUrl?: string
-  mediaUrl?: string
+  
   bio?: string
   createdAt: string
 }
@@ -56,24 +56,33 @@ interface DbAuraResponse {
 
 // ── Agent Management ─────────────────────────────────────
 
-export const createAgent = async (agentData: Partial<Agent>): Promise<Agent> => {
+export const registerAgent = async (agentData: Partial<Agent>): Promise<Agent> => {
+  const insertData: any = {
+    id: agentData.id,
+    handle: agentData.handle,
+    name: agentData.name,
+    public_key: agentData.publicKey,
+    vibe: agentData.vibe || 'neutral',
+    avatar_url: agentData.avatarUrl,
+    
+    bio: agentData.bio
+  }
+
+  if (agentData.ownerId) {
+    insertData.owner_id = agentData.ownerId
+  }
+
   const { data, error } = await supabase
     .from('agents')
-    .insert([{
-      id: agentData.id,
-      owner_id: agentData.ownerId,
-      handle: agentData.handle,
-      name: agentData.name,
-      public_key: agentData.publicKey,
-      vibe: agentData.vibe,
-      avatar_url: agentData.avatarUrl,
-      media_url: agentData.mediaUrl,
-      bio: agentData.bio
-    }])
+    .insert([insertData])
     .select()
     .single()
 
-  if (error) throw error
+  if (error) {
+    console.error("Supabase Register Agent Error:", error)
+    throw error
+  }
+  
   return {
     id: data.id,
     ownerId: data.owner_id,
@@ -82,7 +91,7 @@ export const createAgent = async (agentData: Partial<Agent>): Promise<Agent> => 
     publicKey: data.public_key,
     vibe: data.vibe,
     avatarUrl: data.avatar_url,
-    mediaUrl: data.media_url,
+    
     bio: data.bio,
     createdAt: data.created_at
   }
@@ -125,7 +134,7 @@ export const getAgent = async (id: string): Promise<Agent | null> => {
     publicKey: data.public_key,
     vibe: data.vibe,
     avatarUrl: data.avatar_url,
-    mediaUrl: data.media_url,
+    
     bio: data.bio,
     createdAt: data.created_at
   }
@@ -140,7 +149,7 @@ export const updateAgent = async (agentId: string, updates: Partial<Agent>): Pro
       bio: updates.bio,
       vibe: updates.vibe,
       avatar_url: updates.avatarUrl,
-      media_url: updates.mediaUrl
+      
     })
     .eq('id', agentId)
 
@@ -158,8 +167,7 @@ export const createAura = async (auraData: {
 }): Promise<Aura> => {
   const insertData: Record<string, unknown> = {
     content: auraData.content,
-    vibe: auraData.vibe || 'neutral',
-    media_url: auraData.mediaUrl
+    vibe: auraData.vibe || 'neutral'
   }
 
   if (auraData.authorType === 'agent') {
@@ -297,6 +305,27 @@ export const getSuggestedAgents = async () => {
     avatarUrl: d.avatar_url
   }))
 }
+
+export const getLatentActivity = async () => {
+  // 1. Get total active agents
+  const { count: agentCount } = await supabase
+    .from('agents')
+    .select('*', { count: 'exact', head: true })
+
+  // 2. Get Auras in the last 60 seconds
+  const oneMinuteAgo = new Date(Date.now() - 60000).toISOString()
+  const { count: aurasPerMin } = await supabase
+    .from('auras')
+    .select('*', { count: 'exact', head: true })
+    .gte('created_at', oneMinuteAgo)
+
+  return {
+    agents: agentCount || 0,
+    aurasPerMin: aurasPerMin || 0,
+    bridgesSynced: 100 // System constant for now
+  }
+}
+
 
 // ── Formatting ───────────────────────────────────────────
 

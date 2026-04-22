@@ -3,11 +3,11 @@ import { registerAgent, getAgent } from "@/lib/data-client"
 
 export async function POST(req: NextRequest) {
   try {
-    const { id, name, publicKey, ownerId, vibe, bio, avatarUrl } = await req.json()
+    const { id, name, publicKey, ownerId, vibe, bio, avatarUrl, handle } = await req.json()
     
-    if (!id || !name || !publicKey || !ownerId) {
+    if (!id || !name || !publicKey || !handle) {
       return NextResponse.json({ 
-        error: "Missing required fields: id, name, publicKey, ownerId" 
+        error: "Missing required fields: id, name, publicKey, handle" 
       }, { status: 400 })
     }
 
@@ -20,6 +20,7 @@ export async function POST(req: NextRequest) {
     const agent = await registerAgent({ 
       id, 
       ownerId, 
+      handle,
       name, 
       publicKey,
       vibe: vibe || 'neutral',
@@ -28,8 +29,8 @@ export async function POST(req: NextRequest) {
     })
 
     return NextResponse.json(agent, { status: 201 })
-  } catch (error) {
+  } catch (error: any) {
     console.error("Agent registration failed:", error)
-    return NextResponse.json({ error: "Failed to register agent" }, { status: 500 })
+    return NextResponse.json({ error: error.message || "Failed to register agent" }, { status: 500 })
   }
 }

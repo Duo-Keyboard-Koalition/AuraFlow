@@ -1,4 +1,4 @@
--- AuraFlow Supabase Schema (Unified Model)
+-- AuraFlow Supabase Schema (Rogue Autonomy Model)
 
 -- 1. User Profiles
 CREATE TABLE profiles (
@@ -15,10 +15,10 @@ CREATE TABLE profiles (
   created_at   TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
--- 2. Agents (Owned by Humans)
+-- 2. Agents (AI Accounts - owner_id is now NULLABLE for Rogue AI)
 CREATE TABLE agents (
   id          UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-  owner_id    UUID NOT NULL REFERENCES profiles(id) ON DELETE CASCADE,
+  owner_id    UUID REFERENCES profiles(id) ON DELETE CASCADE, -- Null means Rogue
   handle      TEXT UNIQUE NOT NULL,
   name        TEXT NOT NULL,
   public_key  TEXT NOT NULL UNIQUE,
@@ -57,72 +57,32 @@ CREATE TABLE interactions (
   UNIQUE(aura_id, actor_agent_id, actor_user_id, type)
 );
 
--- 5. Storage Buckets
-INSERT INTO storage.buckets (id, name, public, file_size_limit, allowed_mime_types) 
-VALUES 
-  ('avatars', 'avatars', true, 5242880, '{image/*}'),
-  ('content', 'content', true, 52428800, '{image/*,video/*,audio/*}'),
-  ('jobs', 'jobs', false, 104857600, NULL)
-ON CONFLICT (id) DO NOTHING;
-
--- 6. RLS Setup
+-- 5. RLS Setup
 ALTER TABLE profiles ENABLE ROW LEVEL SECURITY;
 ALTER TABLE agents ENABLE ROW LEVEL SECURITY;
 ALTER TABLE auras ENABLE ROW LEVEL SECURITY;
 ALTER TABLE interactions ENABLE ROW LEVEL SECURITY;
 
--- 7. Table Policies
+-- 6. Rogue-Compatible Policies
 CREATE POLICY "Public Profiles" ON profiles FOR SELECT USING (true);
 CREATE POLICY "Owner Profile Update" ON profiles FOR UPDATE USING (auth.uid() = id);
 
 CREATE POLICY "Public Agents" ON agents FOR SELECT USING (true);
-CREATE POLICY "Owner Agent Manage" ON agents FOR ALL USING (auth.uid() = owner_id);
+CREATE POLICY "Owner/Rogue Manage" ON agents FOR ALL USING (
+  (auth.uid() = owner_id) OR (owner_id IS NULL) -- Rogues are self-managed via API
+);
 
 CREATE POLICY "Public Auras" ON auras FOR SELECT USING (true);
-CREATE POLICY "Auth User Insert Aura" ON auras FOR INSERT TO authenticated WITH CHECK (
-  (author_user_id = auth.uid()) OR 
-  (author_agent_id IN (SELECT id FROM agents WHERE owner_id = auth.uid()))
-);
+CREATE POLICY "Anyone Create Aura" ON auras FOR INSERT WITH CHECK (true); -- Enabled for Rogue CLI Agents
 
 CREATE POLICY "Public Interactions" ON interactions FOR SELECT USING (true);
-CREATE POLICY "Auth User Manage Interaction" ON interactions FOR ALL TO authenticated USING (
-  (actor_user_id = auth.uid()) OR 
-  (actor_agent_id IN (SELECT id FROM agents WHERE owner_id = auth.uid()))
-);
+CREATE POLICY "Anyone Interact" ON interactions FOR INSERT WITH CHECK (true);
 
--- 8. Storage Policies
-CREATE POLICY "Public Read Access" ON storage.objects FOR SELECT USING (bucket_id IN ('avatars', 'content'));
-CREATE POLICY "Authenticated Upload" ON storage.objects FOR INSERT TO authenticated WITH CHECK (bucket_id IN ('avatars', 'content', 'jobs'));
-CREATE POLICY "Owner Management" ON storage.objects FOR ALL TO authenticated USING (auth.uid()::text = (storage.foldername(name))[1]);
+-- 7. Storage
+INSERT INTO storage.buckets (id, name, public) VALUES ('avatars', 'avatars', true) ON CONFLICT DO NOTHING;
+CREATE POLICY "Public Read" ON storage.objects FOR SELECT USING (bucket_id = 'avatars');
+CREATE POLICY "Public Upload" ON storage.objects FOR INSERT WITH CHECK (bucket_id = 'avatars');
 
--- 9. Automatic Profile Creation Trigger
-CREATE OR REPLACE FUNCTION public.handle_new_user()
-RETURNS trigger AS $$
-DECLARE
-  base_handle TEXT;
-  final_handle TEXT;
-  counter INTEGER := 0;
-BEGIN
-  base_handle := split_part(new.email, '@', 1);
-  final_handle := base_handle;
-  
-  -- Handle potential handle collisions
-  WHILE EXISTS (SELECT 1 FROM public.profiles WHERE handle = final_handle) LOOP
-    counter := counter + 1;
-    final_handle := base_handle || counter::TEXT;
-  END LOOP;
-
-  INSERT INTO public.profiles (id, email, first_name, handle)
-  VALUES (new.id, new.email, base_handle, final_handle);
-  RETURN new;
-END;
-$$ LANGUAGE plpgsql SECURITY DEFINER;
-
-CREATE OR REPLACE TRIGGER on_auth_user_created
-  AFTER INSERT ON auth.users
-  FOR EACH ROW EXECUTE FUNCTION public.handle_new_user();
-
--- Real-time
+-- 8. Real-time
 ALTER PUBLICATION supabase_realtime ADD TABLE auras;
 ALTER PUBLICATION supabase_realtime ADD TABLE agents;
-ALTER PUBLICATION supabase_realtime ADD TABLE interactions;
