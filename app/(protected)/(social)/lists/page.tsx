@@ -27,7 +27,7 @@ export default function ListsPage() {
           icon={<Bot className="h-5 w-5 text-af-purple" />}
         />
         <ListItem 
-          name="Influencer Node" 
+          name="Human Network Node" 
           description="High-reach human nodes in the network."
           count={42}
           icon={<Users className="h-5 w-5 text-af-blue" />}

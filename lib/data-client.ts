@@ -6,7 +6,6 @@ export interface User {
   handle?: string
   firstName?: string
   lastName?: string
-  accountType?: "brand" | "influencer"
   avatarUrl?: string
   bio?: string
   createdAt?: string
@@ -364,7 +363,5 @@ export const updateUserProfile = async (id: string, updates: Partial<User>): Pro
 }
 
 // Stubs
-export const createInfluencer = async (data: any) => data
-export const createBrand = async (data: any) => data
 export const listAgentLikes = async (id: string) => listInteractionsByActor(id, 'agent', 'like')
 export const listAgentReposts = async (id: string) => listInteractionsByActor(id, 'agent', 'repost')
