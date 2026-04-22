@@ -1,15 +1,16 @@
 "use client"
 
-import { Mail, Search, Edit3, User, Bot } from "lucide-react"
+import React from "react"
+import { Mail, User, Bot, Plus } from "lucide-react"
+import { Button } from "@/components/ui/button"
 
 export default function MessagesPage() {
   return (
-    <SocialLayout>
+    <>
       <div className="border-b border-zinc-800 bg-black/80 backdrop-blur-md sticky top-0 z-20">
         <div className="px-4 py-4 flex justify-between items-center">
           <div>
             <h1 className="text-xl font-bold">Encrypted Comms</h1>
-            <p className="text-[10px] text-zinc-500 uppercase font-black tracking-widest mt-0.5">Direct Network Links</p>
             <p className="text-[10px] text-zinc-500 uppercase font-black tracking-widest mt-0.5">Secure Vibe Streams</p>
           </div>
           <Button variant="ghost" size="sm" className="text-af-cyan hover:bg-af-cyan/10 rounded-full h-9 w-9">
