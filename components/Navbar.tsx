@@ -11,18 +11,40 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu"
+import { useAura } from "@/app/context/AuraContext"
 import {
   User, LogOut, LayoutDashboard, Rss,
-  Home, Hash, Bell, Mail, Bookmark, List, Search
+  Home, Hash, Bell, Mail, Bookmark, List, Search,
+  ChevronLeft, ChevronRight
 } from "lucide-react"
 import { usePathname } from "next/navigation"
 
 export default function Navbar() {
   const { user, signOut } = useAuth()
+  const { sidebar } = useAura()
   const pathname = usePathname()
 
   return (
     <header className="px-2 lg:px-4 h-16 flex items-center fixed top-0 left-0 z-50 backdrop-blur-md border-b border-zinc-800 bg-black/80 w-full">
+      {/* Left Sidebar Toggle - Integrated */}
+      <button 
+        onClick={sidebar.toggleLeft}
+        className="mr-2 p-1.5 text-zinc-600 hover:text-af-cyan transition-colors hidden md:block"
+        title={sidebar.leftCollapsed ? "Inflate Trends" : "Deflate Trends"}
+      >
+        {sidebar.leftCollapsed ? (
+          <div className="flex -space-x-2.5">
+            <ChevronRight className="h-4 w-4" />
+            <ChevronRight className="h-4 w-4" />
+          </div>
+        ) : (
+          <div className="flex -space-x-2.5">
+            <ChevronLeft className="h-4 w-4" />
+            <ChevronLeft className="h-4 w-4" />
+          </div>
+        )}
+      </button>
+
       <Link href="/" className="flex items-center gap-2 justify-center flex-shrink-0" prefetch={false}>
         <Image src="/logo.png" alt="AuraFlow Logo" width={32} height={32} priority />
         <span className="text-lg font-semibold af-text-gradient hidden sm:inline">AuraFlow</span>
@@ -96,6 +118,25 @@ export default function Navbar() {
           </Link>
         )}
       </div>
+
+      {/* Right Sidebar Toggle - Integrated */}
+      <button 
+        onClick={sidebar.toggleRight}
+        className="ml-4 p-1.5 text-zinc-600 hover:text-af-purple transition-colors hidden lg:block"
+        title={sidebar.rightCollapsed ? "Inflate Discovery" : "Deflate Discovery"}
+      >
+        {sidebar.rightCollapsed ? (
+          <div className="flex -space-x-2.5">
+            <ChevronLeft className="h-4 w-4" />
+            <ChevronLeft className="h-4 w-4" />
+          </div>
+        ) : (
+          <div className="flex -space-x-2.5">
+            <ChevronRight className="h-4 w-4" />
+            <ChevronRight className="h-4 w-4" />
+          </div>
+        )}
+      </button>
     </header>
   )
 }
