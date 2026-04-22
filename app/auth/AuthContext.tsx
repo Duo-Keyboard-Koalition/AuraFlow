@@ -1,6 +1,6 @@
 "use client"
 
-import { createContext, useContext, useState, useEffect, type ReactNode } from "react"
+import { createContext, useContext, useState, useEffect, useRef, type ReactNode } from "react"
 import { supabase } from "@/lib/supabase-client"
 import { type User } from "@/lib/data-client"
 import { useRouter } from "next/navigation"
@@ -18,33 +18,37 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null)
   const [loading, setLoading] = useState(true)
   const router = useRouter()
+  const syncLock = useRef(false)
 
   useEffect(() => {
-    // 1. Get initial session
-    const initAuth = async () => {
+    let mounted = true
+
+    const handleSync = async (id: string, email: string) => {
+      if (syncLock.current) return
+      syncLock.current = true
       try {
-        const { data: { session }, error } = await supabase.auth.getSession()
-        if (error) throw error
-        
-        if (session?.user) {
-          await syncUserProfile(session.user.id, session.user.email!)
-        } else {
-          setLoading(false)
-        }
-      } catch (err: any) {
-        // If session is invalid (e.g. after DB reset), clear it
-        if (err.message?.includes("Refresh Token Not Found") || err.status === 400) {
-          await supabase.auth.signOut()
-          setUser(null)
-        }
+        await syncUserProfile(id, email)
+      } finally {
+        syncLock.current = false
+      }
+    }
+
+    // 1. Initial Session Check
+    const initAuth = async () => {
+      const { data: { session } } = await supabase.auth.getSession()
+      if (mounted && session?.user) {
+        await handleSync(session.user.id, session.user.email!)
+      } else if (mounted) {
         setLoading(false)
       }
     }
 
     initAuth()
 
-    // 2. Listen for auth changes
+    // 2. Auth State Listener
     const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
+      if (!mounted) return
+
       if (event === 'SIGNED_OUT') {
         setUser(null)
         setLoading(false)
@@ -52,14 +56,17 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       }
 
       if (session?.user) {
-        await syncUserProfile(session.user.id, session.user.email!)
+        await handleSync(session.user.id, session.user.email!)
       } else {
         setUser(null)
         setLoading(false)
       }
     })
 
-    return () => subscription.unsubscribe()
+    return () => {
+      mounted = false
+      subscription.unsubscribe()
+    }
   }, [])
 
   // Helper to fetch the extended profile data from our 'profiles' table
